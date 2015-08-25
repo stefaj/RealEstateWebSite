@@ -17,8 +17,8 @@ Punte sal gegee word vir additionele funksionaliteit wat ‘n groot aantrekkings
 Maandag 2 November 2015 
 
 # Hilfe
-[How GIT works](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
-[Forking, Push, Pull](http://scholarslab.org/research-and-development/forking-fetching-pushing-pulling/)
-[GUI APP - SourceTree](https://www.sourcetreeapp.com/)
-[Visual Studio Community](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
-[ASP.NET Tutorials](http://www.w3schools.com/aspnet/)
+* [How GIT works](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
+* [Forking, Push, Pull](http://scholarslab.org/research-and-development/forking-fetching-pushing-pulling/)
+* [GUI APP - SourceTree](https://www.sourcetreeapp.com/)
+* [Visual Studio Community](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* [ASP.NET Tutorials](http://www.w3schools.com/aspnet/)
