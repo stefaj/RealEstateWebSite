@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Houses";
+}
+
+<h2>Search for a House</h2>
+
+<div class="col-sm-7 searchbox">
+    <form class="form-inline">
+        <div class="input-group input-block-level">
+            <input type="text" class="form-control" placeholder="Type in some criteria">
+            <span class="input-group-btn">
+                <button class="btn btn-warning big-btn" type="button">Search</button>
+            </span>
+        </div>
+    </form>
+</div>
+
+<h2>Or select some options</h2>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="sel1">Type</label>
+            <select class="form-control" id="sel1">
+                <option>Loft</option>
+                <option>Apartment</option>
+                <option>Plot</option>
+                <option>Villa</option>
+            </select>
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <label for="sel1">Price range</label>
+        <select class="form-control" id="sel1">
+            <option>sub 1mil</option>
+            <option>1mil-2mil</option>
+            <option>2mil-4mil</option>
+            <option>4mil and up</option>
+        </select>
+
+
+    </div>
+
+    <div class="col-md-3">
+        <label for="sel1">Bed rooms</label>
+        <select class="form-control" id="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5+</option>
+        </select>
+
+        <label for="sel1">Bath rooms</label>
+        <select class="form-control" id="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3+</option>
+        </select>
+    </div>
+</div>
+
+
+<section class="properties">
+    <div class="container">
+        <h3>Recently searched properties</h3>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="propertyItem">
+                    <div class="propertyContent">
+                        <a class="propertyType" href="#">FAMILY HOME</a>
+                        <a href="property_single.html" class="propertyImgLink"><img class="propertyImg" src="/Assets/Images/home1.jpg" alt=""></a>
+                        <h4><a href="property_single.html">587 Smith Avenue</a></h4>
+                        <p>Baltimore, MD</p>
+                        <div class="divider thin"></div>
+                        <p class="forSale">FOR SALE</p>
+                        <p class="price">$687,000</p>
+                    </div>
+                    <table border="1" class="propertyDetails">
+                        <tbody>
+                            <tr>
+                                <td><img src="/Assets/Images/icon-area.png" alt="" style="margin-right:7px;">2,412m</td>
+                                <td><img src="/Assets/Images/icon-bed.png" alt="" style="margin-right:7px;">6 Beds</td>
+                                <td><img src="/Assets/Images/icon-drop.png" alt="" style="margin-right:7px;">3 Baths</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="propertyItem">
+                    <div class="propertyContent">
+                        <a class="propertyType" href="#">APARTMENT</a>
+                        <a href="property_single.html" class="propertyImgLink"><img class="propertyImg" src="/Assets/Images/home2.jpg" alt=""></a>
+                        <h4><a href="property_single.html">587 Smith Avenue</a></h4>
+                        <p>Baltimore, MD</p>
+                        <div class="divider thin"></div>
+                        <p class="forSale">FOR RENT</p>
+                        <p class="price">$1,200/mo</p>
+                    </div>
+                    <table border="1" class="propertyDetails">
+                        <tbody>
+                            <tr>
+                                <td><img src="/Assets/Images/icon-area.png" alt="" style="margin-right:7px;">2,412m</td>
+                                <td><img src="/Assets/Images/icon-bed.png" alt="" style="margin-right:7px;">6 Beds</td>
+                                <td><img src="/Assets/Images/icon-drop.png" alt="" style="margin-right:7px;">3 Baths</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="propertyItem">
+                    <div class="propertyContent">
+                        <a class="propertyType" href="#">CONDO</a>
+                        <a href="property_single.html" class="propertyImgLink"><img class="propertyImg" src="/Assets/Images/home3.jpg" alt=""></a>
+                        <h4><a href="property_single.html">587 Smith Avenue</a></h4>
+                        <p>Baltimore, MD</p>
+                        <div class="divider thin"></div>
+                        <p class="forSale">FOR SALE</p>
+                        <p class="price">$687,000</p>
+                    </div>
+                    <table border="1" class="propertyDetails">
+                        <tbody>
+                            <tr>
+                                <td><img src="/Assets/Images/icon-area.png" alt="" style="margin-right:7px;">2,412m</td>
+                                <td><img src="/Assets/Images/icon-bed.png" alt="" style="margin-right:7px;">6 Beds</td>
+                                <td><img src="/Assets/Images/icon-drop.png" alt="" style="margin-right:7px;">3 Baths</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="propertyItem">
+                    <div class="propertyContent">
+                        <a class="propertyType" href="#">VILLA</a>
+                        <a href="property_single.html" class="propertyImgLink"><img class="propertyImg" src="/Assets/Images/home4.jpg" alt=""></a>
+                        <h4><a href="property_single.html">587 Smith Avenue</a></h4>
+                        <p>Baltimore, MD</p>
+                        <div class="divider thin"></div>
+                        <p class="forSale">FOR SALE</p>
+                        <p class="price">$687,000</p>
+                    </div>
+                    <table border="1" class="propertyDetails">
+                        <tbody>
+                            <tr>
+                                
+                                <td><img src="/Assets/Images/icon-area.png" alt="" style="margin-right:7px;">2,412m</td>
+                                <td><img src="/Assets/Images/icon-bed.png" alt="" style="margin-right:7px;">6 Beds</td>
+                                <td><img src="/Assets/Images/icon-drop.png" alt="" style="margin-right:7px;">3 Baths</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
+
+

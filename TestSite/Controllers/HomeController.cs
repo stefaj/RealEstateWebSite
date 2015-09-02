@@ -25,6 +25,14 @@ namespace TestSite.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        
+        }
+
+        public ActionResult Search()
+        {
+            ViewBag.Message = "Browse homes";
+
+            return View();
         }
     }
 }
