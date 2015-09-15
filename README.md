@@ -9,6 +9,9 @@ Selfoon sagteware moet in die Windows omgewing ontwikkel word (Xamarin is geskik
 # Web
 Hierdie gedeelte sluit in advertensies omtrent beskikbare eiendom en inligting omtrent eiendom wat verkoop/verhuur is gedurende sekere tydperke.
 
+# Preview
+The site is hosted at at proxy1234-001-site1.smarterasp.net
+
 # Algemeen
 Verdere funksionaliteit word nie spesifiseer nie en word aan die studente se inisiatief oorgelaat. 
 Punte sal gegee word vir additionele funksionaliteit wat ‘n groot aantrekkingskrag in die mark sal hê om sodende teen potensiële kompetiesie te kan meeding.
