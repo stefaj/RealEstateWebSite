@@ -17,7 +17,9 @@ Punte sal gegee word vir additionele funksionaliteit wat ‘n groot aantrekkings
 Maandag 2 November 2015 
 
 # Documentation
-[Documentation is seperately maintained here](https://gitlab.com/stefan-j/422-Web-Dev-Documentation).
+[Documentation is seperately maintained here](https://gitlab.com/stefan-j/422-Web-Dev-Documentation)
+
+[Preview documentation here](https://dl.dropboxusercontent.com/u/32551105/RealEstateDocumentation/index.html)
 
 # Hilfe
 * [How GIT works](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
