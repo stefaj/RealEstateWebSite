@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestSite</name>
+    </assembly>
+    <members>
+        <member name="T:TestSite.Controllers.AccountController">
+            <summary>
+            Controls output for login
+            </summary>
+        </member>
+        <member name="T:TestSite.Controllers.HomeController">
+            <summary>
+            Controls output for home page
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.ApplicationUser">
+            <summary>
+            Drunk and drugs
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.ApplicationDbContext">
+            <summary>
+            Insert comments like this yah
+            </summary>
+        </member>
+        <member name="T:TestSite.TableBuilder">
+            <summary>
+            Helper class to generate HTML for table
+            </summary>
+        </member>
+        <member name="M:TestSite.TableBuilder.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:TestSite.TableBuilder.SetHeaderTitle(System.String[])">
+            <summary>
+            Sets the header title for the table
+            </summary>
+            <param name="names">List of header titles</param>
+        </member>
+        <member name="M:TestSite.TableBuilder.AddRow(System.String[])">
+            <summary>
+            Adds a row to the table
+            </summary>
+            <param name="dataItems">List of items in row</param>
+        </member>
+        <member name="M:TestSite.TableBuilder.ToHTML">
+            <summary>
+            Outputs the HTML for the table
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

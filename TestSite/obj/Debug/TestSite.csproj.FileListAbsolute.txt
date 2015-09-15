@@ -126,3 +126,5 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home1.jpg
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home2.jpg
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home3.jpg
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home4.jpg
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Documentation.xml
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\MySql.Data.dll
