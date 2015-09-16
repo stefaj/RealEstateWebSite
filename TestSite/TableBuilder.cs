@@ -9,6 +9,13 @@ namespace TestSite
     /// <summary>
     /// Helper class to generate HTML for table
     /// </summary>
+    /// <example>How to use:
+    /// <code>
+    /// TableBuilder builder = new TableBuilder();
+    /// builder.SetHeaderTitle("name", "surname", "age");
+    /// builder.AddRow("Johny", "Walker", 34);  
+    /// ViewBag.Message = builder.ToHTML();      
+    /// </code></example>
     public class TableBuilder
     {
         StringBuilder table;
