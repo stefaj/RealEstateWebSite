@@ -10,7 +10,7 @@ Selfoon sagteware moet in die Windows omgewing ontwikkel word (Xamarin is geskik
 Hierdie gedeelte sluit in advertensies omtrent beskikbare eiendom en inligting omtrent eiendom wat verkoop/verhuur is gedurende sekere tydperke.
 
 # Preview
-The site is hosted at at http://proxy1234-001-site1.smarterasp.net
+The site is hosted at at http://realestate.stefanj.me
 
 # Algemeen
 Verdere funksionaliteit word nie spesifiseer nie en word aan die studente se inisiatief oorgelaat. 
@@ -22,7 +22,7 @@ Maandag 2 November 2015
 # Documentation
 [Documentation is seperately maintained here](https://gitlab.com/stefan-j/422-Web-Dev-Documentation)
 
-[Preview documentation here](https://dl.dropboxusercontent.com/u/32551105/RealEstateDocumentation/index.html)
+Online documentation can be found at http://documentation.realestate.stefanj.me
 
 # Hilfe
 * [How GIT works](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
