@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Residence";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.name</h2>
+
+
+<h3>Description</h3>
+@ViewBag.description
+
+<h3>Details</h3>
+Name:
+@ViewBag.name
+</br>
+Bathrooms:
+@ViewBag.no_bathrooms
+</br>
+Bedrooms:
+@ViewBag.no_bedrooms
+</br>
+
+
+
+
+<h3>Location</h3>
+
+
+<iframe width="600" height="450" frameborder="0" style="border:0" src="@ViewBag.StreetView" allowfullscreen></iframe>
+
+<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&q=@ViewBag.street_address&key=AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo" allowfullscreen></iframe>
+
+Postal code:
+@ViewBag.postal_code
+</br>
+City:
+@ViewBag.city
+</br>
+Province:
+@ViewBag.province
+</br>
