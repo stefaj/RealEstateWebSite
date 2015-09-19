@@ -86,7 +86,8 @@ namespace TestSite.Controllers
             MySqlDataReader reader = command.ExecuteReader();
 
             reader.Read();
-            
+
+            ViewBag.id = id;
             ViewBag.name = reader.GetString(0);
             ViewBag.street_address = reader.GetString(1);
             ViewBag.no_bathrooms = reader.GetInt32(2);
@@ -101,6 +102,9 @@ namespace TestSite.Controllers
 
             ViewBag.Message = "Your contact page.";
 
+            ViewBag.price = 100.00f;
+            ViewBag.contract = "none";
+            ViewBag.type = "none";
 
             ViewBag.StreetView = string.Format("https://www.google.com/maps/embed/v1/streetview?location={0}%2C{1}&key={2}", ViewBag.lattitude, ViewBag.longitude, "AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo");
 
