@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using TestSite.Models;
 
 namespace TestSite.Controllers
 {
@@ -85,20 +86,25 @@ namespace TestSite.Controllers
         {
             var estateTypes = GetEstateTypes();
             var contracts = GetContracts();
+
+            SearchQuery searchQuery = new SearchQuery(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+
             // Getting ze post data ja
 
             System.Collections.Specialized.NameValueCollection postedValues = Request.Form;
 
-            string qryStr = "Select * from reii422_estates_list order by date_added limit 12";
-
             if (postedValues["SearchStr"] != null)
             {
-                string serch = postedValues["SearchStr"];
-                string qry = "Select * from reii422_estates_list where street_address like '%{0}%' or province like '%{0}%' or city like '%{0}%' or name like '%{0}%' order by date_added limit 12";
-                qryStr = string.Format(qry, serch);
-                ViewBag.SearchStr = serch;
+                searchQuery.SetKeywords(postedValues["SearchStr"]);
+                ViewBag.SearchStr = postedValues["SearchStr"];
 
             }
+            if(postedValues["Province"] != null && postedValues["Province"] != "")
+            {
+                searchQuery.SetProvince(int.Parse(postedValues["Province"]));
+            }
+            if (postedValues["City"] != null && postedValues["City"] != "")
+                searchQuery.SetCity(int.Parse(postedValues["City"]));
 
             StringBuilder contentBuilder = new StringBuilder();
 
@@ -109,6 +115,7 @@ namespace TestSite.Controllers
                         <a class='propertyImgLink' href='{0}'><img class='propertyImg' src='{2}' ></a>
                      
                         <p>{3}</p>
+                        <p>{9}</p>
                         <div class='divider thin'></div>
                         <p class='forSale'>{4}</p>
                         <p class='price'>{5}</p>
@@ -125,14 +132,10 @@ namespace TestSite.Controllers
                 </div>
             </div>";
 
+        
+            var res = searchQuery.GenerateResults();
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
-            connection.Open();
-
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = qryStr;
-
-            MySqlDataReader reader = command.ExecuteReader();
+            MySqlDataReader reader = res;
 
             while (reader.Read())
             {
@@ -142,8 +145,9 @@ namespace TestSite.Controllers
                 int no_bathrooms = reader.GetInt32(3);
                 int no_bedrooms = reader.GetInt32(4);
                 int area = reader.GetInt32("area");
-                string city = reader.GetString("city");
-                string province = reader.GetString("province");
+                int city_id = reader.GetInt32("city_id");
+                string city = reader.GetString("city_name");
+                string province = reader.GetString("province_name");// reader.GetString("province");
                 int estateTypeId = reader.GetInt32("type_id");
                 int contractId = reader.GetInt32("contract_id"); 
                 string image = reader.GetString("preview_image");
@@ -153,11 +157,11 @@ namespace TestSite.Controllers
                 string type = estateTypes[estateTypeId];
                 string link = Url.Action("Residence", "Estates") + "?id=" + id;
                 string imagePath = "/Assets/Images/Homes/" + image;
-                string locationStr = string.Format("{0},{1}", city, province);
+                string locationStr = string.Format("{0}, {1}", city, province);
                 string contract = contracts[contractId];
                 string priceStr = string.Format("R {0}", price);
 
-                string content = string.Format(baseStr, link, type, imagePath, locationStr, contract, priceStr, area, no_bedrooms, no_bathrooms);
+                string content = string.Format(baseStr, link, type, imagePath, locationStr, contract, priceStr, area, no_bedrooms, no_bathrooms, location);
 
                 contentBuilder.Append(content);
 
@@ -223,9 +227,15 @@ namespace TestSite.Controllers
             return EnumerateTable("type_id", "type_name", "reii422_estates_type").Values.ToArray();
         }
 
-        public string[] GetProvincesArr()
+        public Province[] GetProvincesArr()
         {
-            return EnumerateTable("province_id","province_name","reii422_provinces").Values.ToArray();
+            List<Province> provinces = new List<Province>();
+            var dic = EnumerateTable("province_id","province_name","reii422_provinces");
+            foreach(var key in dic.Keys)
+            {
+               provinces.Add(new Province(){ ProvinceId=key, ProvinceName=dic[key]});
+            }
+            return provinces.ToArray();
         }
 
         public ActionResult Residence()
@@ -256,8 +266,8 @@ namespace TestSite.Controllers
             ViewBag.no_bathrooms = reader.GetInt32("no_bathrooms");
             ViewBag.no_bedrooms = reader.GetInt32("no_bedrooms");
             ViewBag.area = reader.GetInt32("area");
-            ViewBag.city = reader.GetString("city");
-            ViewBag.province = reader.GetString("province");
+            ViewBag.city_id = reader.GetInt32("city_id");
+            ViewBag.province = "FIX ME PLEASE";// reader.GetString("province");
             ViewBag.postal_code = reader.GetString("postal_code");
             ViewBag.description = reader.GetString("description");
             ViewBag.lattitude = reader.GetFloat("lattitude");
@@ -292,6 +302,12 @@ namespace TestSite.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public ActionResult Cities()
+        {
+            return View();
         }
     }
 }

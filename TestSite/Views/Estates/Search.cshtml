@@ -9,9 +9,9 @@
 <div class="container">
 
     <h3>Search for a House</h3>
+    <form class="form-inline" method="post" action="Search">
+        <div class="col-sm-7 searchbox">
 
-    <div class="col-sm-7 searchbox">
-        <form class="form-inline" method="post" action="Search">
             <div class="input-group input-block-level">
                 <input type="text" name="SearchStr" class="form-control" placeholder="Type in some criteria" value="@ViewBag.SearchStr" />
                 <span class="input-group-btn">
@@ -19,77 +19,78 @@
 
                 </span>
             </div>
-        </form>
-    </div>
-    <br /><br />
-    <h3>Or select some options</h3>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="sel1">Type</label>
-                <select class="form-control" id="sel1">
-                    <option>Any</option>
-                    @foreach (var s in ViewBag.Estates)
+
+        </div>
+        <br /><br />
+        <h3>Or select some options</h3>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="sel1">Type</label>
+                    <select name="EstateType" class="form-control" id="sel1">
+                        <option>Any</option>
+                        @foreach (var s in ViewBag.Estates)
                     {
-                        <option>@s</option>
+                    <option>@s</option>
                     }
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="sel1">Price range</label>
+                <select name="priceRange" class="form-control" id="sel1">
+                    <option>Any</option>
+                    <option>1mil-2mil</option>
+                    <option>2mil-4mil</option>
+                    <option>4mil and up</option>
                 </select>
 
+
             </div>
-        </div>
 
-        <div class="col-md-3">
-            <label for="sel1">Price range</label>
-            <select class="form-control" id="sel1">
-                <option>Any</option>
-                <option>1mil-2mil</option>
-                <option>2mil-4mil</option>
-                <option>4mil and up</option>
-            </select>
+            <div class="col-md-3">
+                <label for="sel1">Bed rooms</label>
+                <select name="NoBedrooms" class="form-control" id="sel1">
+                    <option>Any</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5+</option>
+                </select>
 
+                <label for="sel1">Bath rooms</label>
+                <select name="NoBathrooms" class="form-control" id="sel1">
+                    <option>Any</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3+</option>
+                </select>
+            </div>
 
-        </div>
+            <div class="col-md-3">
+                <label for="sel1">Province</label>
 
-        <div class="col-md-3">
-            <label for="sel1">Bed rooms</label>
-            <select class="form-control" id="sel1">
-                <option>Any</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5+</option>
-            </select>
-
-            <label for="sel1">Bath rooms</label>
-            <select class="form-control" id="sel1">
-                <option>Any</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3+</option>
-            </select>
-        </div>
-
-        <div class="col-md-3">
-            <label for="sel1">Province</label>
-            <select class="form-control" id="sel1">
-                <option>Any</option>
-                @foreach (var s in ViewBag.Provinces)
+                <select name="Province" class="form-control" id="provinceSelect">
+                    <option>Any</option>
+                    @foreach (var province in ViewBag.Provinces)
                 {
-                <option>@s</option>
+                <option value="@province.ProvinceId">@province.ProvinceName</option>
                 }
 
-            </select>
+                </select>
 
-            <label for="sel1">City</label>
-            <select class="form-control" id="sel1">
-                <option>TODO - GENERATE LIST OF CITIES FOR PROVINCE</option>
-            </select>
+                <label for="sel1">City</label>
+                <select name="City" class="form-control" id="citiesSelect">
+                    <option>TODO - GENERATE LIST OF CITIES FOR PROVINCE</option>
+                </select>
+            </div>
+
+
         </div>
-
-
-    </div>
-
+    </form>
 
     <section class="properties">
         <div class="container">
@@ -102,3 +103,39 @@
     </section>
 
 </div>
+
+
+
+<script>
+
+    function getCities() {
+        var provinceid = $("#provinceSelect").val();
+
+        $('#citiesSelect').empty();
+        $('#citiesSelect').append('<option>loading</option>');
+        $.post("../Data/Cities", {
+            province_id: provinceid
+        }
+        , function (data) {
+            $('#citiesSelect').empty();
+            $.each(data, function (i, obj) {
+                //use obj.id and obj.name here, for example:
+                
+                $('#citiesSelect').append($('<option>', {
+                    value: obj.CityId,
+                    text: obj.CityName
+                }));
+            });
+        });
+    };
+
+    $(function () {
+
+        $('#provinceSelect').on('change', function () {
+            getCities();
+        });
+
+    });
+
+
+</script>

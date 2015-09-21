@@ -1,5 +1,10 @@
-﻿http://localhost:12438/Home/Scripts/jssor.slider.mini.js Failed to load resource: the server responded with a status of 404 (Not Found)
-Cannot load file except from main directory as script load is hard coded
-
-Fix submit search button etc
-
+﻿Store list of cities in database. id, city_name, province, longitude, lattitude
+Load relevent cities when province is selected
+Company name, logo and favicon - Discuss with other groups
+Parameterize Database queries
+About Us Page
+Contact us page
+Do emails with contact us page
+Store in DB list of agents
+Select agent to contact
+Design, layout, CSS of asite
