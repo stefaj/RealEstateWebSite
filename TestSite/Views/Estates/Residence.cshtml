@@ -9,10 +9,15 @@
     <img src="@ViewBag.ImagePreview">
     
     
-    <h2>Property Description</h2>
+    <div class="property-heading">
+        <h2><span>PROPERTY DESCRIPTION</span></h2>
+    </div>
     @ViewBag.description
 
-    <h2>Property Overview</h2>
+    <br /><br />
+    <div class="property-heading">
+        <h2><span>PROPERTY OVERVIEW</span></h2>
+    </div>
 
     <table class="table table-bordered">
         <tbody>
@@ -52,7 +57,10 @@
     </table>
 
 
-    <h2>Location</h2>
+    <div class="property-heading">
+        <h2><span>LOCATION</span></h2>
+    </div>
+
     <ul class="list-group">
         <li class="list-group-item">@ViewBag.street_address</li>
         <li class="list-group-item">@ViewBag.province, @ViewBag.city</li>
@@ -69,10 +77,10 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="map">
-                <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&q=@ViewBag.street_address&key=AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo" allowfullscreen></iframe>
+                <iframe width="1140" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&q=@ViewBag.street_address&key=AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo" allowfullscreen></iframe>
             </div>
             <div role="tabpanel" class="tab-pane" id="streetview">
-                <iframe width="600" height="450" frameborder="0" style="border:0" src="@ViewBag.StreetView" allowfullscreen></iframe>
+                <iframe width="1140" height="450" frameborder="0" style="border:0" src="@ViewBag.StreetView" allowfullscreen></iframe>
             </div>
 
         </div>
@@ -86,17 +94,14 @@
     </br>
 
     </br>
-    </br></br></br></br></br></br></br></br></br></br></br>
-
-
-
+ 
 
     <div>
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Contact Agent</h3>
-            </div>
+
+        <div class="property-heading">
+            <h2><span>CONTACT AGENT</span></h2>
         </div>
+
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <div class="team-container team-dark">

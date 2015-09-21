@@ -253,7 +253,7 @@ namespace TestSite.Controllers
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "Select * from reii422_estates_list where estate_id=@estate_id";
+            command.CommandText = "Select * from reii422_estates_list, reii422_provinces, reii422_cities where reii422_estates_list.city_id = reii422_cities.city_id and reii422_provinces.province_id = reii422_cities.province_id and estate_id=@estate_id";
             command.Parameters.Add("@estate_id", id);
 
             MySqlDataReader reader = command.ExecuteReader();
@@ -267,7 +267,8 @@ namespace TestSite.Controllers
             ViewBag.no_bedrooms = reader.GetInt32("no_bedrooms");
             ViewBag.area = reader.GetInt32("area");
             ViewBag.city_id = reader.GetInt32("city_id");
-            ViewBag.province = "FIX ME PLEASE";// reader.GetString("province");
+            ViewBag.city = reader.GetString("city_name");
+            ViewBag.province = reader.GetString("province_name");// reader.GetString("province");
             ViewBag.postal_code = reader.GetString("postal_code");
             ViewBag.description = reader.GetString("description");
             ViewBag.lattitude = reader.GetFloat("lattitude");

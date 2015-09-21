@@ -40,7 +40,7 @@ namespace TestSite
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "Select * from reii422_estates_list where estate_id=@estate_id";
+            command.CommandText = "Select * from reii422_estates_list, reii422_provinces, reii422_cities where reii422_estates_list.city_id = reii422_cities.city_id and reii422_provinces.province_id = reii422_cities.province_id and estate_id=@estate_id";
             command.Parameters.Add("@estate_id", id);
 
             MySqlDataReader reader = command.ExecuteReader();
@@ -54,7 +54,7 @@ namespace TestSite
             this.NoBedrooms = reader.GetInt32("no_bedrooms");
             this.Area = reader.GetInt32("area");
             this.CityId = reader.GetInt32("city_id");
-            //this.province = "FIX ME PLEASE";// reader.GetString("province");
+          //  this.province = reader.GetString("province_name");// reader.GetString("province");
             this.PostalCode = reader.GetString("postal_code");
             this.Description = reader.GetString("description");
             this.Lattitude = reader.GetFloat("lattitude");
