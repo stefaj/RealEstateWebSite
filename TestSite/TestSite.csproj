@@ -177,6 +177,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\EstatesController.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,21 +189,22 @@
     <Compile Include="TableBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Images\home1.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\home2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\home3.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\home4.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\house.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Assets\Images\a11.png" />
+    <Content Include="Assets\Images\a21.png" />
+    <Content Include="Assets\Images\b05.png" />
+    <Content Include="Assets\Images\b21.png" />
+    <Content Include="Assets\Images\Homes\1_banner.jpg" />
+    <Content Include="Assets\Images\Homes\1_preview.jpg" />
+    <Content Include="Assets\Images\Homes\2_banner.jpg" />
+    <Content Include="Assets\Images\Homes\2_preview.jpg" />
+    <Content Include="Assets\Images\Homes\3_banner.jpg" />
+    <Content Include="Assets\Images\Homes\3_preview.jpg" />
+    <Content Include="Assets\Images\Homes\4_banner.jpg" />
+    <Content Include="Assets\Images\Homes\4_preview.jpg" />
+    <Content Include="Assets\Images\icon-area.png" />
+    <Content Include="Assets\Images\icon-bed.png" />
+    <Content Include="Assets\Images\icon-drop.png" />
+    <Content Include="Assets\Images\logo.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -219,10 +222,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jssor.slider.mini.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="TODO.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -248,8 +253,8 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
-    <Content Include="Views\Home\Residence.cshtml" />
+    <Content Include="Views\Estates\Residence.cshtml" />
+    <Content Include="Views\Estates\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -60,7 +60,6 @@ C:\Users\1gn1t0r\Documents\Visual Studio 2013\Projects\TestSite\TestSite\obj\Deb
 C:\Users\1gn1t0r\Documents\Visual Studio 2013\Projects\TestSite\TestSite\obj\Debug\TestSite.dll
 C:\Users\1gn1t0r\Documents\Visual Studio 2013\Projects\TestSite\TestSite\obj\Debug\TestSite.pdb
 C:\Users\1gn1t0r\Documents\Visual Studio 2013\Projects\TestSite\TestSite\bin\Assets\Images\house.jpg
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\house.jpg
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\TestSite.dll.config
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\TestSite.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\TestSite.pdb
@@ -119,12 +118,8 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.Security.
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Debug\TestSite.csprojResolveAssemblyReference.cache
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Debug\TestSite.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Debug\TestSite.pdb
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home1.jpg
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home2.jpg
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home3.jpg
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home4.jpg
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Documentation.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\MySql.Data.dll
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Debug\TestSite.csprojResolveAssemblyReference.cache

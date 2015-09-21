@@ -1,0 +1,5 @@
+﻿http://localhost:12438/Home/Scripts/jssor.slider.mini.js Failed to load resource: the server responded with a status of 404 (Not Found)
+Cannot load file except from main directory as script load is hard coded
+
+Fix submit search button etc
+

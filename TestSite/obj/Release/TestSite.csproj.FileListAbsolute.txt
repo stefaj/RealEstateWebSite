@@ -65,3 +65,6 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Release\TestSite.csprojR
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Release\TestSite.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Release\TestSite.pdb
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\MySql.Data.dll
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home_banner_test.jpg
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home_banner_test2.jpg
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Assets\Images\home_banner_test3.jpg

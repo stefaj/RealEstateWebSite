@@ -1,13 +1,10 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿
+
+.slider-filler{
+    height: 700px;
 }
 
 
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
 
 .field-validation-error {
     color: #b94a48;
@@ -34,9 +31,15 @@ input[type="checkbox"].input-validation-error {
 }
 
 .bg {
-  background: url('/Assets/Images/house.jpg') no-repeat center center;
+  background: url('/Assets/Images/home_banner_test.jpg') no-repeat center center;
   width: 100%;
-
+  /*position:absolute;
+  margin: 0;
+  padding: 0;
+  left:0;
+  top:0;
+  height:800px;
+      */
 }
 
 .jumbotron {
