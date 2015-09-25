@@ -46,6 +46,33 @@ namespace TestSite
             return Query(command);
         }
 
+        public IEnumerable<string[]> QueryYield(string qry)
+        {
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = string.Format(qry);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string[] row = new string[reader.FieldCount];
+                for (int i = 0; i < reader.FieldCount; i++)
+                    row[i] = reader.GetString(i);
+                yield return row.ToArray();
+            }
+        }
+
+        /*public static void Main(string[] args)
+        {
+            var expr = Query("select * from reii422_cities");
+            foreach (var i in expr)
+            {
+                Console.WriteLine(i[0] + " " + i[1]);
+            }
+
+            Console.ReadLine();
+        }*/
+
         static string Escape(string usString)
         {
             if (usString == null)
