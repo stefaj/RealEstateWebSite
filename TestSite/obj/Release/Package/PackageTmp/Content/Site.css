@@ -142,6 +142,31 @@ input[type="text"] {
 
 
 
+.property-heading h2 {
+	/*color:#00943b;*/
+	margin-top:0;
+	position:relative;
+	border-bottom:1px solid #d5d5d5;
+	padding-bottom:18px;
+}
+.property-heading h2 > span::after {
+    /*background-color: #00943b;*/
+    content: " ";
+    display: block;
+    height: 6px;
+    top: 39px;
+	position:absolute;
+	width:100%;
+}
+.property-heading span {
+	position: relative;
+	font-size:18px;
+	font-weight: 400;
+}
+.property-heading p {
+    line-height: 30px;
+    margin-top: 35px;
+}
 
 
 

@@ -1,5 +1,4 @@
-﻿Store list of cities in database. id, city_name, province, longitude, lattitude
-Load relevent cities when province is selected
+﻿Sort cities in select box alphabetically
 Company name, logo and favicon - Discuss with other groups
 Parameterize Database queries
 About Us Page
@@ -7,4 +6,5 @@ Contact us page
 Do emails with contact us page
 Store in DB list of agents
 Select agent to contact
-Design, layout, CSS of asite
+Design, layout, CSS of site
+Responsive Residence page
