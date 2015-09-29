@@ -29,6 +29,11 @@ namespace TestSite
             connection.Open();
         }
 
+        public void Close()
+        {
+            connection.Close();
+        }
+
         public void SetKeywords(string keywords)
         {
             SetKeywords(keywords.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));

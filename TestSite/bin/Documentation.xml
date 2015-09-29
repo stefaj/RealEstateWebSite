@@ -9,12 +9,7 @@
             Controls output for login
             </summary>
         </member>
-        <member name="T:TestSite.Controllers.HomeController">
-            <summary>
-            Controls output for home page
-            </summary>
-        </member>
-        <member name="M:TestSite.Controllers.EstatesController.EnumerateTable(System.String,System.String,System.String)">
+        <member name="M:TestSite.Controllers.DataController.EnumerateTable(System.String,System.String,System.String)">
             <summary>
             Returns all column entries for a specified table
             </summary>
@@ -22,11 +17,16 @@
             <param name="columnName">Name of table to return</param>
             <returns>Returns columnName from tableName</returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.GetEstateTypesArr">
+        <member name="M:TestSite.Controllers.DataController.GetEstateTypesArr">
             <summary>
             Returns a list of provinces from the provinces table
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:TestSite.Controllers.HomeController">
+            <summary>
+            Controls output for home page
+            </summary>
         </member>
         <member name="T:TestSite.Models.ApplicationUser">
             <summary>

@@ -5,25 +5,9 @@
     
     ViewBag.Title = "Houses";
 }
-
+  <br />  <br />
 <div class="container">
-    <br />
-    <div class="property-heading">
-        <h2><span>SEARCH FOR A PROPERTY</span></h2>
-    </div>
-    <div id="search">
-        
-    </div>
-
-    <section class="properties">
-        <div class="container">
-            <h3>Searched properties</h3>
-            <div class="divider"></div>
-            <div class="row">
-                @Html.Raw(ViewBag.EstatesListHtml);
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </section>
+    <div id="magic"></div>    
 
 </div>
 
@@ -41,7 +25,7 @@
     },
     render: function(){
     return(
-    <select className="form-control" classID="provinceSelect" ref="provSel" onChange={this.change}>
+    <select className="form-control" classID="provinceSelect" ref="province" onChange={this.change}>
         <option>Any</option>
         @foreach (var province in ViewBag.Provinces)
         {
@@ -56,6 +40,7 @@
     {
        render : function()
        {
+
         var cities = this.props.data.map(function (city)
           {
             return(
@@ -65,15 +50,147 @@
               );
           });
         return(
-        <select name="City" className="form-control" id="citiesSelect">
-                        {cities}
-                    </select>
-                    );
+        <select ref="city" className="form-control" id="citiesSelect">
+            {cities}                        
+        </select>
+        );
        } 
+    });
+
+    var PropertyItem = React.createClass(
+    {
+        render : function()
+        {
+            return (
+                <div className='col-lg-3 col-md-3 col-sm-6'>
+                <div className='propertyItem well'>
+                    <div className='propertyContent'>
+                        <a className='propertyType' href={this.props.data.link}>{1}</a>
+                        <a className='propertyImgLink' href={this.props.data.link}>
+                            <img className='propertyImg' src={this.props.data.image} />
+                        </a>
+                     
+                        <p>{this.props.data.city}</p>
+                        <p>{this.props.data.street}</p>
+                        <div className='divider thin'></div>
+                        <p className='forSale'>{this.props.contract}</p>
+                        <p className='price'>{this.props.price}</p>
+                    </div>
+                    <table border='1' className='propertyDetails'>
+                        <tbody>
+                            <tr>
+
+                                <td><img className='featureIco' src='/Assets/Images/icon-area.png'  />{this.props.data.area}</td>
+                                <td><img className ='featureIco' src='/Assets/Images/icon-bed.png' />{this.props.data.bedrooms}</td>
+                                <td><img className ='featureIco' src='/Assets/Images/icon-drop.png' />{this.props.data.bathrooms}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                );
+        }
+    });
+
+    var PropertiesList = React.createClass(
+    {
+        
+        render : function()
+        {
+          var properties = this.props.data.map(function (datum)
+          {
+            return(
+              <PropertyItem data={datum} />
+              );
+          });
+          return(
+            <div className="properties">
+              {properties}
+            </div>
+            );
+        
+        }
+    });
+
+    var SearchPage = React.createClass(
+    {
+        handleNewProperties : function(data)
+        {
+            this.setState({properties: data});
+        },
+
+        getInitialState : function()
+        {
+            return {properties:[]};
+        },
+        
+        render : function()
+        {
+            return(
+
+                <div id='magic'>
+                    <div className='property-heading'>
+                    <h2><span>SEARCH FOR A PROPERTY</span></h2>
+                             <SearchForm onNewProperties={this.handleNewProperties} />              
+                    </div>
+
+                    <section className='propertiesSection'>
+                        <h3>Searched properties</h3>
+                        <div className='divider'></div>
+                        <div className="well well-lg">
+                            <div className='row'>
+                                <PropertiesList ref='propertyList' data={this.state.properties} />
+                            </div>
+                        </div>
+                    </section>
+                    
+                </div>
+                
+           
+                );
+        }
+
     });
 
     var SearchForm = React.createClass(
     {
+        handleAllChange : function(event)
+        {
+            this.updateSearch();
+        },
+
+        search : function(searchData)
+        {
+            $.ajax(
+          {
+            url: '../Data/Search',
+            dataType: 'json',
+            cache: false,
+            type: 'POST',
+            data: searchData,
+            success: function(data)
+            {
+                this.setState({properties: data});
+                this.props.onNewProperties(data);
+            }.bind(this)
+
+          });
+        },
+
+        updateSearch : function()
+        {
+            var data = {
+                searchStr: React.findDOMNode(this.refs.searchStr).value,
+                estateType: React.findDOMNode(this.refs.estateType).value,
+                priceRange: React.findDOMNode(this.refs.priceRange).value,
+                noBedrooms: React.findDOMNode(this.refs.noBedrooms).value,
+                noBathrooms: React.findDOMNode(this.refs.noBathrooms).value,
+                city: React.findDOMNode(this.refs.citybox.refs.city).value,
+                province: React.findDOMNode(this.refs.provincebox.refs.province).value
+              };
+            this.search(data);
+        },
+
         getCities : function(provinceid)
         {
           this.setState({cities: [{"CityId":-1,"CityName":"Loading..."}] });
@@ -94,6 +211,11 @@
         },
         getInitialState : function()
         {
+            var data = {
+                searchStr: '',
+              };
+            this.search(data);
+
             return {cities: [{"CityId":-1,"CityName":"Any"}]};
         },
 
@@ -101,16 +223,23 @@
         {
            this.getCities(provinceid);
         },
+        handleSubmit : function(e)
+        {
+            e.preventDefault();
+            this.updateSearch();
+            
+            return;
+        
+        },
         render: function()
         {
         return(
-                <form className="form-inline" method="post" action="Search">
+                <form className="form-inline" method="post" action="Search" onSubmit={this.handleSubmit}>
                  <div className="col-sm-7 searchbox">
                 <div className="input-group input-block-level">
-                    <input type="text" name="SearchStr" className="form-control" placeholder="Type in some criteria" value="@ViewBag.SearchStr" />
+                    <input type="text" ref="searchStr" classID="SearchStr" className="form-control" placeholder="Type in some criteria" />
                     <span className="input-group-btn">
                         <button className="btn btn-warning big-btn" type="submit" value="Save">Search</button>
-
                     </span>
                 </div>
             </div>
@@ -120,7 +249,7 @@
                 <div className="col-md-3">
                     <div className="form-group">
                         <label>Type</label>
-                        <select name="EstateType" className="form-control">
+                        <select ref="estateType" className="form-control">
                             <option>Any</option>
                             @foreach (var s in ViewBag.Estates)
                             {
@@ -133,7 +262,7 @@
 
                 <div className="col-md-3">
                     <label>Price range</label>
-                    <select name="priceRange" className="form-control">
+                    <select ref="priceRange" className="form-control">
                         <option>Any</option>
                         <option>1mil-2mil</option>
                         <option>2mil-4mil</option>
@@ -143,7 +272,7 @@
 
                 <div className="col-md-3">
                     <label>Bed rooms</label>
-                    <select name="NoBedrooms" className="form-control">
+                    <select ref="noBedrooms" className="form-control">
                         <option>Any</option>
                         <option>1</option>
                         <option>2</option>
@@ -153,7 +282,7 @@
                     </select>
 
                     <label>Bath rooms</label>
-                    <select name="NoBathrooms" className="form-control">
+                    <select ref="noBathrooms" className="form-control">
                         <option>Any</option>
                         <option>1</option>
                         <option>2</option>
@@ -163,7 +292,7 @@
 
                 <div className="col-md-3">
                     <label>Province</label>
-                    <ProvinceBox ref='commentbox' onSelection={this.handleProvinceSelection}/>
+                    <ProvinceBox ref='provincebox' onSelection={this.handleProvinceSelection}/>
        
 
                     <label>City</label>
@@ -178,5 +307,6 @@
         }
     });
     
-    React.render(<SearchForm />, document.getElementById('search'));
+    React.render(<SearchPage />, document.getElementById('magic'));
+
 </script>

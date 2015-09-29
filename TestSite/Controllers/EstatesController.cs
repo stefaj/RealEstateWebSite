@@ -84,27 +84,10 @@ namespace TestSite.Controllers
 
         public ActionResult Search()
         {
-            var estateTypes = GetEstateTypes();
-            var contracts = GetContracts();
+            var estateTypes = DataController.GetEstateTypes();
+            var contracts = DataController.GetContracts();
 
             SearchQuery searchQuery = new SearchQuery(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
-
-            // Getting ze post data ja
-
-            System.Collections.Specialized.NameValueCollection postedValues = Request.Form;
-
-            if (postedValues["SearchStr"] != null)
-            {
-                searchQuery.SetKeywords(postedValues["SearchStr"]);
-                ViewBag.SearchStr = postedValues["SearchStr"];
-
-            }
-            if(postedValues["Province"] != null && postedValues["Province"] != "")
-            {
-                searchQuery.SetProvince(int.Parse(postedValues["Province"]));
-            }
-            if (postedValues["City"] != null && postedValues["City"] != "")
-                searchQuery.SetCity(int.Parse(postedValues["City"]));
 
             StringBuilder contentBuilder = new StringBuilder();
 
@@ -169,73 +152,10 @@ namespace TestSite.Controllers
             }
 
             ViewBag.EstatesListHtml = contentBuilder.ToString();
-            ViewBag.Provinces = GetProvincesArr();
-            ViewBag.Estates = GetEstateTypesArr();
+            ViewBag.Provinces = DataController.GetProvincesArr();
+            ViewBag.Estates = DataController.GetEstateTypesArr();
 
             return View();
-        }
-
-        /// <summary>
-        /// Returns all column entries for a specified table
-        /// </summary>
-        /// <param name="tableName">Name of table</param>
-        /// <param name="columnName">Name of table to return</param>
-        /// <returns>Returns columnName from tableName</returns>
-        public Dictionary<int,string> EnumerateTable(string id_column, string columnName, string tableName)
-        {
-            Dictionary<int, string> dic = new Dictionary<int, string>();
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
-            connection.Open();
-
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = string.Format("Select {0}, {1} from {2}", id_column, columnName, tableName);
-            //command.Parameters.AddWithValue("@columnName", columnName);
-            //command.Parameters.AddWithValue("@tableName", tableName);
-
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                dic[reader.GetInt32(0)] = reader.GetString(1);
-    
-            }
-            return dic;
-        }
-
-        public Dictionary<int, string> GetEstateTypes()
-        {
-            return EnumerateTable("type_id", "type_name", "reii422_estates_type");
-        }
-
-        public Dictionary<int, string> GetContracts()
-        {
-            return EnumerateTable("contract_id", "contract_name", "reii422_contracts");
-        }
-
-        public Dictionary<int, string> GetProvinces()
-        {
-            return EnumerateTable("province_id", "province_name", "reii422_provinces");
-        }
-        
-        /// <summary>
-        /// Returns a list of provinces from the provinces table
-        /// </summary>
-        /// <returns></returns>
-        public string[] GetEstateTypesArr()
-        {
-            return EnumerateTable("type_id", "type_name", "reii422_estates_type").Values.ToArray();
-        }
-
-        public Province[] GetProvincesArr()
-        {
-            List<Province> provinces = new List<Province>();
-            var dic = EnumerateTable("province_id","province_name","reii422_provinces");
-            foreach(var key in dic.Keys)
-            {
-               provinces.Add(new Province(){ ProvinceId=key, ProvinceName=dic[key]});
-            }
-            return provinces.ToArray();
         }
 
         public ActionResult Residence()

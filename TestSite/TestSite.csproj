@@ -272,6 +272,7 @@
     <Content Include="Views\Estates\Residence.cshtml" />
     <Content Include="Views\Estates\Search.cshtml" />
     <Content Include="Views\Data\Cities.cshtml" />
+    <Content Include="Views\Data\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
