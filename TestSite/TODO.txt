@@ -8,3 +8,6 @@ Store in DB list of agents
 Select agent to contact
 Design, layout, CSS of site
 Responsive Residence page
+
+
+Compile JSX on server and not in browser
