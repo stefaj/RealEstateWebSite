@@ -10,6 +10,9 @@ using TestSite.Models;
 
 namespace TestSite.Controllers
 {
+    /// <summary>
+    /// This class poses a JSON API to get data from the database
+    /// </summary>
     public class DataController : Controller
     {
 
