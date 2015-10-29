@@ -107,12 +107,13 @@
         </div>
 
         <div class="row">
+
             <div class="col-md-6 col-sm-6">
                 <div class="team-container team-dark">
                     <div class="team-image">
                         <img src="https://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png">
                     </div>
-                    <div class="team-description">
+                    <div id="agent_descript" agent-id="1">
                         <h3>Lena Soderberg</h3>
                         <p>
                             <i class="fa fa-phone"></i> Office : 012 234 5678<br>
@@ -132,22 +133,24 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
-                <form>
+                <form action="../Data/SendEmail" method="post">
+                <input type="hidden" name="agent_id" value="1"/>
+                <input type="hidden" name="property_id" value="1"/>
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control input-lg" placeholder="Enter name : ">
+                        <input name="client_name" type="text" class="form-control input-lg" placeholder="Enter name : ">
                     </div>
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control input-lg" placeholder="Enter email : ">
+                        <input name="client_email" type="email" class="form-control input-lg" placeholder="Enter email : ">
                     </div>
                     <div class="form-group">
                         <label for="telp">Telp.</label>
-                        <input type="text" class="form-control input-lg" placeholder="Enter phone number : ">
+                        <input name="client_phone" type="text" class="form-control input-lg" placeholder="Enter phone number : ">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea class="form-control input-lg" rows="7" placeholder="Type a message : "></textarea>
+                        <textarea name="body" class="form-control input-lg" rows="7" placeholder="Type a message : "></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" value="Send Message" class="btn btn-warning btn-lg">
@@ -158,3 +161,24 @@
     </div>
 
 </div>
+
+
+<script type="js">
+
+function sendEmail()
+{
+
+    var agent_id = $("#agent_descript").attr('agent-id');
+    var agent_id = $("#agent_descript").attr('agent-id');
+
+    $.ajax({
+      type: "POST",
+      url: '../Data/Email',
+      data: data,
+      success: success,
+      dataType: dataType
+    });
+
+}
+
+</script>

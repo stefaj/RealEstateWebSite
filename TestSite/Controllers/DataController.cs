@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestSite.Email;
 using TestSite.Models;
 
 namespace TestSite.Controllers
@@ -123,6 +124,66 @@ namespace TestSite.Controllers
             Response.End();
 
             return View();
+        }
+
+
+        /// <summary>
+        /// Calling this will send an email to an agent with the parameters specified in post
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SendEmail()
+        {
+            var post = Request.Form;
+
+            int agent_id = int.Parse(post["agent_id"]);
+
+            string subject = post["subject"];
+            string client_msg = post["body"]; // todo escape string en check security
+
+            int property_id = int.Parse(post["property_id"]);
+
+
+            string client_name = post["client_name"];
+            string client_phone = post["client_phone"];
+            string client_email = post["client_email"];
+
+            subject = "Interest in property id " + property_id ;
+
+
+            string body = "<html><h3>Interested buyer</h3>";
+            body += "<h2>" + client_name + "</h2>";
+            body += "<p>email: " + client_email + "</p>";
+            body += "</br><p>phone number: " + client_phone + "</p>";
+            body += "</br><h3>Client Message: </h3>";
+            body += "</br><p>" + client_msg + "</p></html>";
+
+
+            // Read agent email
+             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            connection.Open();
+
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "Select Agent_Name, Agent_Surname, Agent_Phone, Agent_Email from Agent where Agent_Id=@agent_id";
+            command.Parameters.AddWithValue("@agent_id", agent_id);
+
+            MySqlDataReader reader = command.ExecuteReader();
+            
+            reader.Read();
+            
+            string agent_email = reader.GetString("Agent_Email");
+
+            string from = ConfigurationManager.AppSettings["webEmail"];
+
+            System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage(from, agent_email);
+            msg.Subject = subject;
+            msg.Body = body;
+            msg.IsBodyHtml = true;
+                   
+            StandardSMTPEmailer emailer = new StandardSMTPEmailer();
+            emailer.Send(msg);
+
+            return Redirect(Request.UrlReferrer.ToString());
+
         }
 
         public ActionResult Search()
