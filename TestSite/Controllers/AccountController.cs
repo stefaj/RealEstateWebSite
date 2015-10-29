@@ -12,7 +12,7 @@ using TestSite.Models;
 
 namespace TestSite.Controllers
 {
-    /// <summary>
+    /// <summary> 
     /// Controls output for login
     /// </summary>
     [Authorize]
