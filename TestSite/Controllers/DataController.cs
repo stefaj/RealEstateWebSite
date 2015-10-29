@@ -46,7 +46,9 @@ namespace TestSite.Controllers
             return dic;
         }
 
-        public static Dictionary<int, string> GetEstateTypes()
+
+        // Functionality removed due to new database design
+        /*public static Dictionary<int, string> GetEstateTypes()
         {
             return EnumerateTable("type_id", "type_name", "reii422_estates_type");
         }
@@ -55,25 +57,28 @@ namespace TestSite.Controllers
         {
             return EnumerateTable("contract_id", "contract_name", "reii422_contracts");
         }
+        
+        public static string[] GetEstateTypesArr()
+        {
+            return EnumerateTable("type_id", "type_name", "reii422_estates_type").Values.ToArray();
+        }
+         */
 
         public static Dictionary<int, string> GetProvinces()
         {
-            return EnumerateTable("province_id", "province_name", "reii422_provinces");
+            return EnumerateTable("province_id", "province_name", "Province");
         }
+
+
 
         /// <summary>
         /// Returns a list of provinces from the provinces table
         /// </summary>
         /// <returns></returns>
-        public static string[] GetEstateTypesArr()
-        {
-            return EnumerateTable("type_id", "type_name", "reii422_estates_type").Values.ToArray();
-        }
-
         public static Province[] GetProvincesArr()
         {
             List<Province> provinces = new List<Province>();
-            var dic = EnumerateTable("province_id", "province_name", "reii422_provinces");
+            var dic = EnumerateTable("province_id", "province_name", "Province");
             foreach (var key in dic.Keys)
             {
                 provinces.Add(new Province() { ProvinceId = key, ProvinceName = dic[key] });
@@ -245,8 +250,8 @@ namespace TestSite.Controllers
 
         public ActionResult Search()
         {
-            var estateTypes = GetEstateTypes();
-            var contracts = GetContracts();
+         //   var estateTypes = GetEstateTypes();
+          //  var contracts = GetContracts();
 
             SearchQuery searchQuery = new SearchQuery(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
 
@@ -276,27 +281,31 @@ namespace TestSite.Controllers
             List<Dictionary<string, string>> props = new List<Dictionary<string, string>>();
             while (reader.Read())
             {
-                int id = reader.GetInt32(0);
-                string name = reader.GetString(1);
-                string location = reader.GetString(2);
-                int no_bathrooms = reader.GetInt32(3);
-                int no_bedrooms = reader.GetInt32(4);
-                int area = reader.GetInt32("area");
-                int city_id = reader.GetInt32("city_id");
-                string city = reader.GetString("city_name");
-                string province = reader.GetString("province_name");// reader.GetString("province");
-                int estateTypeId = reader.GetInt32("type_id");
-                int contractId = reader.GetInt32("contract_id");
+                int id = reader.GetInt32("List_ID");
+              //  string name = reader.GetString(1);
+                string streetname = reader.GetString("Address_Streetname");
+                int streetno = reader.GetInt32("Address_Streetno");
+                int no_bathrooms = reader.GetInt32("Property_Bathroom_Count");
+                int no_bedrooms = reader.GetInt32("Property_Bedroom_Count");
+                int area = reader.GetInt32("Property_Plot_Size");
+               // int city_id = reader.GetInt32("city_id");
+                string area_name = reader.GetString("Area_Name");
+                string city = reader.GetString("City_Name");
+                string province = reader.GetString("Province_Name");// reader.GetString("province");
+                //int estateTypeId = reader.GetInt32("type_id");
+               // int contractId = reader.GetInt32("contract_id");
                 string image = reader.GetString("preview_image");
-                float price = reader.GetFloat("price");
+                float price = reader.GetFloat("List_Price");
 
 
-                string type = estateTypes[estateTypeId];
+                // composite fields
+              //  string type = estateTypes[estateTypeId];
                 string link = Url.Action("Residence", "Estates") + "?id=" + id;
                 string imagePath = "/Assets/Images/Homes/" + image;
                 string locationStr = string.Format("{0}, {1}", city, province);
-                string contract = contracts[contractId];
+              //  string contract = contracts[contractId];
                 string priceStr = string.Format("R {0}", price);
+                string location = streetname + " " + streetno.ToString();
 
                 Dictionary<string, string> propDic = new Dictionary<string, string>();
 

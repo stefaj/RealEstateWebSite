@@ -84,76 +84,13 @@ namespace TestSite.Controllers
 
         public ActionResult Search()
         {
-            var estateTypes = DataController.GetEstateTypes();
-            var contracts = DataController.GetContracts();
+           // var estateTypes = DataController.GetEstateTypes();
+          //  var contracts = DataController.GetContracts();
 
             SearchQuery searchQuery = new SearchQuery(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
 
-            StringBuilder contentBuilder = new StringBuilder();
-
-            string baseStr = @"<div class='col-lg-3 col-md-3 col-sm-6'>
-                <div class='propertyItem'>
-                    <div class='propertyContent'>
-                        <a class='propertyType' href='{0}'>{1}</a>
-                        <a class='propertyImgLink' href='{0}'><img class='propertyImg' src='{2}' ></a>
-                     
-                        <p>{3}</p>
-                        <p>{9}</p>
-                        <div class='divider thin'></div>
-                        <p class='forSale'>{4}</p>
-                        <p class='price'>{5}</p>
-                    </div>
-                    <table border='1' class='propertyDetails'>
-                        <tbody>
-                            <tr>
-                                <td><img src='/Assets/Images/icon-area.png' style='margin-right:7px;'>{6}</td>
-                                <td><img src='/Assets/Images/icon-bed.png' style='margin-right:7px;'>{7}</td>
-                                <td><img src='/Assets/Images/icon-drop.png' style='margin-right:7px;'>{8}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>";
-
-        
-            var res = searchQuery.GenerateResults();
-
-            MySqlDataReader reader = res;
-
-            while (reader.Read())
-            {
-                int id = reader.GetInt32(0);
-                string name = reader.GetString(1);
-                string location = reader.GetString(2);
-                int no_bathrooms = reader.GetInt32(3);
-                int no_bedrooms = reader.GetInt32(4);
-                int area = reader.GetInt32("area");
-                int city_id = reader.GetInt32("city_id");
-                string city = reader.GetString("city_name");
-                string province = reader.GetString("province_name");// reader.GetString("province");
-                int estateTypeId = reader.GetInt32("type_id");
-                int contractId = reader.GetInt32("contract_id"); 
-                string image = reader.GetString("preview_image");
-                float price = reader.GetFloat("price");
-
-
-                string type = estateTypes[estateTypeId];
-                string link = Url.Action("Residence", "Estates") + "?id=" + id;
-                string imagePath = "/Assets/Images/Homes/" + image;
-                string locationStr = string.Format("{0}, {1}", city, province);
-                string contract = contracts[contractId];
-                string priceStr = string.Format("R {0}", price);
-
-                string content = string.Format(baseStr, link, type, imagePath, locationStr, contract, priceStr, area, no_bedrooms, no_bathrooms, location);
-
-                contentBuilder.Append(content);
-
-
-            }
-
-            ViewBag.EstatesListHtml = contentBuilder.ToString();
             ViewBag.Provinces = DataController.GetProvincesArr();
-            ViewBag.Estates = DataController.GetEstateTypesArr();
+            //ViewBag.Estates = DataController.GetEstateTypesArr();
 
             return View();
         }
@@ -173,7 +110,8 @@ namespace TestSite.Controllers
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "Select * from reii422_estates_list, reii422_provinces, reii422_cities where reii422_estates_list.city_id = reii422_cities.city_id and reii422_provinces.province_id = reii422_cities.province_id and estate_id=@estate_id";
+            command.CommandText = "Select * from Property, Province, City, Area where Property.Address_ID = Address.Address_ID and Address.Area_ID = Area.AreaID"
+            + " and Area.Area_ID = City.City_ID and Province.Province_ID = City.Province_ID and Property.Property_ID=@estate_id";
             command.Parameters.Add("@estate_id", id);
 
             MySqlDataReader reader = command.ExecuteReader();

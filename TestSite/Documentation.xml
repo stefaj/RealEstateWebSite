@@ -22,9 +22,21 @@
             <param name="columnName">Name of table to return</param>
             <returns>Returns columnName from tableName</returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.GetEstateTypesArr">
+        <member name="M:TestSite.Controllers.DataController.GetProvincesArr">
             <summary>
             Returns a list of provinces from the provinces table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.DataController.SendEmail">
+            <summary>
+            Calling this will send an email for the interested buyer to an agent with the parameters specified in post
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.DataController.SendEmailContact">
+            <summary>
+            Calling this will send an email to a specified agent for a general query
             </summary>
             <returns></returns>
         </member>

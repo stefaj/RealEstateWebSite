@@ -185,6 +185,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Queries\IQuery.cs" />
@@ -275,7 +276,7 @@
     <Content Include="Views\Estates\Search.cshtml" />
     <Content Include="Views\Data\SendEmail.cshtml" />
     <Content Include="Views\Data\Search.cshtml" />
-    <Content Include="Views\Data\Cities - Copy.cshtml" />
+    <Content Include="Views\Data\Cities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
