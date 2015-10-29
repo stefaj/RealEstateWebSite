@@ -98,7 +98,7 @@ namespace TestSite.Controllers
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "Select * from reii422_cities where province_id=@province_id order by city_name asc";
+            command.CommandText = "Select * from City, Area where province_id=@province_id and Area_City_ID=City_ID order by city_name asc";
             command.Parameters.AddWithValue("@province_id", province_id);
 
             MySqlDataReader reader = command.ExecuteReader();
@@ -107,8 +107,10 @@ namespace TestSite.Controllers
             {
                 int city_id = reader.GetInt32("city_id");
                 string city_name = reader.GetString("city_name");
-                float longitude = reader.GetFloat("longitude");
-                float lattitude = reader.GetFloat("lattitude");
+                //float longitude = reader.GetFloat("longitude"); 
+                //float lattitude = reader.GetFloat("lattitude");
+                float longitude = 0;
+                float lattitude = 0;
 
                 cities.Add(new City() { Longitude = longitude, CityId = city_id, CityName = city_name, Lattitude = lattitude });
 
@@ -128,7 +130,7 @@ namespace TestSite.Controllers
 
 
         /// <summary>
-        /// Calling this will send an email to an agent with the parameters specified in post
+        /// Calling this will send an email for the interested buyer to an agent with the parameters specified in post
         /// </summary>
         /// <returns></returns>
         public ActionResult SendEmail()
@@ -137,7 +139,6 @@ namespace TestSite.Controllers
 
             int agent_id = int.Parse(post["agent_id"]);
 
-            string subject = post["subject"];
             string client_msg = post["body"]; // todo escape string en check security
 
             int property_id = int.Parse(post["property_id"]);
@@ -147,7 +148,7 @@ namespace TestSite.Controllers
             string client_phone = post["client_phone"];
             string client_email = post["client_email"];
 
-            subject = "Interest in property id " + property_id ;
+            string subject = "Interest in property id " + property_id ;
 
 
             string body = "<html><h3>Interested buyer</h3>";
@@ -179,6 +180,62 @@ namespace TestSite.Controllers
             msg.Body = body;
             msg.IsBodyHtml = true;
                    
+            StandardSMTPEmailer emailer = new StandardSMTPEmailer();
+            emailer.Send(msg);
+
+            return Redirect(Request.UrlReferrer.ToString());
+
+        }
+
+        /// <summary>
+        /// Calling this will send an email to a specified agent for a general query
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SendEmailContact()
+        {
+            var post = Request.Form;
+
+            int agent_id = int.Parse(post["agent_id"]);
+
+            string client_msg = post["body"]; // todo escape string en check security
+
+            string client_name = post["client_name"];
+            string client_phone = post["client_phone"];
+            string client_email = post["client_email"];
+
+            string subject = "General query ";
+
+
+            string body = "<html><h3>Curious Client</h3>";
+            body += "<h2>" + client_name + "</h2>";
+            body += "<p>email: " + client_email + "</p>";
+            body += "</br><p>phone number: " + client_phone + "</p>";
+            body += "</br><h3>Client Message: </h3>";
+            body += "</br><p>" + client_msg + "</p></html>";
+
+
+            // Read agent email
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            connection.Open();
+
+
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "Select Agent_Name, Agent_Surname, Agent_Phone, Agent_Email from Agent where Agent_Id=@agent_id";
+            command.Parameters.AddWithValue("@agent_id", agent_id);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+
+            string agent_email = reader.GetString("Agent_Email");
+
+            string from = ConfigurationManager.AppSettings["webEmail"];
+
+            System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage(from, agent_email);
+            msg.Subject = subject;
+            msg.Body = body;
+            msg.IsBodyHtml = true;
+
             StandardSMTPEmailer emailer = new StandardSMTPEmailer();
             emailer.Send(msg);
 

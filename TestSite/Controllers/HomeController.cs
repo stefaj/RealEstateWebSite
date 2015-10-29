@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Text;
+using TestSite.Models;
 
 namespace TestSite.Controllers
 {
@@ -30,6 +31,34 @@ namespace TestSite.Controllers
         {
             ViewBag.Message = "Contact us";
 
+            List<Agent> agents = new List<Agent>();
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            connection.Open();
+
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "Select Agent_Id, Agent_Name, Agent_Surname, Agent_Phone, Agent_Email from Agent";
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while(reader.Read())
+            {
+                Agent agent = new Agent()
+                {
+                    Agent_Email = reader.GetString("Agent_Email"),
+                    Agent_Id = reader.GetInt32("Agent_Id"),
+                    Agent_Name = reader.GetString("Agent_Name"),
+                    Agent_Phone = reader.GetString("Agent_Phone"),
+                    Agent_Surname = reader.GetString("Agent_Surname")
+                };
+
+                agents.Add(agent);
+            }
+
+            ViewBag.Agents = agents.ToArray();
+            
+
+            
             return View();
         
         }
