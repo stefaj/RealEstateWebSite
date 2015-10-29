@@ -97,7 +97,7 @@ namespace TestSite.Controllers
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "Select * from reii422_cities where province_id=@province_id";
+            command.CommandText = "Select * from reii422_cities where province_id=@province_id order by city_name asc";
             command.Parameters.AddWithValue("@province_id", province_id);
 
             MySqlDataReader reader = command.ExecuteReader();
