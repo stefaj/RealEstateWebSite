@@ -9,6 +9,11 @@
             Controls output for login
             </summary>
         </member>
+        <member name="T:TestSite.Controllers.DataController">
+            <summary>
+            This class poses a JSON API to get data from the database
+            </summary>
+        </member>
         <member name="M:TestSite.Controllers.DataController.EnumerateTable(System.String,System.String,System.String)">
             <summary>
             Returns all column entries for a specified table
