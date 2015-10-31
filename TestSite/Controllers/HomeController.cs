@@ -37,7 +37,7 @@ namespace TestSite.Controllers
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "Select Agent_Id, Agent_Name, Agent_Surname, Agent_Phone, Agent_Email from Agent";
+            command.CommandText = "Select Agent_Id, Agent_Name, Agent_Surname, Agent_Phone, Agent_Email, Agent_Description from Agent";
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -49,7 +49,8 @@ namespace TestSite.Controllers
                     Agent_Id = reader.GetInt32("Agent_Id"),
                     Agent_Name = reader.GetString("Agent_Name"),
                     Agent_Phone = reader.GetString("Agent_Phone"),
-                    Agent_Surname = reader.GetString("Agent_Surname")
+                    Agent_Surname = reader.GetString("Agent_Surname"),
+                    Agent_Description = reader.GetString("Agent_Description")
                 };
 
                 agents.Add(agent);

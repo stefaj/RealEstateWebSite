@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace TestSite.Models
 {
@@ -16,6 +17,11 @@ namespace TestSite.Models
     /// </summary>
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        static ApplicationDbContext()
+        {
+            Database.SetInitializer(new MySqlInitializer());
+        }
+
         public ApplicationDbContext()
             : base("DefaultConnection")
         {

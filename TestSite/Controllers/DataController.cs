@@ -253,7 +253,7 @@ namespace TestSite.Controllers
          //   var estateTypes = GetEstateTypes();
           //  var contracts = GetContracts();
 
-            SearchQuery searchQuery = new SearchQuery(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            SearchQuery searchQuery = new SearchQuery(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
             // Getting ze post data ja
 
@@ -294,14 +294,15 @@ namespace TestSite.Controllers
                 string province = reader.GetString("Province_Name");// reader.GetString("province");
                 //int estateTypeId = reader.GetInt32("type_id");
                // int contractId = reader.GetInt32("contract_id");
-                string image = reader.GetString("preview_image");
+                string image = reader.GetString("Image_URL");
                 float price = reader.GetFloat("List_Price");
 
 
                 // composite fields
               //  string type = estateTypes[estateTypeId];
                 string link = Url.Action("Residence", "Estates") + "?id=" + id;
-                string imagePath = "/Assets/Images/Homes/" + image;
+                //string imagePath = "/Assets/Images/Homes/" + image;
+                string imagePath = image;
                 string locationStr = string.Format("{0}, {1}", city, province);
               //  string contract = contracts[contractId];
                 string priceStr = string.Format("R {0}", price);

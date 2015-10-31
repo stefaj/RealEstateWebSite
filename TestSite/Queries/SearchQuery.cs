@@ -93,7 +93,7 @@ namespace TestSite
         {
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = "Select List_ID, List_Price, Property_Bedroom_Count, Property_Bathroom_Count, Property_Garage_Count, Property_hasPool, Property_Plot_Size, Property_House_Size,"
-            + " Property_Value, Address_Streetname, Address_Streetno, Area_Name, City_Name, Province_Name, distinct Image_URL"
+            + " Property_Value, Address_Streetname, Address_Streetno, Area_Name, City_Name, Province_Name, Image_URL"
             + " from Listing, Property, Address, Area, City, Province, Image where "
             + "Listing.Property_ID = Property.Property_ID and Property.Address_ID = Address.Address_ID and Address.Area_ID = Area.Area_Id and Area.Area_City_Id = City.City_Id"
             + " and Province.Province_ID= City.City_Province_ID and Image.Property_Id = Property.Property_Id";
@@ -151,6 +151,9 @@ namespace TestSite
                 command.CommandText += " and contract_id = @contract_id";
                 command.Parameters.AddWithValue("@contract_id", city_id);
             }
+
+            command.CommandText += " group by List_ID";
+
             command.CommandText += " order by List_ID DESC";
             if (limit != -1)
                 command.CommandText += " limit " + limit;
