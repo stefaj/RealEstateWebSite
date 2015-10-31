@@ -1,0 +1,8 @@
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.dll.config
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.dll
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.pdb
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.csprojResolveAssemblyReference.cache
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.dll
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.pdb

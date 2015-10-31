@@ -6,7 +6,6 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Antlr3.Runtime.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\EntityFramework.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\EntityFramework.SqlServer.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.Host.SystemWeb.dll
@@ -35,7 +34,6 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Antlr3.Runtime.pdb
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\EntityFramework.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\EntityFramework.SqlServer.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.Security.xml
@@ -62,3 +60,5 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Debug\TestSite.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Debug\TestSite.pdb
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\MySql.Data.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\MySql.Data.Entity.EF6.dll
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\AspNet.Identity.MySQL.dll
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\AspNet.Identity.MySQL.pdb

@@ -28,7 +28,7 @@ namespace TestSite.Controllers
         {
             Dictionary<int, string> dic = new Dictionary<int, string>();
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
@@ -99,7 +99,7 @@ namespace TestSite.Controllers
 
             string province_id = post["province_id"];
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
@@ -165,7 +165,7 @@ namespace TestSite.Controllers
 
 
             // Read agent email
-             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
@@ -220,7 +220,7 @@ namespace TestSite.Controllers
 
 
             // Read agent email
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 
 

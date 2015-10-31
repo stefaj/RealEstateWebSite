@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+using AspNet.Identity.MySQL;
 using Microsoft.Owin.Security;
 using TestSite.Models;
+using System.Configuration;
 
 namespace TestSite.Controllers
 {
@@ -19,7 +20,9 @@ namespace TestSite.Controllers
     public class AccountController : Controller
     {
         public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(
+               ApplicationDbContext.Create()
+                    )))
         {
         }
 
