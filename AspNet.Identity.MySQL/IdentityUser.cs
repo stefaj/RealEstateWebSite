@@ -87,8 +87,14 @@ namespace AspNet.Identity.MySQL
         /// </summary>
         public virtual int AccessFailedCount { get; set; }
 
+        /// <summary>
+        /// First name of the user
+        /// </summary>
         public virtual string FirstName { get; set; }
 
+        /// <summary>
+        /// Last name of the user
+        /// </summary>
         public virtual string LastName { get; set; }
 
 

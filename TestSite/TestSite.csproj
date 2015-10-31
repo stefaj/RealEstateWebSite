@@ -186,6 +186,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hashers\PlainTextHasher.cs" />
+    <Compile Include="Hashers\ShaHasher.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\City.cs" />

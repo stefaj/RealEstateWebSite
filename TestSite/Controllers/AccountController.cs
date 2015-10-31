@@ -10,6 +10,7 @@ using AspNet.Identity.MySQL;
 using Microsoft.Owin.Security;
 using TestSite.Models;
 using System.Configuration;
+using TestSite.Hashers;
 
 namespace TestSite.Controllers
 {
@@ -24,11 +25,14 @@ namespace TestSite.Controllers
                ApplicationDbContext.Create()
                     )))
         {
+            var t = this.UserManager.PasswordHasher; 
         }
 
         public AccountController(UserManager<ApplicationUser> userManager)
         {
+            userManager.PasswordHasher = new PBKDF2Sha1Hasher();
             UserManager = userManager;
+
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
@@ -84,7 +88,7 @@ namespace TestSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { UserName = model.UserName, Email=model.Email, FirstName=model.FirstName, LastName = model.LastName, PhoneNumber=model.PhoneNumber };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
