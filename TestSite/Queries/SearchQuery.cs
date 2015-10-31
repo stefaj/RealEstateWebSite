@@ -10,16 +10,29 @@ namespace TestSite
     public class SearchQuery : IQuery
     {
         MySqlConnection connection;
-        string[] keywords;
 
-        int type_id = -1;
-        float price_min = -1;
-        float price_max = -1;
-        int bedrooms_min = -1;
-        int bathrooms_min = -1;
-        int province_id = -1;
-        int city_id = -1;
-        int contract_id = -1;
+        public string[] Keywords { get; set; }
+        float PriceMin { get; set; }
+        float PriceMax { get; set; }
+        int BedroomsMin { get; set; }
+        int BedroomsMax { get; set; }
+        int BathroomsMin { get; set; }
+        int BathroomsMax { get; set; }
+        int GaragesMin { get; set; }
+        int GaragesMax { get; set; }
+        int PlotSizeMin { get; set; }
+        int PlotSizeMax { get; set; }
+        int HouseSizeMin { get; set; }
+        int HouseSizeMax { get; set; }
+        int ProvinceId { get; set; }
+        int City_Id { get; set; }
+        int Area_Id { get; set; }
+
+        /// <summary>
+        /// null for any
+        /// </summary>
+        bool? HasPool { get; set; }
+
 
         int limit = 10;
 
@@ -27,6 +40,27 @@ namespace TestSite
         {
             connection = new MySqlConnection(connectionString);
             connection.Open();
+
+         
+            ProvinceId = -1;
+            City_Id = -1;
+
+            const int MIN = 0;
+            const int MAX = 50000000;
+            BedroomsMin = MIN;
+            BedroomsMax = MAX;
+            BathroomsMin = MIN;
+            BathroomsMax = MAX;
+            GaragesMin = MIN;
+            GaragesMax = MAX;
+            PlotSizeMin = MIN;
+            PlotSizeMax = MAX;
+            HouseSizeMin = MIN;
+            HouseSizeMax = MAX;
+            PriceMin = MIN;
+            PriceMax = MAX;
+            HasPool = null;
+            this.Keywords = null;
         }
 
         public void Close()
@@ -41,122 +75,129 @@ namespace TestSite
 
         public void SetKeywords(string[] keywords)
         {
-            this.keywords = keywords;
+            this.Keywords = keywords;
         }
 
-        public void SetMinimumPrice(float minPrice)
-        {
-            this.price_min = minPrice;
-        }
-
-        public void SetMaximumPrice(float maxPrice)
-        {
-            this.price_max = maxPrice;
-        }
-
-        public void SetProvince(int id)
-        {
-            this.province_id = id;
-        }
-
-        public void SetCity(int id)
-        {
-            this.city_id = id;
-        }
-
-        public void SetBedroomsMinimum(int min)
-        {
-            this.bedrooms_min = min;
-        }
-
-        public void SetBathroomsMinimum(int min)
-        {
-            this.bathrooms_min = min;
-        }
-
-        public void SetEstateType(int id)
-        {
-            this.type_id = id;
-        }
-
-        public void SetContract(int id)
-        {
-            this.contract_id = id;
-        }
-
-        public void SetMaxResults(int limit)
-        {
-            this.limit = limit;
-        }
-
+     
         private MySqlDataReader BuildQuery()
         {
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "Select List_ID, List_Price, Property_Bedroom_Count, Property_Bathroom_Count, Property_Garage_Count, Property_hasPool, Property_Plot_Size, Property_House_Size,"
-            + " Property_Value, Address_Streetname, Address_Streetno, Area_Name, City_Name, Province_Name, Image_URL"
-            + " from Listing, Property, Address, Area, City, Province, Image where "
-            + "Listing.Property_ID = Property.Property_ID and Property.Address_ID = Address.Address_ID and Address.Area_ID = Area.Area_Id and Area.Area_City_Id = City.City_Id"
-            + " and Province.Province_ID= City.City_Province_ID and Image.Property_Id = Property.Property_Id";
 
-            int k=0;
-            if(keywords != null)
-                foreach(var keyword in keywords)
+
+            string qry = @"select
+Listing.List_ID,
+List_Price,
+Property.Client_ID,
+Property.Complex_ID,
+Property.Property_Unit_No,
+Address_Streetno,
+Address_Streetname,
+Property_Bedroom_Count,
+Property_Bathroom_Count,
+Property_Garage_Count,
+Property_hasPool,
+Property_Plot_Size,
+Property_House_Size,
+Property_Value,
+Area_Name,
+City_Name,
+Province_Name,
+Image_URL
+from Property, Listing, Address, Area, City, Province, Image
+where
+(Property.Property_Bedroom_Count between @bed_min and @bed_max) and
+(Property.Property_Bathroom_Count between @bath_min and @bath_max) and
+(Property.Property_Garage_Count between @gar_min and @gar_max) and
+(Property.Property_Plot_Size between @plot_min and @plot_max) and
+(Property.Property_House_Size between @house_min and @house_max) and
+(Listing.List_Price between @list_min and @list_max) and
+Property.Property_ID = Listing.Property_ID and
+Property.Address_ID = Address.Address_ID and
+Address.Area_ID = Area.Area_ID and
+City.City_ID = Area.Area_City_ID and
+Province.Province_ID = City.City_Province_ID and
+Image.Property_ID = Property.Property_ID";
+
+
+
+
+
+
+            // Optional parameters
+            if(HasPool != null)
+            {
+                qry += "@ and (Property.Property_hasPool  = @hasPool)";
+            }
+            if(ProvinceId >= 0)
+            {
+                qry += @" and (Province.Province_ID = @province_id)";
+            }
+            if(Area_Id >= 0)
+            {
+                qry += @" and Area.Area_ID = @area_id";
+            }
+            if(City_Id >= 0)
+            {
+                qry += @" and City.City_ID = @city_id";
+            }
+            int k = 0;
+            if(Keywords != null && Keywords.Length > 0)
+            {
+                foreach (var keyword in Keywords)
                 {
-                   // string keywordNo = string.Format("@k{0}",k++);
-                    command.CommandText += string.Format(" and (street_address like '%{0}%' or province_name like '%{0}%' or city_name like '%{0}%' or name like '%{0}%')",keyword);
-                    if(k < keywords.Length - 1)
-                        command.CommandText += " or ";
+                    // string keywordNo = string.Format("@k{0}",k++);
+                    qry += string.Format(" and (Address_Streetname like '%{0}%' or Province_Name like '%{0}%' or City_Name like '%{0}%' or Property_Description like '%{0}%')", keyword);
+                    if (k < Keywords.Length - 1)
+                        qry += " or ";
                     //command.Parameters.AddWithValue(keywordNo, keyword);
                     // TO DO SANITIZE!
 
                 }
-            if (price_min != -1)
-            {
-                command.CommandText += " and price >= @price_min";
-                command.Parameters.AddWithValue("@price_min", price_min);
- 
-            }
-            if (price_max != -1)
-            {
-                command.CommandText += " and price =< @price_max";
-                command.Parameters.AddWithValue("@price_max", price_max);
-            }
-            if (bedrooms_min != -1)
-            {
-                command.CommandText += " and no_bedrooms >= @bedrooms_min";
-                command.Parameters.AddWithValue("@bedrooms_min", bedrooms_min);
-            }
-            if (bathrooms_min != -1)
-            {
-                command.CommandText += " and no_bathrooms >= @bathrooms_min";
-                command.Parameters.AddWithValue("@bathrooms_min", bathrooms_min);
-            }
-            if (type_id != -1)
-            {
-                command.CommandText += " and type_id = @type_id";
-                command.Parameters.AddWithValue("@type_id", type_id);
-            }
-            if (province_id != -1)
-            {
-                command.CommandText += " and reii422_provinces.province_id = @province_id";
-                command.Parameters.AddWithValue("@province_id", province_id);
-            }
-            if (city_id != -1)
-            {
-                command.CommandText += " and reii422_estates_list.city_id = @city_id";
-                command.Parameters.AddWithValue("@city_id", city_id);
-            }
-            if (contract_id != -1)
-            {
-                command.CommandText += " and contract_id = @contract_id";
-                command.Parameters.AddWithValue("@contract_id", city_id);
             }
 
-            command.CommandText += " group by List_ID";
 
-            command.CommandText += " order by List_ID DESC";
-            if (limit != -1)
-                command.CommandText += " limit " + limit;
+            // Finalize command
+            qry += @"
+group by
+Image.Property_ID 
+limit @limit;";
+
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = qry;
+
+            // Optional parameters
+            if (HasPool != null)
+            {
+                int hasPool = HasPool == true ? 1 : 0;
+                command.Parameters.AddWithValue("@hasPool", hasPool);
+            }
+            if (ProvinceId >= 0)
+            {
+                command.Parameters.AddWithValue("@province_id", ProvinceId);
+            }
+            if (Area_Id >= 0)
+            {
+                command.Parameters.AddWithValue("@area_id", Area_Id);
+            }
+            if (City_Id >= 0)
+            {
+                command.Parameters.AddWithValue("@city_id", City_Id);
+            }
+
+
+            // Assign values
+            command.Parameters.AddWithValue("@bed_min", BedroomsMin);
+            command.Parameters.AddWithValue("@bed_max", BedroomsMax);
+            command.Parameters.AddWithValue("@bath_min", BathroomsMin);
+            command.Parameters.AddWithValue("@bath_max", BathroomsMax);
+            command.Parameters.AddWithValue("@gar_min", GaragesMin);
+            command.Parameters.AddWithValue("@gar_max", GaragesMax);
+            command.Parameters.AddWithValue("@plot_min", PlotSizeMin);
+            command.Parameters.AddWithValue("@plot_max", PlotSizeMax);
+            command.Parameters.AddWithValue("@house_min", HouseSizeMin);
+            command.Parameters.AddWithValue("@house_max", HouseSizeMax);
+            command.Parameters.AddWithValue("@list_min", PriceMin);
+            command.Parameters.AddWithValue("@list_max", PriceMax);
+          
 
             try
             {
