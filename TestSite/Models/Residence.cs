@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using AspNet.Identity.MySQL;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -36,6 +37,9 @@ namespace TestSite
 
         public  Residence(int id)
         {
+
+            
+
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 

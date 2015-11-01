@@ -27,6 +27,10 @@ namespace TestSite.Models
         [JsonProperty]
         public string Agent_Description { get; set; }
 
+        
+        [JsonProperty]
+        public string Image_URL { get; set; }
+
         [JsonProperty]
         public string Agent_FullName
         {

@@ -1,8 +1,10 @@
-﻿using MySql.Data.MySqlClient;
+﻿using AspNet.Identity.MySQL;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -95,6 +97,8 @@ namespace TestSite.Controllers
             return View();
         }
 
+
+
         public ActionResult Residence()
         {
             string id = Request.QueryString["id"];
@@ -106,7 +110,7 @@ namespace TestSite.Controllers
                 return View();
 
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
@@ -129,6 +133,7 @@ namespace TestSite.Controllers
             string street_address = reader.GetString("Address_Streetname") + " " + reader.GetString("Address_streetno");
             int agent_id = reader.GetInt32("Agent_ID");
 
+            ViewBag.ListID = reader.GetInt32("List_ID");
             ViewBag.id = id;
             // ViewBag.name = reader.GetString("name");
 
@@ -160,7 +165,7 @@ namespace TestSite.Controllers
 
 
 
-            connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
             command = connection.CreateCommand();
             command.CommandText = "Select Image_URL, Image_Caption from Image where Property_ID = @property_id";
@@ -169,7 +174,7 @@ namespace TestSite.Controllers
             while (reader.Read())
             {
                 string image_url = reader.GetString("Image_URL");
-                string image_caption = reader.GetString("Image_Caption");
+               // string image_caption = reader.GetString("Image_Caption");
 
                 images.Add(image_url);
             }
@@ -179,11 +184,11 @@ namespace TestSite.Controllers
 
 
             connection.Close();
-            connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 
             command = connection.CreateCommand();
-            command.CommandText = "Select Agent_Id, Agent_Name, Agent_Surname, Agent_Phone, Agent_Email, Agent_Description from Agent where Agent_ID = @agent_id";
+            command.CommandText = "Select Agent_Id, Agent_Name, Agent_Surname, Agent_Phone, Agent_Email, Agent_Image_URL, Agent_Description from Agent where Agent_ID = @agent_id";
             command.Parameters.AddWithValue("@agent_id", agent_id);
             reader = command.ExecuteReader();
 
@@ -195,7 +200,8 @@ namespace TestSite.Controllers
                 Agent_Name = reader.GetString("Agent_Name"),
                 Agent_Phone = reader.GetString("Agent_Phone"),
                 Agent_Surname = reader.GetString("Agent_Surname"),
-                Agent_Description = reader.GetString("Agent_Description")
+                Agent_Description = reader.GetString("Agent_Description"),
+                Image_URL = reader.GetString("Agent_Image_URL")
             };
 
 
@@ -204,6 +210,7 @@ namespace TestSite.Controllers
 
             connection.Close();
 
+            ViewBag.User = DataController.GetCurrentUser();
 
 
 
