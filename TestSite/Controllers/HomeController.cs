@@ -33,7 +33,7 @@ namespace TestSite.Controllers
 
             List<Agent> agents = new List<Agent>();
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
