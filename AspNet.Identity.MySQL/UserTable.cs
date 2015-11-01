@@ -27,7 +27,7 @@ namespace AspNet.Identity.MySQL
         /// <returns></returns>
         public string GetUserName(string userId)
         {
-            string commandText = "Select Name from Users where Id = @id";
+            string commandText = "Select Name from Users where ClientId = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", userId } };
 
             return _database.GetStrValue(commandText, parameters);
@@ -54,7 +54,7 @@ namespace AspNet.Identity.MySQL
         public TUser GetUserById(string userId)
         {
             TUser user = null;
-            string commandText = "Select * from Users where Id = @id";
+            string commandText = "Select * from Users where ClientId = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", userId } };
 
             var rows = _database.Query(commandText, parameters);
@@ -62,19 +62,20 @@ namespace AspNet.Identity.MySQL
             {
                 var row = rows[0];
                 user = (TUser)Activator.CreateInstance(typeof(TUser));
-                user.Id = row["Id"];
+                user.Id = row["ClientId"];
                 user.UserName = row["UserName"];
-                user.PasswordHash = string.IsNullOrEmpty(row["PasswordHash"]) ? null : row["PasswordHash"];
+                user.PasswordHash = string.IsNullOrEmpty(row["Client_Password"]) ? null : row["Client_Password"];
                 user.SecurityStamp = string.IsNullOrEmpty(row["SecurityStamp"]) ? null : row["SecurityStamp"];
-                user.Email = string.IsNullOrEmpty(row["Email"]) ? null : row["Email"];
+                user.Email = string.IsNullOrEmpty(row["Client_Email"]) ? null : row["Client_Email"];
                 user.EmailConfirmed = row["EmailConfirmed"] == "1" ? true:false;
-                user.PhoneNumber = string.IsNullOrEmpty(row["PhoneNumber"]) ? null : row["PhoneNumber"];
+                user.PhoneNumber = string.IsNullOrEmpty(row["Client_Phone"]) ? null : row["Client_Phone"];
                 user.PhoneNumberConfirmed = row["PhoneNumberConfirmed"] == "1" ? true : false;
                 user.LockoutEnabled = row["LockoutEnabled"] == "1" ? true : false;
+                user.TwoFactorEnabled = row["TwoFactorEnabled"] == "1" ? true : false;
                 user.LockoutEndDateUtc = string.IsNullOrEmpty(row["LockoutEndDateUtc"]) ? DateTime.Now : DateTime.Parse(row["LockoutEndDateUtc"]);
                 user.AccessFailedCount = string.IsNullOrEmpty(row["AccessFailedCount"]) ? 0 : int.Parse(row["AccessFailedCount"]);
-                user.FirstName = string.IsNullOrEmpty(row["FirstName"]) ? null : row["FirstName"];
-                user.LastName = string.IsNullOrEmpty(row["LastName"]) ? null : row["LastName"];
+                user.FirstName = string.IsNullOrEmpty(row["Client_Name"]) ? null : row["Client_Name"];
+                user.LastName = string.IsNullOrEmpty(row["Client_Surname"]) ? null : row["Client_Surname"];
             }
 
             return user;
@@ -95,20 +96,23 @@ namespace AspNet.Identity.MySQL
             foreach(var row in rows)
             {
                 TUser user = (TUser)Activator.CreateInstance(typeof(TUser));
-                user.Id = row["Id"];
+                user.Id = row["ClientId"];
                 user.UserName = row["UserName"];
-                user.PasswordHash = string.IsNullOrEmpty(row["PasswordHash"]) ? null : row["PasswordHash"];
+                user.PasswordHash = string.IsNullOrEmpty(row["Client_Password"]) ? null : row["Client_Password"];
                 user.SecurityStamp = string.IsNullOrEmpty(row["SecurityStamp"]) ? null : row["SecurityStamp"];
-                user.Email = string.IsNullOrEmpty(row["Email"]) ? null : row["Email"];
+                user.Email = string.IsNullOrEmpty(row["Client_Email"]) ? null : row["Client_Email"];
                 user.EmailConfirmed = row["EmailConfirmed"] == "1" ? true : false;
-                user.PhoneNumber = string.IsNullOrEmpty(row["PhoneNumber"]) ? null : row["PhoneNumber"];
+                user.PhoneNumber = string.IsNullOrEmpty(row["Client_Phone"]) ? null : row["Client_Phone"];
                 user.PhoneNumberConfirmed = row["PhoneNumberConfirmed"] == "1" ? true : false;
                 user.LockoutEnabled = row["LockoutEnabled"] == "1" ? true : false;
                 user.TwoFactorEnabled = row["TwoFactorEnabled"] == "1" ? true : false;
                 user.LockoutEndDateUtc = string.IsNullOrEmpty(row["LockoutEndDateUtc"]) ? DateTime.Now : DateTime.Parse(row["LockoutEndDateUtc"]);
                 user.AccessFailedCount = string.IsNullOrEmpty(row["AccessFailedCount"]) ? 0 : int.Parse(row["AccessFailedCount"]);
-                user.FirstName = string.IsNullOrEmpty(row["FirstName"]) ? null : row["FirstName"];
-                user.LastName = string.IsNullOrEmpty(row["LastName"]) ? null : row["LastName"];
+                user.FirstName = string.IsNullOrEmpty(row["Client_Name"]) ? null : row["Client_Name"];
+                user.LastName = string.IsNullOrEmpty(row["Client_Surname"]) ? null : row["Client_Surname"];
+
+
+
 
                 users.Add(user);
             }
@@ -128,7 +132,7 @@ namespace AspNet.Identity.MySQL
         /// <returns></returns>
         public string GetPasswordHash(string userId)
         {
-            string commandText = "Select PasswordHash from Users where Id = @id";
+            string commandText = "Select Client_Password from Users where Client_ID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@id", userId);
 
@@ -149,7 +153,7 @@ namespace AspNet.Identity.MySQL
         /// <returns></returns>
         public int SetPasswordHash(string userId, string passwordHash)
         {
-            string commandText = "Update Users set PasswordHash = @pwdHash where Id = @id";
+            string commandText = "Update Users set Client_Password = @pwdHash where Client_ID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@pwdHash", passwordHash);
             parameters.Add("@id", userId);
@@ -164,7 +168,7 @@ namespace AspNet.Identity.MySQL
         /// <returns></returns>
         public string GetSecurityStamp(string userId)
         {
-            string commandText = "Select SecurityStamp from Users where Id = @id";
+            string commandText = "Select SecurityStamp from Users where Client_ID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", userId } };
             var result = _database.GetStrValue(commandText, parameters);
 
@@ -178,7 +182,7 @@ namespace AspNet.Identity.MySQL
         /// <returns></returns>
         public int Insert(TUser user)
         {
-            string commandText = @"Insert into Users (UserName, Id, PasswordHash, SecurityStamp,Email,EmailConfirmed,PhoneNumber,PhoneNumberConfirmed, AccessFailedCount,LockoutEnabled,LockoutEndDateUtc,TwoFactorEnabled, FirstName, LastName)
+            string commandText = @"Insert into Users (UserName, Client_ID, PasswordHash, SecurityStamp,Email,EmailConfirmed,PhoneNumber,PhoneNumberConfirmed, AccessFailedCount,LockoutEnabled,LockoutEndDateUtc,TwoFactorEnabled, FirstName, LastName)
                 values (@name, @id, @pwdHash, @SecStamp,@email,@emailconfirmed,@phonenumber,@phonenumberconfirmed,@accesscount,@lockoutenabled,@lockoutenddate,@twofactorenabled, @firstname, @lastname)";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@name", user.UserName);
