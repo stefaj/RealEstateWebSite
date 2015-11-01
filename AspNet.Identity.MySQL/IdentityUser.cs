@@ -98,5 +98,14 @@ namespace AspNet.Identity.MySQL
         public virtual string LastName { get; set; }
 
 
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
+
     }
 }

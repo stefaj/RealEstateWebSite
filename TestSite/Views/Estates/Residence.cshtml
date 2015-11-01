@@ -291,9 +291,9 @@
             <div class="col-md-6 col-sm-6">
                 <div class="team-container team-dark">
                     <div class="team-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png">
+                        <img src=@ViewBag.agent.Image_URL>
                     </div>
-                    <div id="agent_descript" agent-id="@ViewBag.agent.Agent_Id">
+                    <div id="agent_descript">
                         <h3>@ViewBag.agent.Agent_FullName</h3>
                         <p>
                             <i class="fa fa-phone"></i> Office : @ViewBag.agent.Agent_PhoneString<br>
@@ -306,8 +306,10 @@
             </div>
             <div class="col-md-6 col-sm-6">
                 <form action="../Data/SendEmail" method="post">
-                <input type="hidden" name="agent_id" value="1"/>
-                <input type="hidden" name="property_id" value="1"/>
+                <input type="hidden" name="agent_id" value="@ViewBag.agent.Agent_Id"/>
+                    <input type="hidden" name="listing_id" value=@ViewBag.ListID />
+                    @if(ViewBag.User == null)
+                    { 
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input name="client_name" type="text" class="form-control input-lg" placeholder="Enter name : ">
@@ -320,6 +322,17 @@
                         <label for="telp">Telp.</label>
                         <input name="client_phone" type="text" class="form-control input-lg" placeholder="Enter phone number : ">
                     </div>
+                    }
+                    else
+                    {
+                        <label>Send email from:</label><br>
+                        <label>@ViewBag.User.FullName</label><br>
+                        <label>@ViewBag.User.Email</label><br>
+                        <label>@ViewBag.User.PhoneNumber</label><br/>
+                        <input type="hidden" name="client_name" value="@ViewBag.User.FullName" />
+                        <input type="hidden" name="client_email" value="@ViewBag.User.Email" />
+                        <input type="hidden" name="client_phone" value="@ViewBag.User.PhoneNumber" />
+                    }
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea name="body" class="form-control input-lg" rows="7" placeholder="Type a message : "></textarea>

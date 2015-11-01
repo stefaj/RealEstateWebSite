@@ -1,9 +1,11 @@
-﻿using MySql.Data.MySqlClient;
+﻿using AspNet.Identity.MySQL;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using TestSite.Email;
@@ -211,19 +213,21 @@ namespace TestSite.Controllers
 
             string client_msg = post["body"]; // todo escape string en check security
 
-            int property_id = int.Parse(post["property_id"]);
-
+            //int property_id = int.Parse(post["property_id"]);
+            int listing_id = int.Parse(post["listing_id"]);
 
             string client_name = post["client_name"];
             string client_phone = post["client_phone"];
             string client_email = post["client_email"];
 
-            string subject = "Interest in property id " + property_id ;
-
-
-            string body = "<html><h3>Interested buyer</h3>";
+            string link = Url.Action("Residence", "Estates") + "?id=" + listing_id;
+            string subject = string.Format("Interest in " + listing_id);
+            
+            string body = string.Format("<html>Interest in <a href=\"{0}\">listing {1}</a><br><h3>Interested buyer</h3>", link, listing_id);
             body += "<h2>" + client_name + "</h2>";
-            body += "<p>email: " + client_email + "</p>";
+
+
+            body += string.Format("<a href=\"{0}\" mailto>email: {0} </p>", client_email);
             body += "</br><p>phone number: " + client_phone + "</p>";
             body += "</br><h3>Client Message: </h3>";
             body += "</br><p>" + client_msg + "</p></html>";
@@ -240,6 +244,10 @@ namespace TestSite.Controllers
             MySqlDataReader reader = command.ExecuteReader();
             
             reader.Read();
+            if(!reader.HasRows)
+            {
+                return null;
+            }
             
             string agent_email = reader.GetString("Agent_Email");
 
@@ -275,7 +283,7 @@ namespace TestSite.Controllers
 
             string subject = "General query ";
 
-
+            
             string body = "<html><h3>Curious Client</h3>";
             body += "<h2>" + client_name + "</h2>";
             body += "<p>email: " + client_email + "</p>";
@@ -400,6 +408,35 @@ namespace TestSite.Controllers
             reader.Close();
             searchQuery.Close();
             return View();
+        }
+
+
+        /// <summary>
+        /// Returns the logged in user
+        /// </summary>
+        /// <returns></returns>
+        public static IdentityUser GetCurrentUser()
+        {
+            string user_id = null;
+            var claimsIdentity = System.Web.HttpContext.Current.GetOwinContext().Authentication.User.Identity as ClaimsIdentity;
+            if (claimsIdentity != null)
+            {
+                var userIdClaim = claimsIdentity.Claims
+       .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
+
+                if (userIdClaim != null)
+                {
+                    user_id = userIdClaim.Value;
+                }
+            }
+            if (user_id != null)
+            {
+                MySQLDatabase db = new MySQLDatabase("DefaultConnection");
+                UserTable<IdentityUser> table = new UserTable<IdentityUser>(db);
+                var user = table.GetUserById(user_id);
+                return user;
+            }
+            return null;
         }
 	}
 }

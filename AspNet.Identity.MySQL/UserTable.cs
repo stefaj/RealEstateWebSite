@@ -27,7 +27,7 @@ namespace AspNet.Identity.MySQL
         /// <returns></returns>
         public string GetUserName(string userId)
         {
-            string commandText = "Select Name from Users where ClientId = @id";
+            string commandText = "Select Name from Users where Client_ID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", userId } };
 
             return _database.GetStrValue(commandText, parameters);
@@ -54,7 +54,7 @@ namespace AspNet.Identity.MySQL
         public TUser GetUserById(string userId)
         {
             TUser user = null;
-            string commandText = "Select * from Users where ClientId = @id";
+            string commandText = "Select * from Users where Client_ID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", userId } };
 
             var rows = _database.Query(commandText, parameters);
@@ -62,7 +62,7 @@ namespace AspNet.Identity.MySQL
             {
                 var row = rows[0];
                 user = (TUser)Activator.CreateInstance(typeof(TUser));
-                user.Id = row["ClientId"];
+                user.Id = row["Client_ID"];
                 user.UserName = row["UserName"];
                 user.PasswordHash = string.IsNullOrEmpty(row["Client_Password"]) ? null : row["Client_Password"];
                 user.SecurityStamp = string.IsNullOrEmpty(row["SecurityStamp"]) ? null : row["SecurityStamp"];
@@ -96,7 +96,7 @@ namespace AspNet.Identity.MySQL
             foreach(var row in rows)
             {
                 TUser user = (TUser)Activator.CreateInstance(typeof(TUser));
-                user.Id = row["ClientId"];
+                user.Id = row["Client_ID"];
                 user.UserName = row["UserName"];
                 user.PasswordHash = string.IsNullOrEmpty(row["Client_Password"]) ? null : row["Client_Password"];
                 user.SecurityStamp = string.IsNullOrEmpty(row["SecurityStamp"]) ? null : row["SecurityStamp"];
@@ -182,7 +182,7 @@ namespace AspNet.Identity.MySQL
         /// <returns></returns>
         public int Insert(TUser user)
         {
-            string commandText = @"Insert into Users (UserName, Client_ID, PasswordHash, SecurityStamp,Email,EmailConfirmed,PhoneNumber,PhoneNumberConfirmed, AccessFailedCount,LockoutEnabled,LockoutEndDateUtc,TwoFactorEnabled, FirstName, LastName)
+            string commandText = @"Insert into Users (UserName, Client_ID, Client_Password, SecurityStamp,Client_Email,EmailConfirmed,Client_Phone,PhoneNumberConfirmed, AccessFailedCount,LockoutEnabled,LockoutEndDateUtc,TwoFactorEnabled, Client_Name, Client_Surname)
                 values (@name, @id, @pwdHash, @SecStamp,@email,@emailconfirmed,@phonenumber,@phonenumberconfirmed,@accesscount,@lockoutenabled,@lockoutenddate,@twofactorenabled, @firstname, @lastname)";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@name", user.UserName);

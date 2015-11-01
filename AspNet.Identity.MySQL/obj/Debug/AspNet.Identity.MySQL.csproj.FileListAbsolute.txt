@@ -6,3 +6,4 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\bin\Debug\Micro
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.csprojResolveAssemblyReference.cache
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.pdb
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\AspNet.Identity.MySQL\bin\Debug\MySql.Data.dll
