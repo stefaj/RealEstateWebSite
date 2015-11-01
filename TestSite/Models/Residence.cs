@@ -36,7 +36,7 @@ namespace TestSite
 
         public  Residence(int id)
         {
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnStr"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();

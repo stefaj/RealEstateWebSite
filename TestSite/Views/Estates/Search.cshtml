@@ -38,6 +38,10 @@
 
     var CityBox = React.createClass(
     {
+        change: function(event){
+            this.props.onSelection(event.target.value);
+        },
+
        render : function()
        {
 
@@ -50,8 +54,29 @@
               );
           });
         return(
-        <select ref="city" className="form-control" id="citiesSelect">
+        <select ref="city" className="form-control" id="citiesSelect" onChange={this.change}>
             {cities}                        
+        </select>
+        );
+       } 
+    });
+
+    var AreaBox = React.createClass(
+    {
+       render : function()
+       {
+
+        var areas = this.props.data.map(function (area)
+          {
+            return(
+              <option value={area.AreaId}>
+                {area.AreaName}
+              </option>
+              );
+          });
+        return(
+        <select ref="area" className="form-control" id="areasSelect">
+            {areas}                        
         </select>
         );
        } 
@@ -181,11 +206,11 @@
         {
             var data = {
                 searchStr: React.findDOMNode(this.refs.searchStr).value,
-                estateType: React.findDOMNode(this.refs.estateType).value,
                 priceRange: React.findDOMNode(this.refs.priceRange).value,
                 noBedrooms: React.findDOMNode(this.refs.noBedrooms).value,
                 noBathrooms: React.findDOMNode(this.refs.noBathrooms).value,
                 city: React.findDOMNode(this.refs.citybox.refs.city).value,
+                area: React.findDOMNode(this.refs.areabox.refs.area).value,
                 province: React.findDOMNode(this.refs.provincebox.refs.province).value
               };
             this.search(data);
@@ -209,6 +234,26 @@
 
           });
         },
+
+        getAreas : function(cityid)
+        {
+          this.setState({areas: [{"AreaId":-1,"AreaName":"Loading..."}] });
+          $.ajax(
+          {
+            url: '../Data/Areas',
+            dataType: 'json',
+            cache: false,
+            type: 'POST',
+            data: {city_id: cityid},
+            success: function(data)
+            {
+                var dataWithAny = [{"AreaId":-1,"AreaName":"Any"}].concat(data);
+              this.setState({areas: dataWithAny});
+            }.bind(this)
+
+          });
+        },
+
         getInitialState : function()
         {
             var data = {
@@ -216,13 +261,23 @@
               };
             this.search(data);
 
-            return {cities: [{"CityId":-1,"CityName":"Any"}]};
+            return {cities: [{"CityId":-1,"CityName":"Any"}],
+                    areas: [{"AreaId":-1,"AreaName":"Any"}]};
         },
 
         handleProvinceSelection : function(provinceid)
         {
+  
+
            this.getCities(provinceid);
         },
+
+        handleCitySelection : function(cityid)
+        {
+
+           this.getAreas(cityid);
+        },
+
         handleSubmit : function(e)
         {
             e.preventDefault();
@@ -282,9 +337,11 @@
                     <label>Province</label>
                     <ProvinceBox ref='provincebox' onSelection={this.handleProvinceSelection}/>
        
-
                     <label>City</label>
-                    <CityBox ref='citybox' data={this.state.cities} />
+                    <CityBox ref='citybox' data={this.state.cities} onSelection={this.handleCitySelection} />
+
+                    <label>Area</label>
+                    <AreaBox ref='areabox' data={this.state.areas} />
 
                 </div>
 

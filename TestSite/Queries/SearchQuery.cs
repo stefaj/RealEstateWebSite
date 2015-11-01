@@ -12,21 +12,21 @@ namespace TestSite
         MySqlConnection connection;
 
         public string[] Keywords { get; set; }
-        float PriceMin { get; set; }
-        float PriceMax { get; set; }
-        int BedroomsMin { get; set; }
-        int BedroomsMax { get; set; }
-        int BathroomsMin { get; set; }
-        int BathroomsMax { get; set; }
-        int GaragesMin { get; set; }
-        int GaragesMax { get; set; }
-        int PlotSizeMin { get; set; }
-        int PlotSizeMax { get; set; }
-        int HouseSizeMin { get; set; }
-        int HouseSizeMax { get; set; }
-        int ProvinceId { get; set; }
-        int City_Id { get; set; }
-        int Area_Id { get; set; }
+        public float PriceMin { get; set; }
+        public float PriceMax { get; set; }
+        public int BedroomsMin { get; set; }
+        public int BedroomsMax { get; set; }
+        public int BathroomsMin { get; set; }
+        public int BathroomsMax { get; set; }
+        public int GaragesMin { get; set; }
+        public int GaragesMax { get; set; }
+        public int PlotSizeMin { get; set; }
+        public int PlotSizeMax { get; set; }
+        public int HouseSizeMin { get; set; }
+        public int HouseSizeMax { get; set; }
+        public int ProvinceId { get; set; }
+        public int City_Id { get; set; }
+        public int Area_Id { get; set; }
 
         /// <summary>
         /// null for any
@@ -44,6 +44,7 @@ namespace TestSite
          
             ProvinceId = -1;
             City_Id = -1;
+            Area_Id = -1;
 
             const int MIN = 0;
             const int MAX = 50000000;
@@ -197,7 +198,7 @@ limit @limit;";
             command.Parameters.AddWithValue("@house_max", HouseSizeMax);
             command.Parameters.AddWithValue("@list_min", PriceMin);
             command.Parameters.AddWithValue("@list_max", PriceMax);
-          
+            command.Parameters.AddWithValue("@limit", 20);
 
             try
             {
