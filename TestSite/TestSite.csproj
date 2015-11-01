@@ -206,6 +206,7 @@
     <Content Include="Assets\Images\a21.png" />
     <Content Include="Assets\Images\b05.png" />
     <Content Include="Assets\Images\b21.png" />
+    <Content Include="Assets\Images\default-profile.png" />
     <Content Include="Assets\Images\Homes\1_banner.jpg" />
     <Content Include="Assets\Images\Homes\1_preview.jpg" />
     <Content Include="Assets\Images\Homes\2_banner.jpg" />
@@ -221,6 +222,7 @@
     <Content Include="Assets\Images\icon-bed.png" />
     <Content Include="Assets\Images\icon-drop.png" />
     <Content Include="Assets\Images\logo.png" />
+    <Content Include="Assets\Images\icon-price.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />

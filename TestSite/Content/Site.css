@@ -167,6 +167,34 @@ input[type="text"] {
 	position:absolute;
 	width:100%;
 }
+
+
+.property-item h3 {
+	/*color:#00943b;*/
+	margin-top:0;
+	position:relative;
+}
+
+.property-item h3 > span::after {
+    /*background-color: #00943b;*/
+    content: " ";
+    display: block;
+    height: 4px;
+    top: 30px;
+	position:absolute;
+	width:100%;
+}
+.property-item span {
+	position: relative;
+	font-size:18px;
+	font-weight: 400;
+}
+
+.property-item p {
+    line-height: 30px;
+}
+
+
 .property-heading span {
 	position: relative;
 	font-size:18px;
@@ -177,7 +205,9 @@ input[type="text"] {
     margin-top: 35px;
 }
 
-
+.property-price{
+    margin-bottom: 4px;
+}
 
 
 

@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
@@ -346,7 +347,20 @@ namespace TestSite.Controllers
                 searchQuery.City_Id = (int.Parse(postedValues["city"]));
             if (postedValues["area"] != null && postedValues["area"] != "" && postedValues["area"] != "Any")
                 searchQuery.Area_Id = (int.Parse(postedValues["area"]));
-
+            if (postedValues["area"] != null && postedValues["area"] != "" && postedValues["area"] != "Any")
+                searchQuery.Area_Id = (int.Parse(postedValues["area"]));
+            if(postedValues["noBedrooms"] != null)
+            {
+                searchQuery.BedroomsMin = int.Parse(postedValues["noBedrooms"]);
+            }
+            if (postedValues["noBathrooms"] != null)
+            {
+                searchQuery.BathroomsMin = int.Parse(postedValues["noBathrooms"]);
+            }
+            if (postedValues["noGarages"] != null)
+            {
+                searchQuery.GaragesMin = int.Parse(postedValues["noGarages"]);
+            }
             
 
             var res = searchQuery.GenerateResults();
@@ -380,7 +394,12 @@ namespace TestSite.Controllers
                 string imagePath = image;
                 string locationStr = string.Format("{0}, {1}", city, province);
               //  string contract = contracts[contractId];
-                string priceStr = string.Format("R {0}", price);
+
+                var nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
+                nfi.NumberGroupSeparator = " ";
+                string formatted = price.ToString("#,#", nfi); // "1 234 897.11"
+
+                string priceStr = string.Format("R {0}", formatted);
                 string location = streetname + " " + streetno.ToString();
 
                 Dictionary<string, string> propDic = new Dictionary<string, string>();
@@ -389,7 +408,7 @@ namespace TestSite.Controllers
                 propDic["link"] = link;
                 propDic["street"] = location;
                 propDic["city"] = locationStr;
-                propDic["price"] = price.ToString();
+                propDic["price"] = priceStr;
                 propDic["area"] = area.ToString();
                 propDic["bedrooms"] = no_bedrooms.ToString();
                 propDic["bathrooms"] = no_bathrooms.ToString();

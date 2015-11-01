@@ -89,22 +89,23 @@
             return (
                 <div className='col-lg-3 col-md-3 col-sm-6'>
                 <div className='propertyItem well'>
+                <div className='property-item'>
+                    <h3><span>{this.props.data.street.toUpperCase()}</span></h3>
+                    <p>{this.props.data.city}</p>
+                </div>
                     <div className='propertyContent'>
                         <a className='propertyType' href={this.props.data.link}>{1}</a>
                         <a className='propertyImgLink' href={this.props.data.link}>
                             <img className='propertyImg' src={this.props.data.image} />
                         </a>
-                     
-                        <p>{this.props.data.city}</p>
-                        <p>{this.props.data.street}</p>
-                        <div className='divider thin'></div>
-                        <p className='forSale'>{this.props.contract}</p>
-                        <p className='price'>{this.props.price}</p>
                     </div>
+                    <div className="property-price propertyDetails">
+                        <span><img  className='featureIco' src='/Assets/Images/icon-price.png'/>{this.props.data.price}</span>
+                    </div>
+                    <div className='divider thin'></div>
                     <table border='1' className='propertyDetails'>
                         <tbody>
                             <tr>
-
                                 <td><img className='featureIco' src='/Assets/Images/icon-area.png'  />{this.props.data.area}</td>
                                 <td><img className ='featureIco' src='/Assets/Images/icon-bed.png' />{this.props.data.bedrooms}</td>
                                 <td><img className ='featureIco' src='/Assets/Images/icon-drop.png' />{this.props.data.bathrooms}</td>
@@ -128,6 +129,9 @@
               <PropertyItem data={datum} />
               );
           });
+          if(this.props.data.length < 1)
+            properties = [];
+
           return(
             <div className="properties">
               {properties}
@@ -209,6 +213,7 @@
                 priceRange: React.findDOMNode(this.refs.priceRange).value,
                 noBedrooms: React.findDOMNode(this.refs.noBedrooms).value,
                 noBathrooms: React.findDOMNode(this.refs.noBathrooms).value,
+                noGarages: React.findDOMNode(this.refs.noGarages).value,
                 city: React.findDOMNode(this.refs.citybox.refs.city).value,
                 area: React.findDOMNode(this.refs.areabox.refs.area).value,
                 province: React.findDOMNode(this.refs.provincebox.refs.province).value
@@ -304,32 +309,42 @@
 
 
                 <div className="col-md-3">
-                    <label>Price range</label>
+                    <label>Maximum price</label>
                     <select ref="priceRange" className="form-control">
-                        <option>Any</option>
-                        <option>1mil-2mil</option>
-                        <option>2mil-4mil</option>
-                        <option>4mil and up</option>
+                        <option value="-1">Any</option>
+                        <option value="1000000">R1 000 000</option>
+                        <option value="2000000">R2 000 000</option>
+                        <option value="4000000">R4 000 000</option>
+                        <option value="8000000">R8 000 000</option>
                     </select>
                 </div>
 
                 <div className="col-md-3">
-                    <label>Bed rooms</label>
+                    <label>Minimum bedrooms</label>
                     <select ref="noBedrooms" className="form-control">
-                        <option>Any</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5+</option>
+                        <option value="-1">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
 
-                    <label>Bath rooms</label>
+                    <label>Minimum Bathrooms</label>
                     <select ref="noBathrooms" className="form-control">
-                        <option>Any</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3+</option>
+                        <option value="-1">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+
+                    <label>Minimum Car parking spaces</label>
+                    <select ref="noGarages" className="form-control">
+                        <option value="-1">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
                     </select>
                 </div>
 

@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -140,6 +141,8 @@ namespace TestSite.Controllers
             ViewBag.street_address = street_address;
             ViewBag.no_bathrooms = reader.GetInt32("Property_Bathroom_Count");
             ViewBag.no_bedrooms = reader.GetInt32("Property_Bedroom_Count");
+            ViewBag.no_garages = reader.GetInt32("Property_Garage_Count");
+            ViewBag.swimmingpool = reader.GetInt32("Property_hasPool") == 1 ? "True" : "False";
             ViewBag.area = reader.GetInt32("Property_Plot_Size");
             ViewBag.city_id = reader.GetInt32("City_Id");
             ViewBag.city = reader.GetString("City_Name");
@@ -154,7 +157,12 @@ namespace TestSite.Controllers
 
             //ViewBag.ImagePreview = reader.GetString("preview_image");
 
-            ViewBag.price = reader.GetFloat("List_Price");
+            float price = reader.GetFloat("List_Price");
+            var nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
+            nfi.NumberGroupSeparator = " ";
+            string formatted = price.ToString("#,#", nfi); // "1 234 897.11"
+            ViewBag.price = string.Format("R {0}", formatted);
+
             ViewBag.StreetView = string.Format("https://www.google.com/maps/embed/v1/streetview?location={0}%2C{1}&key={2}", ViewBag.lattitude, ViewBag.longitude, "AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo");
             ViewBag.Map = string.Format("https://www.google.com/maps/embed/v1/place?&q={0}&key=AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo", street_address);
             ViewBag.name = ViewBag.street_address;
@@ -193,6 +201,16 @@ namespace TestSite.Controllers
             reader = command.ExecuteReader();
 
             reader.Read();
+
+            string agent_image_url = "/Assets/Images/default-profile.png";
+            try
+            {
+                agent_image_url = reader.GetString("Agent_Image_URL");
+            }
+            catch
+            {
+                
+            }
             Agent agent = new Agent()
             {
                 Agent_Email = reader.GetString("Agent_Email"),
@@ -201,7 +219,10 @@ namespace TestSite.Controllers
                 Agent_Phone = reader.GetString("Agent_Phone"),
                 Agent_Surname = reader.GetString("Agent_Surname"),
                 Agent_Description = reader.GetString("Agent_Description"),
-                Image_URL = reader.GetString("Agent_Image_URL")
+                
+                Image_URL = agent_image_url
+                
+                
             };
 
 

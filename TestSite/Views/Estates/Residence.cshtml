@@ -209,12 +209,8 @@
     <table class="table table-bordered">
         <tbody>
             <tr>
-                <td><strong>ID</strong></td>
-                <td>#@ViewBag.id</td>
-            </tr>
-            <tr>
                 <td><strong>Price</strong></td>
-                <td>R @ViewBag.price</td>
+                <td>@ViewBag.price</td>
             </tr>
             <tr>
                 <td><strong>Location</strong></td>
@@ -227,6 +223,14 @@
             <tr>
                 <td><strong>Bedrooms</strong></td>
                 <td>@ViewBag.no_bedrooms</td>
+            </tr>
+            <tr>
+                <td><strong>Garages</strong></td>
+                <td>@ViewBag.no_garages</td>
+            </tr>
+            <tr>
+                <td><strong>Has swimming pool</strong></td>
+                <td>@ViewBag.swimmingpool</td>
             </tr>
             <tr>
                 <td><strong>Area</strong></td>
@@ -325,14 +329,18 @@
                     }
                     else
                     {
-                        <label>Send email from:</label><br>
-                        <label>@ViewBag.User.FullName</label><br>
-                        <label>@ViewBag.User.Email</label><br>
-                        <label>@ViewBag.User.PhoneNumber</label><br/>
+                        <div class="property-heading">
+                        <h2><span>SEND EMAIL FROM CURRENT ACCOUNT</span></h2>
+                        </div>
+
+                        <h4><span><a href="mailto:@ViewBag.User.Email" target="_top">@ViewBag.User.FullName</a>
+                            </span></h4>
+                        <span><a>@ViewBag.User.PhoneNumber</a></span><br/>
                         <input type="hidden" name="client_name" value="@ViewBag.User.FullName" />
                         <input type="hidden" name="client_email" value="@ViewBag.User.Email" />
                         <input type="hidden" name="client_phone" value="@ViewBag.User.PhoneNumber" />
                     }
+                    </br>
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea name="body" class="form-control input-lg" rows="7" placeholder="Type a message : "></textarea>
