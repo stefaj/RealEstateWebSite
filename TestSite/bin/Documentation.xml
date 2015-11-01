@@ -55,6 +55,11 @@
             Insert comments like this yah
             </summary>
         </member>
+        <member name="P:TestSite.SearchQuery.HasPool">
+            <summary>
+            null for any
+            </summary>
+        </member>
         <member name="T:TestSite.TableBuilder">
             <summary>
             Helper class to generate HTML for table
