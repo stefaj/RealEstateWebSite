@@ -103,19 +103,28 @@ namespace TestSite.Controllers
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "Select * from City, Area where province_id=@province_id and Area_City_ID=City_ID order by city_name asc";
+            command.CommandText = "Select * from City, Area where City_Province_Id=@province_id and Area_City_ID=City_ID order by city_name asc";
             command.Parameters.AddWithValue("@province_id", province_id);
 
-            MySqlDataReader reader = command.ExecuteReader();
+            MySqlDataReader reader = null;
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             while(reader.Read())
             {
                 int city_id = reader.GetInt32("city_id");
                 string city_name = reader.GetString("city_name");
-                //float longitude = reader.GetFloat("longitude"); 
-                //float lattitude = reader.GetFloat("lattitude");
-                float longitude = 0;
-                float lattitude = 0;
+                float longitude = reader.GetFloat("City_Longitude");
+                float lattitude = reader.GetFloat("City_Latitude");
+              //  float longitude = 0;
+              //  float lattitude = 0;
 
                 cities.Add(new City() { Longitude = longitude, CityId = city_id, CityName = city_name, Lattitude = lattitude });
 
@@ -123,6 +132,62 @@ namespace TestSite.Controllers
             }
 
             string json = JsonConvert.SerializeObject(cities.ToArray());
+
+            Response.Clear();
+            Response.ContentType = "application/json; charset=utf-8";
+            Response.Write(json);
+
+            Response.End();
+
+            return View();
+        }
+
+
+
+        //
+        // GET: /Data/
+        public ActionResult Areas()
+        {
+            List<Area> areas = new List<Area>();
+
+            var post = Request.Form;
+            var get = Request.QueryString;
+
+            string city_id = post["city_id"];
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            connection.Open();
+
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "Select * from Area where Area_City_ID=@city_id order by Area_Name asc";
+            command.Parameters.AddWithValue("@city_id", city_id);
+
+            MySqlDataReader reader = null;
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            while (reader.Read())
+            {
+                int area_id = reader.GetInt32("Area_ID");
+                string area_name = reader.GetString("Area_Name");
+                // float longitude = reader.GetFloat("longitude");
+                // float lattitude = reader.GetFloat("lattitude");
+                  float longitude = 0;
+                  float lattitude = 0;
+
+                  areas.Add(new Area() { Longitude = longitude, AreaId = area_id, AreaName = area_name, Lattitude = lattitude });
+
+
+            }
+
+            string json = JsonConvert.SerializeObject(areas.ToArray());
 
             Response.Clear();
             Response.ContentType = "application/json; charset=utf-8";
@@ -259,7 +324,7 @@ namespace TestSite.Controllers
 
             System.Collections.Specialized.NameValueCollection postedValues = Request.Form;
 
-            if (postedValues["SearchStr"] != null)
+            if (postedValues["SearchStr"] != null && postedValues["SearchStr"].Length > 0)
             {
                 searchQuery.SetKeywords(postedValues["searchStr"]);
                 ViewBag.SearchStr = postedValues["searchStr"];
@@ -267,10 +332,12 @@ namespace TestSite.Controllers
             }
             if (postedValues["province"] != null && postedValues["province"] != "" && postedValues["province"] != "Any")
             {
-                searchQuery.SetProvince(int.Parse(postedValues["province"]));
+                searchQuery.ProvinceId = (int.Parse(postedValues["province"]));
             }
             if (postedValues["city"] != null && postedValues["city"] != "" && postedValues["city"] != "Any")
-                searchQuery.SetCity(int.Parse(postedValues["city"]));
+                searchQuery.City_Id = (int.Parse(postedValues["city"]));
+            if (postedValues["area"] != null && postedValues["area"] != "" && postedValues["area"] != "Any")
+                searchQuery.Area_Id = (int.Parse(postedValues["area"]));
 
             
 
