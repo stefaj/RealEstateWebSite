@@ -261,13 +261,32 @@
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="map">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="1140" height="450" frameborder="0" style="border:0" src="@ViewBag.Map" allowfullscreen></iframe>
+                    <iframe width="1140" height="500" frameborder="0" style="border:0" src="@ViewBag.Map" allowfullscreen></iframe>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="streetview">
+            <div role="tabpanel" class="tab-pane" id="streetview" style="height: 700px;">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="1140" height="450" frameborder="0" style="border:0" src="@ViewBag.StreetView" allowfullscreen></iframe>
+                    <iframe width="1140" height="500" frameborder="0" style="border:0" src="@ViewBag.StreetView" allowfullscreen></iframe>
                 </div>
+
+
+             <!--   <div id="street-view" style="height: 700px;"></div>
+                <script>
+                    var panorama;
+                    function initialize() {
+                      panorama = new google.maps.StreetViewPanorama(
+                          document.getElementById('street-view'),
+                          {
+                            position: {lat: @ViewBag.Lattitude, lng: @ViewBag.Longitude},
+                            pov: {heading: 165, pitch: 0},
+                            zoom: 1
+                          });
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo&signed_in=true&callback=initialize">
+                </script>
+                 -->
             </div>
 
         </div>
@@ -300,7 +319,7 @@
                     <div id="agent_descript">
                         <h3>@ViewBag.agent.Agent_FullName</h3>
                         <p>
-                            <i class="fa fa-phone"></i> Office : @ViewBag.agent.Agent_PhoneString<br>
+                            <i class="fa fa-phone"></i> Phone number : @ViewBag.agent.Agent_PhoneString<br>
                         </p>
                         <p>
                             @ViewBag.agent.Agent_Description
@@ -323,7 +342,7 @@
                         <input name="client_email" type="email" class="form-control input-lg" placeholder="Enter email : ">
                     </div>
                     <div class="form-group">
-                        <label for="telp">Telp.</label>
+                        <label for="telp">Phone number</label>
                         <input name="client_phone" type="text" class="form-control input-lg" placeholder="Enter phone number : ">
                     </div>
                     }

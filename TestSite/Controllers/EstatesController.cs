@@ -187,6 +187,7 @@ namespace RealEstateCompanyWebSite.Controllers
             string formatted = price.ToString("#,#", nfi); // "1 234 897.11"
             ViewBag.price = string.Format("R {0}", formatted);
 
+            //ViewBag.StreetView = string.Format("https://www.google.com/maps/embed/v1/streetview?location={0}&key={1}", street_address, "AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo");
             ViewBag.StreetView = string.Format("https://www.google.com/maps/embed/v1/streetview?location={0}%2C{1}&key={2}", ViewBag.lattitude, ViewBag.longitude, "AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo");
             ViewBag.Map = string.Format("https://www.google.com/maps/embed/v1/place?&q={0}&key=AIzaSyDlnvQdhrcHR6dv2UyyVmzWT_pzaPcmwTo", street_address);
             ViewBag.name = ViewBag.street_address;

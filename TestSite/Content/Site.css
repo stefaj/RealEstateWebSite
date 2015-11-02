@@ -209,7 +209,9 @@ input[type="text"] {
     margin-bottom: 4px;
 }
 
-
+#street-view{
+    height: 600px;
+}
 
 
 
