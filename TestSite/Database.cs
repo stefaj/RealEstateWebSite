@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace TestSite
+namespace RealEstateCompanyWebSite
 {
     /// <summary>
     /// Helper class for db connections

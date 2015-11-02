@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(TestSite.Startup))]
-namespace TestSite
+[assembly: OwinStartupAttribute(typeof(RealEstateCompanyWebSite.Startup))]
+namespace RealEstateCompanyWebSite
 {
     /// <summary>
     /// Main startup class for app

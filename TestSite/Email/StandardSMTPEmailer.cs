@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Web;
 
-namespace TestSite.Email
+namespace RealEstateCompanyWebSite.Email
 {
     /// <summary>
     /// Simple email client that sends an email message through SMTP

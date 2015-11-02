@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNet.Identity;
+using RealEstateCompanyWebSite.SQL.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace AspNet.Identity.MySQL
+namespace RealEstateCompanyWebSite.SQL
 {
     /// <summary>
     /// Class that implements the key ASP.NET Identity user store iterfaces

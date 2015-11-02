@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TestSite.Models
+namespace RealEstateCompanyWebSite.Models
 {
     /// <summary>
     /// Represents username of an external login service

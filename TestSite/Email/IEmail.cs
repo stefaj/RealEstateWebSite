@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestSite.Email
+namespace RealEstateCompanyWebSite.Email
 {
     /// <summary>
     /// Interface for sending mail messages

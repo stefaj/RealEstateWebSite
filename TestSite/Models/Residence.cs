@@ -1,12 +1,11 @@
-﻿using AspNet.Identity.MySQL;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
 
-namespace TestSite.Models
+namespace RealEstateCompanyWebSite.Models
 {
     /// <summary>
     /// Model of residence in DB

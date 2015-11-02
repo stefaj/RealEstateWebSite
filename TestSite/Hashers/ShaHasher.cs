@@ -3,7 +3,7 @@ using System.Text;
 using System.Security.Cryptography;
 using Microsoft.AspNet.Identity;
 
-namespace TestSite.Hashers
+namespace RealEstateCompanyWebSite.Hashers
 {
     /// <summary>
     /// Generates hashes using PBKDF2 Sha1

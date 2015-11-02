@@ -1,12 +1,12 @@
-﻿using AspNet.Identity.MySQL;
+﻿using RealEstateCompanyWebSite.SQL;
 using System.Data.Entity;
 
-namespace TestSite.Models
+namespace RealEstateCompanyWebSite.Models
 {
     
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     /// <summary>
-    /// Drunk and drugs
+    /// Application user
     /// </summary>
     public class ApplicationUser : IdentityUser
     {

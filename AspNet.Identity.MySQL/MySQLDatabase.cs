@@ -5,7 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Threading;
 
-namespace AspNet.Identity.MySQL
+namespace RealEstateCompanyWebSite.SQL
 {
      /// <summary>
      /// Class that encapsulates a MySQL database connections 

@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>TestSite</name>
+        <name>RealEstateCompanyWebSite</name>
     </assembly>
     <members>
-        <member name="T:TestSite.BundleConfig">
+        <member name="T:RealEstateCompanyWebSite.BundleConfig">
             <summary>
             Bundles and minifies scripts
             </summary>
         </member>
-        <member name="T:TestSite.FilterConfig">
+        <member name="T:RealEstateCompanyWebSite.FilterConfig">
             <summary>
             Filter
             </summary>
         </member>
-        <member name="T:TestSite.RouteConfig">
+        <member name="T:RealEstateCompanyWebSite.RouteConfig">
             <summary>
             Route
             </summary>
         </member>
-        <member name="T:TestSite.Startup">
+        <member name="T:RealEstateCompanyWebSite.Startup">
             <summary>
             Startup
             </summary>
@@ -27,41 +27,41 @@
             Main startup class for app
             </summary>
         </member>
-        <member name="M:TestSite.Startup.Configuration(Owin.IAppBuilder)">
+        <member name="M:RealEstateCompanyWebSite.Startup.Configuration(Owin.IAppBuilder)">
             <summary>
             Configures the application
             </summary>
             <param name="app"></param>
         </member>
-        <member name="T:TestSite.WebApiConfig">
+        <member name="T:RealEstateCompanyWebSite.WebApiConfig">
             <summary>
             Configuration manager
             </summary>
         </member>
-        <member name="T:TestSite.Controllers.AccountController">
+        <member name="T:RealEstateCompanyWebSite.Controllers.AccountController">
             <summary> 
             Controls output for login
             </summary>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.#ctor">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.#ctor">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.#ctor(Microsoft.AspNet.Identity.UserManager{TestSite.Models.ApplicationUser})">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.#ctor(Microsoft.AspNet.Identity.UserManager{RealEstateCompanyWebSite.Models.ApplicationUser})">
             <summary>
             Constructor
             </summary>
             <param name="userManager"></param>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.Login(System.String)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.Login(System.String)">
             <summary>
             Performs login
             </summary>
             <param name="returnUrl"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.Login(TestSite.Models.LoginViewModel,System.String)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.Login(RealEstateCompanyWebSite.Models.LoginViewModel,System.String)">
             <summary>
             Async login
             </summary>
@@ -69,20 +69,20 @@
             <param name="returnUrl"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.Register">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.Register">
             <summary>
             Register
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.Register(TestSite.Models.RegisterViewModel)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.Register(RealEstateCompanyWebSite.Models.RegisterViewModel)">
             <summary>
             Post async register
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.Disassociate(System.String,System.String)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.Disassociate(System.String,System.String)">
             <summary>
             Dissaciate from login
             </summary>
@@ -90,21 +90,21 @@
             <param name="providerKey"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.Manage(System.Nullable{TestSite.Controllers.AccountController.ManageMessageId})">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.Manage(System.Nullable{RealEstateCompanyWebSite.Controllers.AccountController.ManageMessageId})">
             <summary>
             Change password
             </summary>
             <param name="message"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.Manage(TestSite.Models.ManageUserViewModel)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.Manage(RealEstateCompanyWebSite.Models.ManageUserViewModel)">
             <summary>
             Async post change password
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.ExternalLogin(System.String,System.String)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.ExternalLogin(System.String,System.String)">
             <summary>
             External login. Not used
             </summary>
@@ -112,27 +112,27 @@
             <param name="returnUrl"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.ExternalLoginCallback(System.String)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.ExternalLoginCallback(System.String)">
             <summary>
             Exterval login callback.
             </summary>
             <param name="returnUrl"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.LinkLogin(System.String)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.LinkLogin(System.String)">
             <summary>
             Links external logins
             </summary>
             <param name="provider"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.LinkLoginCallback">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.LinkLoginCallback">
             <summary>
             Callback for linking of external login
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.ExternalLoginConfirmation(TestSite.Models.ExternalLoginConfirmationViewModel,System.String)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.ExternalLoginConfirmation(RealEstateCompanyWebSite.Models.ExternalLoginConfirmationViewModel,System.String)">
             <summary>
             Confirmation if external login was successfull
             </summary>
@@ -140,46 +140,46 @@
             <param name="returnUrl"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.LogOff">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.LogOff">
             <summary>
             Logout
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.ExternalLoginFailure">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.ExternalLoginFailure">
             <summary>
             Failure of external login
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.RemoveAccountList">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.RemoveAccountList">
             <summary>
             Remove account list
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.AccountController.Dispose(System.Boolean)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.AccountController.Dispose(System.Boolean)">
             <summary>
             Dispose
             </summary>
             <param name="disposing"></param>
         </member>
-        <member name="P:TestSite.Controllers.AccountController.UserManager">
+        <member name="P:RealEstateCompanyWebSite.Controllers.AccountController.UserManager">
             <summary>
             User manager
             </summary>
         </member>
-        <member name="T:TestSite.Controllers.AccountController.ManageMessageId">
+        <member name="T:RealEstateCompanyWebSite.Controllers.AccountController.ManageMessageId">
             <summary>
             Password change status
             </summary>
         </member>
-        <member name="T:TestSite.Controllers.DataController">
+        <member name="T:RealEstateCompanyWebSite.Controllers.DataController">
             <summary>
             This class poses a JSON API to get data from the database
             </summary>
         </member>
-        <member name="M:TestSite.Controllers.DataController.EnumerateTable(System.String,System.String,System.String)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.EnumerateTable(System.String,System.String,System.String)">
             <summary>
             Returns all column entries for a specified table
             </summary>
@@ -187,111 +187,111 @@
             <param name="columnName">Name of table to return</param>
             <returns>Returns columnName from tableName</returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.GetProvinces">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.GetProvinces">
             <summary>
             Returns a dictionary of provinces
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.GetProvincesArr">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.GetProvincesArr">
             <summary>
             Returns a list of provinces from the provinces table
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.Cities">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.Cities">
             <summary>
             Returns all cities for a given provinces as a JSON array
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.Areas">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.Areas">
             <summary>
             Returns all areas for a given city as a JSON array
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.SendEmail">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.SendEmail">
             <summary>
             Calling this will send an email for the interested buyer to an agent with the parameters specified in post
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.SendEmailContact">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.SendEmailContact">
             <summary>
             Calling this will send an email to a specified agent for a general query
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.Search">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.Search">
             <summary>
             Searches for properties based on features, location and keywords that are given via post parameters.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.DataController.GetCurrentUser">
+        <member name="M:RealEstateCompanyWebSite.Controllers.DataController.GetCurrentUser">
             <summary>
             Returns the logged in user
             </summary>
             <returns></returns>
         </member>
-        <member name="T:TestSite.Controllers.HomeController">
+        <member name="T:RealEstateCompanyWebSite.Controllers.HomeController">
             <summary>
             Controls output for home page
             </summary>
         </member>
-        <member name="M:TestSite.Controllers.HomeController.Index">
+        <member name="M:RealEstateCompanyWebSite.Controllers.HomeController.Index">
             <summary>
             Returns the index view
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.HomeController.About">
+        <member name="M:RealEstateCompanyWebSite.Controllers.HomeController.About">
             <summary>
             Returns the about view
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.HomeController.Contact">
+        <member name="M:RealEstateCompanyWebSite.Controllers.HomeController.Contact">
             <summary>
             Returns the contact view and lists all agents
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Index">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Index">
             <summary>
             Returns index
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Details(System.Int32)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Details(System.Int32)">
             <summary>
             Returns details
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Estates">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Estates">
             <summary>
             Returns estates
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Create(System.Web.Mvc.FormCollection)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Create(System.Web.Mvc.FormCollection)">
             <summary>
             Nothing
             </summary>
             <param name="collection"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Edit(System.Int32)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Edit(System.Int32)">
             <summary>
             Nothing
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Edit(System.Int32,System.Web.Mvc.FormCollection)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Edit(System.Int32,System.Web.Mvc.FormCollection)">
             <summary>
             Nothing
             </summary>
@@ -299,26 +299,26 @@
             <param name="collection"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Delete(System.Int32)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Delete(System.Int32)">
             <summary>
             Nothing
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Search">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Search">
             <summary>
             Searches for a property given the required post parameters
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Residence">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Residence">
             <summary>
             Lists a residence for a specific id
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Delete(System.Int32,System.Web.Mvc.FormCollection)">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Delete(System.Int32,System.Web.Mvc.FormCollection)">
             <summary>
             Nothing
             </summary>
@@ -326,102 +326,102 @@
             <param name="collection"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Controllers.EstatesController.Cities">
+        <member name="M:RealEstateCompanyWebSite.Controllers.EstatesController.Cities">
             <summary>
             Nothing
             </summary>
             <returns></returns>
         </member>
-        <member name="T:TestSite.DatabaseConnection">
+        <member name="T:RealEstateCompanyWebSite.DatabaseConnection">
             <summary>
             Helper class for db connections
             </summary>
         </member>
-        <member name="M:TestSite.DatabaseConnection.#ctor(System.String)">
+        <member name="M:RealEstateCompanyWebSite.DatabaseConnection.#ctor(System.String)">
             <summary>
             Constructor
             </summary>
             <param name="connectionString"></param>
         </member>
-        <member name="M:TestSite.DatabaseConnection.Reopen">
+        <member name="M:RealEstateCompanyWebSite.DatabaseConnection.Reopen">
             <summary>
             Opens the mysql connection
             </summary>
         </member>
-        <member name="M:TestSite.DatabaseConnection.Close">
+        <member name="M:RealEstateCompanyWebSite.DatabaseConnection.Close">
             <summary>
             Closes the mysql connection
             </summary>
         </member>
-        <member name="M:TestSite.DatabaseConnection.PrepareCommand">
+        <member name="M:RealEstateCompanyWebSite.DatabaseConnection.PrepareCommand">
             <summary>
             Creates a mysql command
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TestSite.DatabaseConnection.Query(MySql.Data.MySqlClient.MySqlCommand)">
+        <member name="M:RealEstateCompanyWebSite.DatabaseConnection.Query(MySql.Data.MySqlClient.MySqlCommand)">
             <summary>
             Runs a mysqlcommand
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.DatabaseConnection.Query(System.String)">
+        <member name="M:RealEstateCompanyWebSite.DatabaseConnection.Query(System.String)">
             <summary>
             Returns a reader for a sql query
             </summary>
             <param name="query"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.DatabaseConnection.QueryYield(System.String)">
+        <member name="M:RealEstateCompanyWebSite.DatabaseConnection.QueryYield(System.String)">
             <summary>
             Lazy query
             </summary>
             <param name="qry"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.DatabaseConnection.Escape(System.String)">
+        <member name="M:RealEstateCompanyWebSite.DatabaseConnection.Escape(System.String)">
             <summary>
             Escape a string properly
             </summary>
             <param name="usString"></param>
             <returns></returns>
         </member>
-        <member name="T:TestSite.Email.IEmail">
+        <member name="T:RealEstateCompanyWebSite.Email.IEmail">
             <summary>
             Interface for sending mail messages
             </summary>
         </member>
-        <member name="M:TestSite.Email.IEmail.Send(System.Net.Mail.MailMessage)">
+        <member name="M:RealEstateCompanyWebSite.Email.IEmail.Send(System.Net.Mail.MailMessage)">
             <summary>
             Sends a mail message
             </summary>
             <param name="msg"></param>
         </member>
-        <member name="T:TestSite.Email.StandardSMTPEmailer">
+        <member name="T:RealEstateCompanyWebSite.Email.StandardSMTPEmailer">
             <summary>
             Simple email client that sends an email message through SMTP
             </summary>
         </member>
-        <member name="M:TestSite.Email.StandardSMTPEmailer.Send(System.Net.Mail.MailMessage)">
+        <member name="M:RealEstateCompanyWebSite.Email.StandardSMTPEmailer.Send(System.Net.Mail.MailMessage)">
             <summary>
             Sends a MailMessage through SMTP using the default parameters in the configuration manager
             </summary>
             <param name="msg"></param>
         </member>
-        <member name="T:TestSite.Hashers.PlainTextHasher">
+        <member name="T:RealEstateCompanyWebSite.Hashers.PlainTextHasher">
             <summary>
             Simple password hasher that returns plain text
             </summary>
         </member>
-        <member name="M:TestSite.Hashers.PlainTextHasher.HashPassword(System.String)">
+        <member name="M:RealEstateCompanyWebSite.Hashers.PlainTextHasher.HashPassword(System.String)">
             <summary>
             Returns password
             </summary>
             <param name="password"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Hashers.PlainTextHasher.VerifyHashedPassword(System.String,System.String)">
+        <member name="M:RealEstateCompanyWebSite.Hashers.PlainTextHasher.VerifyHashedPassword(System.String,System.String)">
             <summary>
             Returns whether the two password match
             </summary>
@@ -429,49 +429,49 @@
             <param name="providedPassword"></param>
             <returns></returns>
         </member>
-        <member name="T:TestSite.Hashers.PBKDF2Sha1Hasher">
+        <member name="T:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher">
             <summary>
             Generates hashes using PBKDF2 Sha1
             </summary>
         </member>
-        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.SALT_BYTE_SIZE">
+        <member name="F:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.SALT_BYTE_SIZE">
             <summary>
             Number of bytes for salt
             </summary>
         </member>
-        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.HASH_BYTE_SIZE">
+        <member name="F:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.HASH_BYTE_SIZE">
             <summary>
             Number of bytes for hash
             </summary>
         </member>
-        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.PBKDF2_ITERATIONS">
+        <member name="F:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.PBKDF2_ITERATIONS">
             <summary>
             Number of iterations for PBKDF2
             </summary>
         </member>
-        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.ITERATION_INDEX">
+        <member name="F:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.ITERATION_INDEX">
             <summary>
             Index of iteration
             </summary>
         </member>
-        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.SALT_INDEX">
+        <member name="F:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.SALT_INDEX">
             <summary>
             Location of salt
             </summary>
         </member>
-        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.PBKDF2_INDEX">
+        <member name="F:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.PBKDF2_INDEX">
             <summary>
             Location of hash
             </summary>
         </member>
-        <member name="M:TestSite.Hashers.PBKDF2Sha1Hasher.CreateHash(System.String)">
+        <member name="M:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.CreateHash(System.String)">
             <summary>
             Creates a hash for the given password
             </summary>
             <param name="password"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Hashers.PBKDF2Sha1Hasher.ValidatePassword(System.String,System.String)">
+        <member name="M:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.ValidatePassword(System.String,System.String)">
             <summary>
             Returns true if the passwords match
             </summary>
@@ -479,14 +479,14 @@
             <param name="correctHash">Hashed password</param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Hashers.PBKDF2Sha1Hasher.HashPassword(System.String)">
+        <member name="M:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.HashPassword(System.String)">
             <summary>
             Interface function for hashing password. Returns hashed password
             </summary>
             <param name="password"></param>
             <returns></returns>
         </member>
-        <member name="M:TestSite.Hashers.PBKDF2Sha1Hasher.VerifyHashedPassword(System.String,System.String)">
+        <member name="M:RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher.VerifyHashedPassword(System.String,System.String)">
             <summary>
             Interface function for hashing password. Returns whether the password match
             </summary>
@@ -494,449 +494,449 @@
             <param name="providedPassword">Plaintext password</param>
             <returns>PasswordVerificationResult.Success if passwords match else PasswordVerificationResult.Failed </returns>
         </member>
-        <member name="T:TestSite.Models.ExternalLoginConfirmationViewModel">
+        <member name="T:RealEstateCompanyWebSite.Models.ExternalLoginConfirmationViewModel">
             <summary>
             Represents username of an external login service
             </summary>
         </member>
-        <member name="P:TestSite.Models.ExternalLoginConfirmationViewModel.UserName">
+        <member name="P:RealEstateCompanyWebSite.Models.ExternalLoginConfirmationViewModel.UserName">
             <summary>
             Username
             </summary>
         </member>
-        <member name="T:TestSite.Models.ManageUserViewModel">
+        <member name="T:RealEstateCompanyWebSite.Models.ManageUserViewModel">
             <summary>
             Model for changing user password
             </summary>
         </member>
-        <member name="P:TestSite.Models.ManageUserViewModel.OldPassword">
+        <member name="P:RealEstateCompanyWebSite.Models.ManageUserViewModel.OldPassword">
             <summary>
             Previous password
             </summary>
         </member>
-        <member name="P:TestSite.Models.ManageUserViewModel.NewPassword">
+        <member name="P:RealEstateCompanyWebSite.Models.ManageUserViewModel.NewPassword">
             <summary>
             New password
             </summary>
         </member>
-        <member name="P:TestSite.Models.ManageUserViewModel.ConfirmPassword">
+        <member name="P:RealEstateCompanyWebSite.Models.ManageUserViewModel.ConfirmPassword">
             <summary>
             Verification of new password
             </summary>
         </member>
-        <member name="T:TestSite.Models.LoginViewModel">
+        <member name="T:RealEstateCompanyWebSite.Models.LoginViewModel">
             <summary>
             Model used for login
             </summary>
         </member>
-        <member name="P:TestSite.Models.LoginViewModel.UserName">
+        <member name="P:RealEstateCompanyWebSite.Models.LoginViewModel.UserName">
             <summary>
             Username
             </summary>
         </member>
-        <member name="P:TestSite.Models.LoginViewModel.Password">
+        <member name="P:RealEstateCompanyWebSite.Models.LoginViewModel.Password">
             <summary>
             Password
             </summary>
         </member>
-        <member name="P:TestSite.Models.LoginViewModel.RememberMe">
+        <member name="P:RealEstateCompanyWebSite.Models.LoginViewModel.RememberMe">
             <summary>
             Remember session
             </summary>
         </member>
-        <member name="T:TestSite.Models.RegisterViewModel">
+        <member name="T:RealEstateCompanyWebSite.Models.RegisterViewModel">
             <summary>
             Model used for registration
             </summary>
         </member>
-        <member name="P:TestSite.Models.RegisterViewModel.UserName">
+        <member name="P:RealEstateCompanyWebSite.Models.RegisterViewModel.UserName">
             <summary>
             Username
             </summary>
         </member>
-        <member name="P:TestSite.Models.RegisterViewModel.FirstName">
+        <member name="P:RealEstateCompanyWebSite.Models.RegisterViewModel.FirstName">
             <summary>
             First name of user
             </summary>
         </member>
-        <member name="P:TestSite.Models.RegisterViewModel.LastName">
+        <member name="P:RealEstateCompanyWebSite.Models.RegisterViewModel.LastName">
             <summary>
             Last name of user
             </summary>
         </member>
-        <member name="P:TestSite.Models.RegisterViewModel.PhoneNumber">
+        <member name="P:RealEstateCompanyWebSite.Models.RegisterViewModel.PhoneNumber">
             <summary>
             Phone number of user
             </summary>
         </member>
-        <member name="P:TestSite.Models.RegisterViewModel.Email">
+        <member name="P:RealEstateCompanyWebSite.Models.RegisterViewModel.Email">
             <summary>
             Email of user
             </summary>
         </member>
-        <member name="P:TestSite.Models.RegisterViewModel.Password">
+        <member name="P:RealEstateCompanyWebSite.Models.RegisterViewModel.Password">
             <summary>
             Password of user
             </summary>
         </member>
-        <member name="P:TestSite.Models.RegisterViewModel.ConfirmPassword">
+        <member name="P:RealEstateCompanyWebSite.Models.RegisterViewModel.ConfirmPassword">
             <summary>
             Confirmation password
             </summary>
         </member>
-        <member name="T:TestSite.Models.Agent">
+        <member name="T:RealEstateCompanyWebSite.Models.Agent">
             <summary>
             Model of agent
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Agent_Id">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Agent_Id">
             <summary>
             Id of agent
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Agent_Name">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Agent_Name">
             <summary>
             First name of agent
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Agent_Surname">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Agent_Surname">
             <summary>
             Last name of agent
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Agent_Phone">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Agent_Phone">
             <summary>
             Main phone number of agent
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Agent_Email">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Agent_Email">
             <summary>
             Email of agent
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Agent_Description">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Agent_Description">
             <summary>
             Short description of agent
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Image_URL">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Image_URL">
             <summary>
             Profile image of agent
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Agent_FullName">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Agent_FullName">
             <summary>
             Full name of agent (includes first and last name)
             </summary>
         </member>
-        <member name="P:TestSite.Models.Agent.Agent_PhoneString">
+        <member name="P:RealEstateCompanyWebSite.Models.Agent.Agent_PhoneString">
             <summary>
             Readable phone number of agent
             </summary>
         </member>
-        <member name="T:TestSite.Models.Area">
+        <member name="T:RealEstateCompanyWebSite.Models.Area">
             <summary>
             Model of area
             </summary>
         </member>
-        <member name="P:TestSite.Models.Area.AreaId">
+        <member name="P:RealEstateCompanyWebSite.Models.Area.AreaId">
             <summary>
             Id of area
             </summary>
         </member>
-        <member name="P:TestSite.Models.Area.AreaName">
+        <member name="P:RealEstateCompanyWebSite.Models.Area.AreaName">
             <summary>
             Name of area
             </summary>
         </member>
-        <member name="P:TestSite.Models.Area.Longitude">
+        <member name="P:RealEstateCompanyWebSite.Models.Area.Longitude">
             <summary>
             Longitude of area
             </summary>
         </member>
-        <member name="P:TestSite.Models.Area.Lattitude">
+        <member name="P:RealEstateCompanyWebSite.Models.Area.Lattitude">
             <summary>
             Latitude of area
             </summary>
         </member>
-        <member name="T:TestSite.Models.City">
+        <member name="T:RealEstateCompanyWebSite.Models.City">
             <summary>
             Model of city
             </summary>
         </member>
-        <member name="P:TestSite.Models.City.CityId">
+        <member name="P:RealEstateCompanyWebSite.Models.City.CityId">
             <summary>
             Id of city
             </summary>
         </member>
-        <member name="P:TestSite.Models.City.CityName">
+        <member name="P:RealEstateCompanyWebSite.Models.City.CityName">
             <summary>
             Name of city
             </summary>
         </member>
-        <member name="P:TestSite.Models.City.Longitude">
+        <member name="P:RealEstateCompanyWebSite.Models.City.Longitude">
             <summary>
             Longitude of city
             </summary>
         </member>
-        <member name="P:TestSite.Models.City.Lattitude">
+        <member name="P:RealEstateCompanyWebSite.Models.City.Lattitude">
             <summary>
             Latitude of city
             </summary>
         </member>
-        <member name="T:TestSite.Models.Province">
+        <member name="T:RealEstateCompanyWebSite.Models.Province">
             <summary>
             Model of province
             </summary>
         </member>
-        <member name="P:TestSite.Models.Province.ProvinceId">
+        <member name="P:RealEstateCompanyWebSite.Models.Province.ProvinceId">
             <summary>
             Id of province
             </summary>
         </member>
-        <member name="P:TestSite.Models.Province.ProvinceName">
+        <member name="P:RealEstateCompanyWebSite.Models.Province.ProvinceName">
             <summary>
             Name of province
             </summary>
         </member>
-        <member name="T:TestSite.Queries.IQuery">
+        <member name="T:RealEstateCompanyWebSite.Queries.IQuery">
             <summary>
             Basic interface for advanced queries
             </summary>
         </member>
-        <member name="M:TestSite.Queries.IQuery.GenerateResults">
+        <member name="M:RealEstateCompanyWebSite.Queries.IQuery.GenerateResults">
             <summary>
             This function returns the results of the query
             </summary>
             <returns></returns>
         </member>
-        <member name="T:TestSite.Models.Residence">
+        <member name="T:RealEstateCompanyWebSite.Models.Residence">
             <summary>
             Model of residence in DB
             </summary>
         </member>
-        <member name="M:TestSite.Models.Residence.#ctor">
+        <member name="M:RealEstateCompanyWebSite.Models.Residence.#ctor">
             <summary>
             Constructor for empty residence
             </summary>
         </member>
-        <member name="M:TestSite.Models.Residence.#ctor(System.Int32)">
+        <member name="M:RealEstateCompanyWebSite.Models.Residence.#ctor(System.Int32)">
             <summary>
             Build residence from DB from given id
             </summary>
             <param name="id"></param>
         </member>
-        <member name="P:TestSite.Models.Residence.Id">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.Id">
             <summary>
             Id of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.Name">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.Name">
             <summary>
             Name of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.StreetAddress">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.StreetAddress">
             <summary>
             Street address of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.NoBathrooms">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.NoBathrooms">
             <summary>
             Number of bathrooms
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.NoBedrooms">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.NoBedrooms">
             <summary>
             Number of bedrooms
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.Area">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.Area">
             <summary>
             Plot area of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.CityId">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.CityId">
             <summary>
             Id of city in which property resides
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.ProvinceId">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.ProvinceId">
             <summary>
             Id province in which property resides
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.CityName">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.CityName">
             <summary>
             Name of city in which property resides
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.ProvinceName">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.ProvinceName">
             <summary>
             Name of property in which property resides
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.PostalCode">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.PostalCode">
             <summary>
             Postal code of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.Description">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.Description">
             <summary>
             Short description of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.Longitude">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.Longitude">
             <summary>
             Longitude of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.Lattitude">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.Lattitude">
             <summary>
             Lattitude of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.ImagePreview">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.ImagePreview">
             <summary>
             Main image of property
             </summary>
         </member>
-        <member name="P:TestSite.Models.Residence.Price">
+        <member name="P:RealEstateCompanyWebSite.Models.Residence.Price">
             <summary>
             Price of property
             </summary>
         </member>
-        <member name="T:TestSite.Models.ApplicationUser">
+        <member name="T:RealEstateCompanyWebSite.Models.ApplicationUser">
             <summary>
-            Drunk and drugs
+            Application user
             </summary>
         </member>
-        <member name="T:TestSite.Models.ApplicationDbContext">
+        <member name="T:RealEstateCompanyWebSite.Models.ApplicationDbContext">
             <summary>
             Insert comments like this yah
             </summary>
         </member>
-        <member name="T:TestSite.SearchQuery">
+        <member name="T:RealEstateCompanyWebSite.SearchQuery">
             <summary>
             Query class to query advanced features. Able to search for keywords, property features and location
             </summary>
         </member>
-        <member name="M:TestSite.SearchQuery.#ctor(System.String)">
+        <member name="M:RealEstateCompanyWebSite.SearchQuery.#ctor(System.String)">
             <summary>
             Constructor
             </summary>
             <param name="connectionString">Connection string for database</param>
         </member>
-        <member name="M:TestSite.SearchQuery.Close">
+        <member name="M:RealEstateCompanyWebSite.SearchQuery.Close">
             <summary>
             Close connection
             </summary>
         </member>
-        <member name="M:TestSite.SearchQuery.SetKeywords(System.String)">
+        <member name="M:RealEstateCompanyWebSite.SearchQuery.SetKeywords(System.String)">
             <summary>
             Split keywords into array of keywords
             </summary>
             <param name="keywords"></param>
         </member>
-        <member name="M:TestSite.SearchQuery.SetKeywords(System.String[])">
+        <member name="M:RealEstateCompanyWebSite.SearchQuery.SetKeywords(System.String[])">
             <summary>
             Assign list of keywords
             </summary>
             <param name="keywords"></param>
         </member>
-        <member name="M:TestSite.SearchQuery.GenerateResults">
+        <member name="M:RealEstateCompanyWebSite.SearchQuery.GenerateResults">
             <summary>
             Return the results
             </summary>
             <returns></returns>
         </member>
-        <member name="P:TestSite.SearchQuery.Keywords">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.Keywords">
             <summary>
             list of keywords to search for
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.PriceMin">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.PriceMin">
             <summary>
             Minimum listing price
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.PriceMax">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.PriceMax">
             <summary>
             Maximum listing price
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.BedroomsMin">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.BedroomsMin">
             <summary>
             Minimum number of bedrooms
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.BedroomsMax">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.BedroomsMax">
             <summary>
             Maximum number of bedrooms
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.BathroomsMin">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.BathroomsMin">
             <summary>
             Minimum number of bathrooms
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.BathroomsMax">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.BathroomsMax">
             <summary>
             Maximum number of bathrooms
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.GaragesMin">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.GaragesMin">
             <summary>
             Minimum number of car parking spaces
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.GaragesMax">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.GaragesMax">
             <summary>
             Maximum number of car parking spaces
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.PlotSizeMin">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.PlotSizeMin">
             <summary>
             Minimum area of plot
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.PlotSizeMax">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.PlotSizeMax">
             <summary>
             Maximum area of plot
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.HouseSizeMin">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.HouseSizeMin">
             <summary>
             Minimum area of house
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.HouseSizeMax">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.HouseSizeMax">
             <summary>
             Maximum area of house
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.ProvinceId">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.ProvinceId">
             <summary>
             Province of property
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.City_Id">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.City_Id">
             <summary>
             City of property
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.Area_Id">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.Area_Id">
             <summary>
             Area (location) of property
             </summary>
         </member>
-        <member name="P:TestSite.SearchQuery.HasPool">
+        <member name="P:RealEstateCompanyWebSite.SearchQuery.HasPool">
             <summary>
             Indicates if a property should have a pool
             null for any
             </summary>
         </member>
-        <member name="T:TestSite.TableBuilder">
+        <member name="T:RealEstateCompanyWebSite.TableBuilder">
             <summary>
             Helper class to generate HTML for table
             </summary>
@@ -948,24 +948,24 @@
             ViewBag.Message = builder.ToHTML();      
             </code></example>
         </member>
-        <member name="M:TestSite.TableBuilder.#ctor">
+        <member name="M:RealEstateCompanyWebSite.TableBuilder.#ctor">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:TestSite.TableBuilder.SetHeaderTitle(System.String[])">
+        <member name="M:RealEstateCompanyWebSite.TableBuilder.SetHeaderTitle(System.String[])">
             <summary>
             Sets the header title for the table
             </summary>
             <param name="names">List of header titles</param>
         </member>
-        <member name="M:TestSite.TableBuilder.AddRow(System.String[])">
+        <member name="M:RealEstateCompanyWebSite.TableBuilder.AddRow(System.String[])">
             <summary>
             Adds a row to the table
             </summary>
             <param name="dataItems">List of items in row</param>
         </member>
-        <member name="M:TestSite.TableBuilder.ToHTML">
+        <member name="M:RealEstateCompanyWebSite.TableBuilder.ToHTML">
             <summary>
             Outputs the HTML for the table
             </summary>

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace TestSite
+namespace RealEstateCompanyWebSite
 {
     /// <summary>
     /// Bundles and minifies scripts

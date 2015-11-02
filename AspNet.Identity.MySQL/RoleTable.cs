@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AspNet.Identity.MySQL
+namespace RealEstateCompanyWebSite.SQL
 {
     /// <summary>
     /// Class that represents the Role table in the MySQL Database

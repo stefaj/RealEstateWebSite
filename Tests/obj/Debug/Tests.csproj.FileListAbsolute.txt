@@ -3,7 +3,6 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\obj\Debug\Tests.csprojResolveAs
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\Tests.exe
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\Tests.pdb
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\TestSite.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\System.Web.Mvc.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\AspNet.Identity.MySQL.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\System.Web.Optimization.dll
@@ -25,7 +24,6 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\System.Net.Http.Forma
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\Microsoft.Owin.Security.OAuth.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\Antlr3.Runtime.dll
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\TestSite.pdb
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\System.Web.Mvc.xml
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\AspNet.Identity.MySQL.pdb
@@ -47,3 +45,5 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\System.Web.WebPages.D
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\Antlr3.Runtime.pdb
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\obj\Debug\Tests.exe
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\obj\Debug\Tests.pdb
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\RealEstateCompanyWebSite.dll
+C:\Users\1gn1t0r\Documents\git\422-Web-Dev\Tests\bin\Debug\RealEstateCompanyWebSite.pdb

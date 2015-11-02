@@ -1,5 +1,4 @@
-﻿using AspNet.Identity.MySQL;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -9,9 +8,9 @@ using System.Security.Claims;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using TestSite.Models;
+using RealEstateCompanyWebSite.Models;
 
-namespace TestSite.Controllers
+namespace RealEstateCompanyWebSite.Controllers
 {
     public class EstatesController : Controller
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AspNet.Identity.MySQL
+namespace RealEstateCompanyWebSite.SQL.Identity
 {
     /// <summary>
     /// Class that represents the Users table in the MySQL Database

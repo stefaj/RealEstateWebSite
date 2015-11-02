@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TestSite.Queries;
+using RealEstateCompanyWebSite.Queries;
 
-namespace TestSite
+namespace RealEstateCompanyWebSite
 {
     /// <summary>
     /// Query class to query advanced features. Able to search for keywords, property features and location

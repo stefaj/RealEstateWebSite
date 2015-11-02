@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
 
-namespace AspNet.Identity.MySQL
+namespace RealEstateCompanyWebSite.SQL
 {
     /// <summary>
     /// Class that implements the ASP.NET Identity

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using AspNet.Identity.MySQL;
 using Microsoft.Owin.Security;
-using TestSite.Models;
+using RealEstateCompanyWebSite.Models;
 using System.Configuration;
-using TestSite.Hashers;
+using RealEstateCompanyWebSite.Hashers;
+using RealEstateCompanyWebSite.SQL;
 
-namespace TestSite.Controllers
+namespace RealEstateCompanyWebSite.Controllers
 {
     /// <summary> 
     /// Controls output for login

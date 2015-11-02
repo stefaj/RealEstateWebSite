@@ -1,5 +1,4 @@
-﻿using AspNet.Identity.MySQL;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,10 +8,12 @@ using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
-using TestSite.Email;
-using TestSite.Models;
+using RealEstateCompanyWebSite.Email;
+using RealEstateCompanyWebSite.Models;
+using RealEstateCompanyWebSite.SQL.Identity;
+using RealEstateCompanyWebSite.SQL;
 
-namespace TestSite.Controllers
+namespace RealEstateCompanyWebSite.Controllers
 {
     /// <summary>
     /// This class poses a JSON API to get data from the database

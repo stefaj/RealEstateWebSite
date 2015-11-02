@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestSite.Queries
+namespace RealEstateCompanyWebSite.Queries
 {
     /// <summary>
     /// Basic interface for advanced queries

@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Text;
-using TestSite.Models;
+using RealEstateCompanyWebSite.Models;
 
-namespace TestSite.Controllers
+namespace RealEstateCompanyWebSite.Controllers
 {
     /// <summary>
     /// Controls output for home page

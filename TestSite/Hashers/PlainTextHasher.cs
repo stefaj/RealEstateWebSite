@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TestSite.Hashers
+namespace RealEstateCompanyWebSite.Hashers
 {
     /// <summary>
     /// Simple password hasher that returns plain text
