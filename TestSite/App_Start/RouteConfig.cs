@@ -7,6 +7,9 @@ using System.Web.Routing;
 
 namespace TestSite
 {
+    /// <summary>
+    /// Route
+    /// </summary>
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)

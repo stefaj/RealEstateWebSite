@@ -67,6 +67,10 @@ namespace TestSite.Controllers
         }
          */
 
+        /// <summary>
+        /// Returns a dictionary of provinces
+        /// </summary>
+        /// <returns></returns>
         public static Dictionary<int, string> GetProvinces()
         {
             return EnumerateTable("province_id", "province_name", "Province");
@@ -91,8 +95,10 @@ namespace TestSite.Controllers
 
         #endregion
 
-        //
-        // GET: /Data/
+        /// <summary>
+        /// Returns all cities for a given provinces as a JSON array
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Cities()
         {
             List<City> cities = new List<City>();
@@ -147,8 +153,10 @@ namespace TestSite.Controllers
 
 
 
-        //
-        // GET: /Data/
+       /// <summary>
+       /// Returns all areas for a given city as a JSON array
+       /// </summary>
+       /// <returns></returns>
         public ActionResult Areas()
         {
             List<Area> areas = new List<Area>();
@@ -322,6 +330,10 @@ namespace TestSite.Controllers
 
         }
 
+        /// <summary>
+        /// Searches for properties based on features, location and keywords that are given via post parameters.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Search()
         {
          //   var estateTypes = GetEstateTypes();

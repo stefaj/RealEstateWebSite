@@ -4,9 +4,174 @@
         <name>TestSite</name>
     </assembly>
     <members>
+        <member name="T:TestSite.BundleConfig">
+            <summary>
+            Bundles and minifies scripts
+            </summary>
+        </member>
+        <member name="T:TestSite.FilterConfig">
+            <summary>
+            Filter
+            </summary>
+        </member>
+        <member name="T:TestSite.RouteConfig">
+            <summary>
+            Route
+            </summary>
+        </member>
+        <member name="T:TestSite.Startup">
+            <summary>
+            Startup
+            </summary>
+            <summary>
+            Main startup class for app
+            </summary>
+        </member>
+        <member name="M:TestSite.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            Configures the application
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="T:TestSite.WebApiConfig">
+            <summary>
+            Configuration manager
+            </summary>
+        </member>
         <member name="T:TestSite.Controllers.AccountController">
             <summary> 
             Controls output for login
+            </summary>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.#ctor(Microsoft.AspNet.Identity.UserManager{TestSite.Models.ApplicationUser})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.Login(System.String)">
+            <summary>
+            Performs login
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.Login(TestSite.Models.LoginViewModel,System.String)">
+            <summary>
+            Async login
+            </summary>
+            <param name="model"></param>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.Register">
+            <summary>
+            Register
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.Register(TestSite.Models.RegisterViewModel)">
+            <summary>
+            Post async register
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.Disassociate(System.String,System.String)">
+            <summary>
+            Dissaciate from login
+            </summary>
+            <param name="loginProvider"></param>
+            <param name="providerKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.Manage(System.Nullable{TestSite.Controllers.AccountController.ManageMessageId})">
+            <summary>
+            Change password
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.Manage(TestSite.Models.ManageUserViewModel)">
+            <summary>
+            Async post change password
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.ExternalLogin(System.String,System.String)">
+            <summary>
+            External login. Not used
+            </summary>
+            <param name="provider"></param>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.ExternalLoginCallback(System.String)">
+            <summary>
+            Exterval login callback.
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.LinkLogin(System.String)">
+            <summary>
+            Links external logins
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.LinkLoginCallback">
+            <summary>
+            Callback for linking of external login
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.ExternalLoginConfirmation(TestSite.Models.ExternalLoginConfirmationViewModel,System.String)">
+            <summary>
+            Confirmation if external login was successfull
+            </summary>
+            <param name="model"></param>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.LogOff">
+            <summary>
+            Logout
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.ExternalLoginFailure">
+            <summary>
+            Failure of external login
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.RemoveAccountList">
+            <summary>
+            Remove account list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.AccountController.Dispose(System.Boolean)">
+            <summary>
+            Dispose
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="P:TestSite.Controllers.AccountController.UserManager">
+            <summary>
+            User manager
+            </summary>
+        </member>
+        <member name="T:TestSite.Controllers.AccountController.ManageMessageId">
+            <summary>
+            Password change status
             </summary>
         </member>
         <member name="T:TestSite.Controllers.DataController">
@@ -22,9 +187,27 @@
             <param name="columnName">Name of table to return</param>
             <returns>Returns columnName from tableName</returns>
         </member>
+        <member name="M:TestSite.Controllers.DataController.GetProvinces">
+            <summary>
+            Returns a dictionary of provinces
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:TestSite.Controllers.DataController.GetProvincesArr">
             <summary>
             Returns a list of provinces from the provinces table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.DataController.Cities">
+            <summary>
+            Returns all cities for a given provinces as a JSON array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.DataController.Areas">
+            <summary>
+            Returns all areas for a given city as a JSON array
             </summary>
             <returns></returns>
         </member>
@@ -40,6 +223,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TestSite.Controllers.DataController.Search">
+            <summary>
+            Searches for properties based on features, location and keywords that are given via post parameters.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:TestSite.Controllers.DataController.GetCurrentUser">
             <summary>
             Returns the logged in user
@@ -49,6 +238,572 @@
         <member name="T:TestSite.Controllers.HomeController">
             <summary>
             Controls output for home page
+            </summary>
+        </member>
+        <member name="M:TestSite.Controllers.HomeController.Index">
+            <summary>
+            Returns the index view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.HomeController.About">
+            <summary>
+            Returns the about view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.HomeController.Contact">
+            <summary>
+            Returns the contact view and lists all agents
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Index">
+            <summary>
+            Returns index
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Details(System.Int32)">
+            <summary>
+            Returns details
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Estates">
+            <summary>
+            Returns estates
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Create(System.Web.Mvc.FormCollection)">
+            <summary>
+            Nothing
+            </summary>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Edit(System.Int32)">
+            <summary>
+            Nothing
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Edit(System.Int32,System.Web.Mvc.FormCollection)">
+            <summary>
+            Nothing
+            </summary>
+            <param name="id"></param>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Delete(System.Int32)">
+            <summary>
+            Nothing
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Search">
+            <summary>
+            Searches for a property given the required post parameters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Residence">
+            <summary>
+            Lists a residence for a specific id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Delete(System.Int32,System.Web.Mvc.FormCollection)">
+            <summary>
+            Nothing
+            </summary>
+            <param name="id"></param>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Controllers.EstatesController.Cities">
+            <summary>
+            Nothing
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TestSite.DatabaseConnection">
+            <summary>
+            Helper class for db connections
+            </summary>
+        </member>
+        <member name="M:TestSite.DatabaseConnection.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:TestSite.DatabaseConnection.Reopen">
+            <summary>
+            Opens the mysql connection
+            </summary>
+        </member>
+        <member name="M:TestSite.DatabaseConnection.Close">
+            <summary>
+            Closes the mysql connection
+            </summary>
+        </member>
+        <member name="M:TestSite.DatabaseConnection.PrepareCommand">
+            <summary>
+            Creates a mysql command
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.DatabaseConnection.Query(MySql.Data.MySqlClient.MySqlCommand)">
+            <summary>
+            Runs a mysqlcommand
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.DatabaseConnection.Query(System.String)">
+            <summary>
+            Returns a reader for a sql query
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.DatabaseConnection.QueryYield(System.String)">
+            <summary>
+            Lazy query
+            </summary>
+            <param name="qry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.DatabaseConnection.Escape(System.String)">
+            <summary>
+            Escape a string properly
+            </summary>
+            <param name="usString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TestSite.Email.IEmail">
+            <summary>
+            Interface for sending mail messages
+            </summary>
+        </member>
+        <member name="M:TestSite.Email.IEmail.Send(System.Net.Mail.MailMessage)">
+            <summary>
+            Sends a mail message
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:TestSite.Email.StandardSMTPEmailer">
+            <summary>
+            Simple email client that sends an email message through SMTP
+            </summary>
+        </member>
+        <member name="M:TestSite.Email.StandardSMTPEmailer.Send(System.Net.Mail.MailMessage)">
+            <summary>
+            Sends a MailMessage through SMTP using the default parameters in the configuration manager
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:TestSite.Hashers.PlainTextHasher">
+            <summary>
+            Simple password hasher that returns plain text
+            </summary>
+        </member>
+        <member name="M:TestSite.Hashers.PlainTextHasher.HashPassword(System.String)">
+            <summary>
+            Returns password
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Hashers.PlainTextHasher.VerifyHashedPassword(System.String,System.String)">
+            <summary>
+            Returns whether the two password match
+            </summary>
+            <param name="hashedPassword"></param>
+            <param name="providedPassword"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TestSite.Hashers.PBKDF2Sha1Hasher">
+            <summary>
+            Generates hashes using PBKDF2 Sha1
+            </summary>
+        </member>
+        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.SALT_BYTE_SIZE">
+            <summary>
+            Number of bytes for salt
+            </summary>
+        </member>
+        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.HASH_BYTE_SIZE">
+            <summary>
+            Number of bytes for hash
+            </summary>
+        </member>
+        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.PBKDF2_ITERATIONS">
+            <summary>
+            Number of iterations for PBKDF2
+            </summary>
+        </member>
+        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.ITERATION_INDEX">
+            <summary>
+            Index of iteration
+            </summary>
+        </member>
+        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.SALT_INDEX">
+            <summary>
+            Location of salt
+            </summary>
+        </member>
+        <member name="F:TestSite.Hashers.PBKDF2Sha1Hasher.PBKDF2_INDEX">
+            <summary>
+            Location of hash
+            </summary>
+        </member>
+        <member name="M:TestSite.Hashers.PBKDF2Sha1Hasher.CreateHash(System.String)">
+            <summary>
+            Creates a hash for the given password
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Hashers.PBKDF2Sha1Hasher.ValidatePassword(System.String,System.String)">
+            <summary>
+            Returns true if the passwords match
+            </summary>
+            <param name="password">Plain text password</param>
+            <param name="correctHash">Hashed password</param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Hashers.PBKDF2Sha1Hasher.HashPassword(System.String)">
+            <summary>
+            Interface function for hashing password. Returns hashed password
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TestSite.Hashers.PBKDF2Sha1Hasher.VerifyHashedPassword(System.String,System.String)">
+            <summary>
+            Interface function for hashing password. Returns whether the password match
+            </summary>
+            <param name="hashedPassword">Hashed password</param>
+            <param name="providedPassword">Plaintext password</param>
+            <returns>PasswordVerificationResult.Success if passwords match else PasswordVerificationResult.Failed </returns>
+        </member>
+        <member name="T:TestSite.Models.ExternalLoginConfirmationViewModel">
+            <summary>
+            Represents username of an external login service
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.ExternalLoginConfirmationViewModel.UserName">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.ManageUserViewModel">
+            <summary>
+            Model for changing user password
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.ManageUserViewModel.OldPassword">
+            <summary>
+            Previous password
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.ManageUserViewModel.NewPassword">
+            <summary>
+            New password
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.ManageUserViewModel.ConfirmPassword">
+            <summary>
+            Verification of new password
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.LoginViewModel">
+            <summary>
+            Model used for login
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.LoginViewModel.UserName">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.LoginViewModel.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.LoginViewModel.RememberMe">
+            <summary>
+            Remember session
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.RegisterViewModel">
+            <summary>
+            Model used for registration
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.RegisterViewModel.UserName">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.RegisterViewModel.FirstName">
+            <summary>
+            First name of user
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.RegisterViewModel.LastName">
+            <summary>
+            Last name of user
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.RegisterViewModel.PhoneNumber">
+            <summary>
+            Phone number of user
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.RegisterViewModel.Email">
+            <summary>
+            Email of user
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.RegisterViewModel.Password">
+            <summary>
+            Password of user
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.RegisterViewModel.ConfirmPassword">
+            <summary>
+            Confirmation password
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.Agent">
+            <summary>
+            Model of agent
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Agent_Id">
+            <summary>
+            Id of agent
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Agent_Name">
+            <summary>
+            First name of agent
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Agent_Surname">
+            <summary>
+            Last name of agent
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Agent_Phone">
+            <summary>
+            Main phone number of agent
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Agent_Email">
+            <summary>
+            Email of agent
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Agent_Description">
+            <summary>
+            Short description of agent
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Image_URL">
+            <summary>
+            Profile image of agent
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Agent_FullName">
+            <summary>
+            Full name of agent (includes first and last name)
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Agent.Agent_PhoneString">
+            <summary>
+            Readable phone number of agent
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.Area">
+            <summary>
+            Model of area
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Area.AreaId">
+            <summary>
+            Id of area
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Area.AreaName">
+            <summary>
+            Name of area
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Area.Longitude">
+            <summary>
+            Longitude of area
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Area.Lattitude">
+            <summary>
+            Latitude of area
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.City">
+            <summary>
+            Model of city
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.City.CityId">
+            <summary>
+            Id of city
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.City.CityName">
+            <summary>
+            Name of city
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.City.Longitude">
+            <summary>
+            Longitude of city
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.City.Lattitude">
+            <summary>
+            Latitude of city
+            </summary>
+        </member>
+        <member name="T:TestSite.Models.Province">
+            <summary>
+            Model of province
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Province.ProvinceId">
+            <summary>
+            Id of province
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Province.ProvinceName">
+            <summary>
+            Name of province
+            </summary>
+        </member>
+        <member name="T:TestSite.Queries.IQuery">
+            <summary>
+            Basic interface for advanced queries
+            </summary>
+        </member>
+        <member name="M:TestSite.Queries.IQuery.GenerateResults">
+            <summary>
+            This function returns the results of the query
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TestSite.Models.Residence">
+            <summary>
+            Model of residence in DB
+            </summary>
+        </member>
+        <member name="M:TestSite.Models.Residence.#ctor">
+            <summary>
+            Constructor for empty residence
+            </summary>
+        </member>
+        <member name="M:TestSite.Models.Residence.#ctor(System.Int32)">
+            <summary>
+            Build residence from DB from given id
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="P:TestSite.Models.Residence.Id">
+            <summary>
+            Id of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.Name">
+            <summary>
+            Name of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.StreetAddress">
+            <summary>
+            Street address of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.NoBathrooms">
+            <summary>
+            Number of bathrooms
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.NoBedrooms">
+            <summary>
+            Number of bedrooms
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.Area">
+            <summary>
+            Plot area of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.CityId">
+            <summary>
+            Id of city in which property resides
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.ProvinceId">
+            <summary>
+            Id province in which property resides
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.CityName">
+            <summary>
+            Name of city in which property resides
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.ProvinceName">
+            <summary>
+            Name of property in which property resides
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.PostalCode">
+            <summary>
+            Postal code of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.Description">
+            <summary>
+            Short description of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.Longitude">
+            <summary>
+            Longitude of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.Lattitude">
+            <summary>
+            Lattitude of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.ImagePreview">
+            <summary>
+            Main image of property
+            </summary>
+        </member>
+        <member name="P:TestSite.Models.Residence.Price">
+            <summary>
+            Price of property
             </summary>
         </member>
         <member name="T:TestSite.Models.ApplicationUser">
@@ -61,8 +816,123 @@
             Insert comments like this yah
             </summary>
         </member>
+        <member name="T:TestSite.SearchQuery">
+            <summary>
+            Query class to query advanced features. Able to search for keywords, property features and location
+            </summary>
+        </member>
+        <member name="M:TestSite.SearchQuery.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="connectionString">Connection string for database</param>
+        </member>
+        <member name="M:TestSite.SearchQuery.Close">
+            <summary>
+            Close connection
+            </summary>
+        </member>
+        <member name="M:TestSite.SearchQuery.SetKeywords(System.String)">
+            <summary>
+            Split keywords into array of keywords
+            </summary>
+            <param name="keywords"></param>
+        </member>
+        <member name="M:TestSite.SearchQuery.SetKeywords(System.String[])">
+            <summary>
+            Assign list of keywords
+            </summary>
+            <param name="keywords"></param>
+        </member>
+        <member name="M:TestSite.SearchQuery.GenerateResults">
+            <summary>
+            Return the results
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TestSite.SearchQuery.Keywords">
+            <summary>
+            list of keywords to search for
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.PriceMin">
+            <summary>
+            Minimum listing price
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.PriceMax">
+            <summary>
+            Maximum listing price
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.BedroomsMin">
+            <summary>
+            Minimum number of bedrooms
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.BedroomsMax">
+            <summary>
+            Maximum number of bedrooms
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.BathroomsMin">
+            <summary>
+            Minimum number of bathrooms
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.BathroomsMax">
+            <summary>
+            Maximum number of bathrooms
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.GaragesMin">
+            <summary>
+            Minimum number of car parking spaces
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.GaragesMax">
+            <summary>
+            Maximum number of car parking spaces
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.PlotSizeMin">
+            <summary>
+            Minimum area of plot
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.PlotSizeMax">
+            <summary>
+            Maximum area of plot
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.HouseSizeMin">
+            <summary>
+            Minimum area of house
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.HouseSizeMax">
+            <summary>
+            Maximum area of house
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.ProvinceId">
+            <summary>
+            Province of property
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.City_Id">
+            <summary>
+            City of property
+            </summary>
+        </member>
+        <member name="P:TestSite.SearchQuery.Area_Id">
+            <summary>
+            Area (location) of property
+            </summary>
+        </member>
         <member name="P:TestSite.SearchQuery.HasPool">
             <summary>
+            Indicates if a property should have a pool
             null for any
             </summary>
         </member>

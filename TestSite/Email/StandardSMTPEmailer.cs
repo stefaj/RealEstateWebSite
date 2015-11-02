@@ -7,8 +7,15 @@ using System.Web;
 
 namespace TestSite.Email
 {
+    /// <summary>
+    /// Simple email client that sends an email message through SMTP
+    /// </summary>
     public class StandardSMTPEmailer : IEmail
     {
+        /// <summary>
+        /// Sends a MailMessage through SMTP using the default parameters in the configuration manager
+        /// </summary>
+        /// <param name="msg"></param>
         public void Send(System.Net.Mail.MailMessage msg)
         {
             string email = ConfigurationManager.AppSettings["webEmail"];

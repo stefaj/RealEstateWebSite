@@ -7,35 +7,106 @@ using TestSite.Queries;
 
 namespace TestSite
 {
+    /// <summary>
+    /// Query class to query advanced features. Able to search for keywords, property features and location
+    /// </summary>
     public class SearchQuery : IQuery
     {
         MySqlConnection connection;
 
+        /// <summary>
+        /// list of keywords to search for
+        /// </summary>
         public string[] Keywords { get; set; }
+        
+        /// <summary>
+        /// Minimum listing price
+        /// </summary>
         public float PriceMin { get; set; }
+
+        /// <summary>
+        /// Maximum listing price
+        /// </summary>
         public float PriceMax { get; set; }
+        
+        /// <summary>
+        /// Minimum number of bedrooms
+        /// </summary>
         public int BedroomsMin { get; set; }
+        
+        /// <summary>
+        /// Maximum number of bedrooms
+        /// </summary>
         public int BedroomsMax { get; set; }
+        
+        /// <summary>
+        /// Minimum number of bathrooms
+        /// </summary>
         public int BathroomsMin { get; set; }
+        
+        /// <summary>
+        /// Maximum number of bathrooms
+        /// </summary>
         public int BathroomsMax { get; set; }
+        
+        /// <summary>
+        /// Minimum number of car parking spaces
+        /// </summary>
         public int GaragesMin { get; set; }
+        
+        /// <summary>
+        /// Maximum number of car parking spaces
+        /// </summary>
         public int GaragesMax { get; set; }
+        
+        /// <summary>
+        /// Minimum area of plot
+        /// </summary>
         public int PlotSizeMin { get; set; }
+        
+        /// <summary>
+        /// Maximum area of plot
+        /// </summary>
         public int PlotSizeMax { get; set; }
+        
+        /// <summary>
+        /// Minimum area of house
+        /// </summary>
         public int HouseSizeMin { get; set; }
+        
+        /// <summary>
+        /// Maximum area of house
+        /// </summary>
         public int HouseSizeMax { get; set; }
+        
+        /// <summary>
+        /// Province of property
+        /// </summary>
         public int ProvinceId { get; set; }
+        
+        /// <summary>
+        /// City of property
+        /// </summary>
         public int City_Id { get; set; }
+        
+        /// <summary>
+        /// Area (location) of property
+        /// </summary>
         public int Area_Id { get; set; }
 
         /// <summary>
+        /// Indicates if a property should have a pool
         /// null for any
         /// </summary>
-        bool? HasPool { get; set; }
+        public bool? HasPool { get; set; }
 
 
         int limit = 10;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="connectionString">Connection string for database</param>
         public SearchQuery(string connectionString)
         {
             connection = new MySqlConnection(connectionString);
@@ -64,16 +135,27 @@ namespace TestSite
             this.Keywords = null;
         }
 
+        /// <summary>
+        /// Close connection
+        /// </summary>
         public void Close()
         {
             connection.Close();
         }
 
+        /// <summary>
+        /// Split keywords into array of keywords
+        /// </summary>
+        /// <param name="keywords"></param>
         public void SetKeywords(string keywords)
         {
             SetKeywords(keywords.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
         }
 
+        /// <summary>
+        /// Assign list of keywords
+        /// </summary>
+        /// <param name="keywords"></param>
         public void SetKeywords(string[] keywords)
         {
             this.Keywords = keywords;
@@ -211,6 +293,10 @@ limit @limit;";
             }
         }
 
+        /// <summary>
+        /// Return the results
+        /// </summary>
+        /// <returns></returns>
         public MySqlDataReader GenerateResults()
         {
             return BuildQuery();

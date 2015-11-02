@@ -15,11 +15,19 @@ namespace TestSite.Controllers
     /// </summary>
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Returns the index view
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Returns the about view
+        /// </summary>
+        /// <returns></returns>
         public ActionResult About()
         {
             ViewBag.Message = "REII 422";
@@ -27,6 +35,10 @@ namespace TestSite.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Returns the contact view and lists all agents
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Contact()
         {
             ViewBag.Message = "Contact us";

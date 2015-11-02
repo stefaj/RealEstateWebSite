@@ -6,35 +6,105 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 
-namespace TestSite
+namespace TestSite.Models
 {
+    /// <summary>
+    /// Model of residence in DB
+    /// </summary>
     public class Residence
     {
+        /// <summary>
+        /// Id of property
+        /// </summary>
         public int Id{get;  set;}
-        public string Name { get;  set; }
-        public string StreetAddress { get;  set; }
-        public int NoBathrooms { get;  set; }
-        public int NoBedrooms { get;  set; }
-        public int Area { get;  set; }
-        public int CityId { get;  set; }
-        public int ProvinceId { get;  set; }
-        public string CityName { get;  set; }
-        public string ProvinceName { get;  set; }
-        public string PostalCode { get;  set; }
-        public string Description { get;  set; }
-        public float Longitude { get;  set; }
-        public float Lattitude { get;  set; }
-        public string ImagePreview { get;  set; }
-        public float Price { get;  set; }
-        public int EstateTypeId { get;  set; }
-        public int ContractTypeId { get;  set; }
-        public DateTime DateAdded { get;  set; }
 
+        /// <summary>
+        /// Name of property
+        /// </summary>
+        public string Name { get;  set; }
+
+        /// <summary>
+        /// Street address of property
+        /// </summary>
+        public string StreetAddress { get;  set; }
+
+        /// <summary>
+        /// Number of bathrooms
+        /// </summary>
+        public int NoBathrooms { get;  set; }
+
+        /// <summary>
+        /// Number of bedrooms
+        /// </summary>
+        public int NoBedrooms { get;  set; }
+
+        /// <summary>
+        /// Plot area of property
+        /// </summary>
+        public int Area { get;  set; }
+
+        /// <summary>
+        /// Id of city in which property resides
+        /// </summary>
+        public int CityId { get;  set; }
+
+        /// <summary>
+        /// Id province in which property resides
+        /// </summary>
+        public int ProvinceId { get;  set; }
+
+        /// <summary>
+        /// Name of city in which property resides
+        /// </summary>
+        public string CityName { get;  set; }
+
+        /// <summary>
+        /// Name of property in which property resides
+        /// </summary>
+        public string ProvinceName { get;  set; }
+
+        /// <summary>
+        /// Postal code of property
+        /// </summary>
+        public string PostalCode { get;  set; }
+
+        /// <summary>
+        /// Short description of property
+        /// </summary>
+        public string Description { get;  set; }
+
+        /// <summary>
+        /// Longitude of property
+        /// </summary>
+        public float Longitude { get;  set; }
+
+        /// <summary>
+        /// Lattitude of property
+        /// </summary>
+        public float Lattitude { get;  set; }
+
+        /// <summary>
+        /// Main image of property
+        /// </summary>
+        public string ImagePreview { get;  set; }
+
+        /// <summary>
+        /// Price of property
+        /// </summary>
+        public float Price { get;  set; }
+
+        /// <summary>
+        /// Constructor for empty residence
+        /// </summary>
         public Residence()
         {
 
         }
 
+        /// <summary>
+        /// Build residence from DB from given id
+        /// </summary>
+        /// <param name="id"></param>
         public  Residence(int id)
         {
 
@@ -65,9 +135,6 @@ namespace TestSite
             this.Longitude = reader.GetFloat("longitude");
             this.ImagePreview = reader.GetString("preview_image");
             this.Price = reader.GetFloat("price");
-            this.EstateTypeId = reader.GetInt32("type_id");
-            this.ContractTypeId = reader.GetInt32("contract_id");
-            this.DateAdded = reader.GetDateTime("date_added");
 
             // to do
             // city name

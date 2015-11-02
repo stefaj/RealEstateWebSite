@@ -15,29 +15,39 @@ namespace TestSite.Controllers
 {
     public class EstatesController : Controller
     {
-        //
-        // GET: /Search/
+       /// <summary>
+       /// Returns index
+       /// </summary>
+       /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
-        //
-        // GET: /Search/Details/5
+        /// <summary>
+        /// Returns details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        //
-        // GET: /Search/Create
+        /// <summary>
+        /// Returns estates
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Estates()
         {
             return View();
         }
 
-        //
-        // POST: /Search/Create
+        /// <summary>
+        /// Nothing
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -53,15 +63,22 @@ namespace TestSite.Controllers
             }
         }
 
-        //
-        // GET: /Search/Edit/5
+        /// <summary>
+        /// Nothing
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        //
-        // POST: /Search/Edit/5
+        /// <summary>
+        /// Nothing
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="collection"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -77,14 +94,20 @@ namespace TestSite.Controllers
             }
         }
 
-        //
-        // GET: /Search/Delete/5
+        /// <summary>
+        /// Nothing
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-
+        /// <summary>
+        /// Searches for a property given the required post parameters
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Search()
         {
            // var estateTypes = DataController.GetEstateTypes();
@@ -98,8 +121,10 @@ namespace TestSite.Controllers
             return View();
         }
 
-
-
+        /// <summary>
+        /// Lists a residence for a specific id
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Residence()
         {
             string id = Request.QueryString["id"];
@@ -247,8 +272,12 @@ namespace TestSite.Controllers
             return View();
         }
 
-        //
-        // POST: /Search/Delete/5
+        /// <summary>
+        /// Nothing
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="collection"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -264,6 +293,10 @@ namespace TestSite.Controllers
             }
         }
 
+        /// <summary>
+        /// Nothing
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Cities()
         {

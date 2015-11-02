@@ -7,37 +7,65 @@ using System.Web;
 
 namespace TestSite
 {
+    /// <summary>
+    /// Helper class for db connections
+    /// </summary>
     public class DatabaseConnection
     {
         MySqlConnection connection;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="connectionString"></param>
         public DatabaseConnection(string connectionString)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
         }
 
+        /// <summary>
+        /// Opens the mysql connection
+        /// </summary>
         public void Reopen()
         {
             connection.Open();
         }
 
+
+        /// <summary>
+        /// Closes the mysql connection
+        /// </summary>
         public void Close()
         {
             connection.Close();
         }
 
+        /// <summary>
+        /// Creates a mysql command
+        /// </summary>
+        /// <returns></returns>
         public MySqlCommand PrepareCommand()
         {
             return connection.CreateCommand();
         }
 
+        /// <summary>
+        /// Runs a mysqlcommand
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         public MySqlDataReader Query(MySqlCommand command)
         {
             MySqlDataReader reader = command.ExecuteReader();
             return reader;
         }
 
+        /// <summary>
+        /// Returns a reader for a sql query
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public MySqlDataReader Query(string query)
         {
             string escaped = Escape(query);
@@ -46,6 +74,11 @@ namespace TestSite
             return Query(command);
         }
 
+        /// <summary>
+        /// Lazy query
+        /// </summary>
+        /// <param name="qry"></param>
+        /// <returns></returns>
         public IEnumerable<string[]> QueryYield(string qry)
         {
             MySqlCommand command = connection.CreateCommand();
@@ -73,6 +106,11 @@ namespace TestSite
             Console.ReadLine();
         }*/
 
+        /// <summary>
+        /// Escape a string properly
+        /// </summary>
+        /// <param name="usString"></param>
+        /// <returns></returns>
         static string Escape(string usString)
         {
             if (usString == null)

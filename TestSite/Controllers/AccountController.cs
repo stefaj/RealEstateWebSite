@@ -20,6 +20,9 @@ namespace TestSite.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(
                ApplicationDbContext.Create()
@@ -28,6 +31,10 @@ namespace TestSite.Controllers
             var t = this.UserManager.PasswordHasher; 
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="userManager"></param>
         public AccountController(UserManager<ApplicationUser> userManager)
         {
             userManager.PasswordHasher = new PBKDF2Sha1Hasher();
@@ -35,10 +42,16 @@ namespace TestSite.Controllers
 
         }
 
+        /// <summary>
+        /// User manager
+        /// </summary>
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
-        //
-        // GET: /Account/Login
+        /// <summary>
+        /// Performs login
+        /// </summary>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -46,8 +59,12 @@ namespace TestSite.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Login
+        /// <summary>
+        /// Async login
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -71,16 +88,21 @@ namespace TestSite.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/Register
+        /// <summary>
+        /// Register
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
 
-        //
-        // POST: /Account/Register
+        /// <summary>
+        /// Post async register
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -105,8 +127,12 @@ namespace TestSite.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/Disassociate
+        /// <summary>
+        /// Dissaciate from login
+        /// </summary>
+        /// <param name="loginProvider"></param>
+        /// <param name="providerKey"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Disassociate(string loginProvider, string providerKey)
@@ -124,8 +150,11 @@ namespace TestSite.Controllers
             return RedirectToAction("Manage", new { Message = message });
         }
 
-        //
-        // GET: /Account/Manage
+        /// <summary>
+        /// Change password
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -139,8 +168,11 @@ namespace TestSite.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Manage
+        /// <summary>
+        /// Async post change password
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Manage(ManageUserViewModel model)
@@ -190,8 +222,12 @@ namespace TestSite.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/ExternalLogin
+        /// <summary>
+        /// External login. Not used
+        /// </summary>
+        /// <param name="provider"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -201,8 +237,11 @@ namespace TestSite.Controllers
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
-        // GET: /Account/ExternalLoginCallback
+        /// <summary>
+        /// Exterval login callback.
+        /// </summary>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
@@ -228,8 +267,11 @@ namespace TestSite.Controllers
             }
         }
 
-        //
-        // POST: /Account/LinkLogin
+       /// <summary>
+       /// Links external logins
+       /// </summary>
+       /// <param name="provider"></param>
+       /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider)
@@ -238,8 +280,10 @@ namespace TestSite.Controllers
             return new ChallengeResult(provider, Url.Action("LinkLoginCallback", "Account"), User.Identity.GetUserId());
         }
 
-        //
-        // GET: /Account/LinkLoginCallback
+       /// <summary>
+       /// Callback for linking of external login
+       /// </summary>
+       /// <returns></returns>
         public async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
@@ -255,8 +299,12 @@ namespace TestSite.Controllers
             return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
         }
 
-        //
-        // POST: /Account/ExternalLoginConfirmation
+        /// <summary>
+        /// Confirmation if external login was successfull
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -293,8 +341,10 @@ namespace TestSite.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/LogOff
+        /// <summary>
+        /// Logout
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -303,8 +353,10 @@ namespace TestSite.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
-        // GET: /Account/ExternalLoginFailure
+        /// <summary>
+        /// Failure of external login
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {
@@ -312,6 +364,10 @@ namespace TestSite.Controllers
          
         }
 
+        /// <summary>
+        /// Remove account list
+        /// </summary>
+        /// <returns></returns>
         [ChildActionOnly]
         public ActionResult RemoveAccountList()
         {
@@ -320,6 +376,10 @@ namespace TestSite.Controllers
             return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
         }
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && UserManager != null)
@@ -366,7 +426,10 @@ namespace TestSite.Controllers
             }
             return false;
         }
-
+        
+        /// <summary>
+        /// Password change status
+        /// </summary>
         public enum ManageMessageId
         {
             ChangePasswordSuccess,

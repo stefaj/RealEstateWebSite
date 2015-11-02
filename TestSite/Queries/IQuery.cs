@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace TestSite.Queries
 {
+    /// <summary>
+    /// Basic interface for advanced queries
+    /// </summary>
     interface IQuery
     {
+        /// <summary>
+        /// This function returns the results of the query
+        /// </summary>
+        /// <returns></returns>
         MySqlDataReader GenerateResults();
     }
 }

@@ -5,6 +5,9 @@ using System.Web.Http;
 
 namespace TestSite
 {
+    /// <summary>
+    /// Configuration manager
+    /// </summary>
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)

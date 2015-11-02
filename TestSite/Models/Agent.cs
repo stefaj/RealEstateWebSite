@@ -6,31 +6,57 @@ using System.Web;
 
 namespace TestSite.Models
 {
+    /// <summary>
+    /// Model of agent
+    /// </summary>
     [Serializable]
     public class Agent
     {
+        /// <summary>
+        /// Id of agent
+        /// </summary>
         [JsonProperty]
         public int Agent_Id { get; set; }
 
+        /// <summary>
+        /// First name of agent
+        /// </summary>
         [JsonProperty]
         public string Agent_Name { get; set; }
 
+        /// <summary>
+        /// Last name of agent
+        /// </summary>
         [JsonProperty]
         public string Agent_Surname { get; set; }
 
+        /// <summary>
+        /// Main phone number of agent
+        /// </summary>
         [JsonProperty]
         public string Agent_Phone { get; set; }
 
+        /// <summary>
+        /// Email of agent
+        /// </summary>
         [JsonProperty]
         public string Agent_Email { get; set; }
 
+        /// <summary>
+        /// Short description of agent
+        /// </summary>
         [JsonProperty]
         public string Agent_Description { get; set; }
 
-        
+        /// <summary>
+        /// Profile image of agent
+        /// </summary>
         [JsonProperty]
         public string Image_URL { get; set; }
 
+        /// <summary>
+        /// Full name of agent (includes first and last name)
+        /// </summary>
         [JsonProperty]
         public string Agent_FullName
         {
@@ -40,6 +66,9 @@ namespace TestSite.Models
             }
         }
 
+        /// <summary>
+        /// Readable phone number of agent
+        /// </summary>
         [JsonProperty]
         public string Agent_PhoneString
         {

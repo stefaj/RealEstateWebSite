@@ -99,7 +99,7 @@ namespace AspNet.Identity.MySQL
 
 
         public string FullName
-        {
+        {  
             get
             {
                 return FirstName + " " + LastName;

@@ -190,7 +190,7 @@
     <Compile Include="Hashers\ShaHasher.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agent.cs" />
-    <Compile Include="Models\Areas.cs" />
+    <Compile Include="Models\Area.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Queries\IQuery.cs" />
