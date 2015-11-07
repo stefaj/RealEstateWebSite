@@ -179,15 +179,19 @@
     <div class="row">
         <div class="col-md-4">
             <h2>Search</h2>
-            <p>
-                Try an address search for any property, even when it's not for sale
-            </p>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-            </div><!-- /input-group -->
+            <form action="../Estates/Search" method="post">
+                <p>
+                    Try an address search for any property, even when it's not for sale
+                </p>
+
+                <div class="input-group">
+                    <input name="SearchStr" type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <input class="btn btn-default" type="submit" value="Go!">
+
+                    </span>
+                </div><!-- /input-group -->
+            </form>
         </div>
         <div class="col-md-4">
             <h2>Browse</h2>
