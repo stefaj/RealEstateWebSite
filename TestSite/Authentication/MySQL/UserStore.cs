@@ -75,7 +75,14 @@ namespace RealEstateCompanyWebSite.SQL
                 throw new ArgumentNullException("user");
             }
 
-            userTable.Insert(user);
+            try
+            {
+                userTable.Insert(user);
+            }
+            catch
+            {
+                throw new ArgumentNullException("user");
+            }
 
             return Task.FromResult<object>(null);
         }
@@ -238,6 +245,7 @@ namespace RealEstateCompanyWebSite.SQL
         /// <returns></returns>
         public Task<TUser> FindAsync(UserLoginInfo login)
         {
+            
             if (login == null)
             {
                 throw new ArgumentNullException("login");
@@ -413,6 +421,7 @@ namespace RealEstateCompanyWebSite.SQL
         /// <returns></returns>
         public Task<string> GetPasswordHashAsync(TUser user)
         {
+            
             string passwordHash = userTable.GetPasswordHash(user.Id);
 
             return Task.FromResult<string>(passwordHash);
@@ -527,7 +536,7 @@ namespace RealEstateCompanyWebSite.SQL
             {
                 throw new ArgumentNullException("email");
             }
-
+            
             TUser result = userTable.GetUserByEmail(email) as TUser;
             if (result != null)
             {

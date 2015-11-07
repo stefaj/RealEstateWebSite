@@ -33,6 +33,11 @@ namespace RealEstateCompanyWebSite.SQL
         public string Id { get; set; }
 
         /// <summary>
+        /// Database id used for legacy purposes or when the GUID cannot be used
+        /// </summary>
+        public int DBID { get; set; }
+
+        /// <summary>
         /// User's name
         /// </summary>
         public string UserName { get; set; }

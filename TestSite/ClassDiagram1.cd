@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RealEstateCompanyWebSite.WebApiConfig" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\WebApiConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.DatabaseConnection" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAIIAAAAAAAABAAAAAAAAAAgAAQAAAACAAAA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.MvcApplication" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SearchQuery" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>BAEMAAAIABAACMAAgAABAAgAIgFAAIACAAgABACAgBA=</HashCode>
+      <FileName>Queries\SearchQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.TableBuilder" Collapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAQAAAAAABEAAAAATAAAA=</HashCode>
+      <FileName>TableBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Controllers.AccountController" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAQCAAAgABAAEAEgEAAAABICIAAEAVAAQkAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Controllers.DataController">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAAAAABAACAAAAAAIAAAAgCEAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Controllers\DataController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Controllers.EstatesController">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAABAAAAAAAAAAAAAAEAAEACAAEAAAAgAAA=</HashCode>
+      <FileName>Controllers\EstatesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Controllers.HomeController">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Email.StandardSMTPEmailer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Email\StandardSMTPEmailer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Hashers.PlainTextHasher" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Hashers\PlainTextHasher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAgEEhCIAAAQAAAAAIAAAAAAAAAAAAIAAAAg=</HashCode>
+      <FileName>Hashers\ShaHasher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.ManageUserViewModel" Collapsed="true">
+    <Position X="9.25" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.LoginViewModel" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.RegisterViewModel" Collapsed="true">
+    <Position X="0.75" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAAAAAQAAAAAAAAAACAQAAAAAAIAg=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.Agent" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAEAAgABAAAAAAAIAAAAKIAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\Agent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.Area" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAEAAEAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\Area.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.City" Collapsed="true">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\City.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.Province" Collapsed="true">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Province.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.Residence" Collapsed="true">
+    <Position X="4.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAABIcAgCAAAIACAAASAAAAAAAIAAAAAAQAAABA=</HashCode>
+      <FileName>Models\Residence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.ApplicationUser" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scripts\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="RealEstateCompanyWebSite.Email.IEmail" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Email\IEmail.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="RealEstateCompanyWebSite.Queries.IQuery">
+    <Position X="9.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Queries\IQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

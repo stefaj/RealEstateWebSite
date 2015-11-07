@@ -27,7 +27,7 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         /// <returns></returns>
         public string GetUserName(string userId)
         {
-            string commandText = "Select Name from Users where Client_ID = @id";
+            string commandText = "Select Name from Clients where Client_GUID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", userId } };
 
             return _database.GetStrValue(commandText, parameters);
@@ -40,7 +40,7 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         /// <returns></returns>
         public string GetUserId(string userName)
         {
-            string commandText = "Select Id from Users where UserName = @name";
+            string commandText = "Select Id from Clients where UserName = @name";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@name", userName } };
 
             return _database.GetStrValue(commandText, parameters);
@@ -54,7 +54,7 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         public TUser GetUserById(string userId)
         {
             TUser user = null;
-            string commandText = "Select * from Users where Client_ID = @id";
+            string commandText = "Select * from Clients where Client_GUID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", userId } };
 
             var rows = _database.Query(commandText, parameters);
@@ -62,12 +62,52 @@ namespace RealEstateCompanyWebSite.SQL.Identity
             {
                 var row = rows[0];
                 user = (TUser)Activator.CreateInstance(typeof(TUser));
-                user.Id = row["Client_ID"];
+                user.Id = row["Client_GUID"];
                 user.UserName = row["UserName"];
+                user.DBID = int.Parse(row["Client_ID"]);
+                
                 user.PasswordHash = string.IsNullOrEmpty(row["Client_Password"]) ? null : row["Client_Password"];
                 user.SecurityStamp = string.IsNullOrEmpty(row["SecurityStamp"]) ? null : row["SecurityStamp"];
                 user.Email = string.IsNullOrEmpty(row["Client_Email"]) ? null : row["Client_Email"];
                 user.EmailConfirmed = row["EmailConfirmed"] == "1" ? true:false;
+                user.PhoneNumber = string.IsNullOrEmpty(row["Client_Phone"]) ? null : row["Client_Phone"];
+                user.PhoneNumberConfirmed = row["PhoneNumberConfirmed"] == "1" ? true : false;
+                user.LockoutEnabled = row["LockoutEnabled"] == "1" ? true : false;
+                user.TwoFactorEnabled = row["TwoFactorEnabled"] == "1" ? true : false;
+                user.LockoutEndDateUtc = string.IsNullOrEmpty(row["LockoutEndDateUtc"]) ? DateTime.Now : DateTime.Parse(row["LockoutEndDateUtc"]);
+                user.AccessFailedCount = string.IsNullOrEmpty(row["AccessFailedCount"]) ? 0 : int.Parse(row["AccessFailedCount"]);
+                user.FirstName = string.IsNullOrEmpty(row["Client_Name"]) ? null : row["Client_Name"];
+                user.LastName = string.IsNullOrEmpty(row["Client_Surname"]) ? null : row["Client_Surname"];
+            }
+
+            return user;
+        }
+
+
+        /// <summary>
+        /// Returns an TUser given the user's email
+        /// </summary>
+        /// <param name="userId">The user's email</param>
+        /// <returns></returns>
+        public TUser GetUserByEmail(string email)
+        {
+            TUser user = null;
+            string commandText = "Select * from Clients where Client_Email = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", email } };
+
+            var rows = _database.Query(commandText, parameters);
+            if (rows != null && rows.Count == 1)
+            {
+                var row = rows[0];
+                user = (TUser)Activator.CreateInstance(typeof(TUser));
+                user.Id = row["Client_GUID"];
+                user.UserName = row["UserName"];
+                user.DBID = int.Parse(row["Client_ID"]);
+
+                user.PasswordHash = string.IsNullOrEmpty(row["Client_Password"]) ? null : row["Client_Password"];
+                user.SecurityStamp = string.IsNullOrEmpty(row["SecurityStamp"]) ? null : row["SecurityStamp"];
+                user.Email = string.IsNullOrEmpty(row["Client_Email"]) ? null : row["Client_Email"];
+                user.EmailConfirmed = row["EmailConfirmed"] == "1" ? true : false;
                 user.PhoneNumber = string.IsNullOrEmpty(row["Client_Phone"]) ? null : row["Client_Phone"];
                 user.PhoneNumberConfirmed = row["PhoneNumberConfirmed"] == "1" ? true : false;
                 user.LockoutEnabled = row["LockoutEnabled"] == "1" ? true : false;
@@ -89,14 +129,15 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         public List<TUser> GetUserByName(string userName)
         {
             List<TUser> users = new List<TUser>();
-            string commandText = "Select * from Users where UserName = @name";
+            string commandText = "Select * from Clients where UserName = @name";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@name", userName } };
 
             var rows = _database.Query(commandText, parameters);
             foreach(var row in rows)
             {
                 TUser user = (TUser)Activator.CreateInstance(typeof(TUser));
-                user.Id = row["Client_ID"];
+                user.Id = row["Client_GUID"];
+                user.DBID = int.Parse(row["Client_ID"]);
                 user.UserName = row["UserName"];
                 user.PasswordHash = string.IsNullOrEmpty(row["Client_Password"]) ? null : row["Client_Password"];
                 user.SecurityStamp = string.IsNullOrEmpty(row["SecurityStamp"]) ? null : row["SecurityStamp"];
@@ -120,11 +161,6 @@ namespace RealEstateCompanyWebSite.SQL.Identity
             return users;
         }
 
-        public List<TUser> GetUserByEmail(string email)
-        {
-            return null;
-        }
-
         /// <summary>
         /// Return the user's password hash
         /// </summary>
@@ -132,7 +168,7 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         /// <returns></returns>
         public string GetPasswordHash(string userId)
         {
-            string commandText = "Select Client_Password from Users where Client_ID = @id";
+            string commandText = "Select Client_Password from Clients where Client_GUID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@id", userId);
 
@@ -153,7 +189,7 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         /// <returns></returns>
         public int SetPasswordHash(string userId, string passwordHash)
         {
-            string commandText = "Update Users set Client_Password = @pwdHash where Client_ID = @id";
+            string commandText = "Update Clients set Client_Password = @pwdHash where Client_GUID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@pwdHash", passwordHash);
             parameters.Add("@id", userId);
@@ -168,7 +204,7 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         /// <returns></returns>
         public string GetSecurityStamp(string userId)
         {
-            string commandText = "Select SecurityStamp from Users where Client_ID = @id";
+            string commandText = "Select SecurityStamp from Clients where Client_GUID = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>() { { "@id", userId } };
             var result = _database.GetStrValue(commandText, parameters);
 
@@ -182,7 +218,17 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         /// <returns></returns>
         public int Insert(TUser user)
         {
-            string commandText = @"Insert into Users (UserName, Client_ID, Client_Password, SecurityStamp,Client_Email,EmailConfirmed,Client_Phone,PhoneNumberConfirmed, AccessFailedCount,LockoutEnabled,LockoutEndDateUtc,TwoFactorEnabled, Client_Name, Client_Surname)
+            try
+            {
+                var emailU = GetUserByEmail(user.Email);
+                if (emailU != null)
+                    throw new Exception("Email already exists");
+            }
+            catch
+            {
+                throw new Exception("Email already exists");
+            }
+            string commandText = @"Insert into Clients (UserName, Client_GUID, Client_Password, SecurityStamp,Client_Email,EmailConfirmed,Client_Phone,PhoneNumberConfirmed, AccessFailedCount,LockoutEnabled,LockoutEndDateUtc,TwoFactorEnabled, Client_Name, Client_Surname)
                 values (@name, @id, @pwdHash, @SecStamp,@email,@emailconfirmed,@phonenumber,@phonenumberconfirmed,@accesscount,@lockoutenabled,@lockoutenddate,@twofactorenabled, @firstname, @lastname)";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@name", user.UserName);
@@ -210,7 +256,7 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         /// <returns></returns>
         private int Delete(string userId)
         {
-            string commandText = "Delete from Users where Id = @userId";
+            string commandText = "Delete from Clients where Client_GUID = @userId";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@userId", userId);
 
@@ -234,7 +280,7 @@ namespace RealEstateCompanyWebSite.SQL.Identity
         /// <returns></returns>
         public int Update(TUser user)
         {
-            string commandText = @"Update Users set UserName = @userName, PasswordHash = @pswHash, SecurityStamp = @secStamp, 
+            string commandText = @"Update Clients set UserName = @userName, PasswordHash = @pswHash, SecurityStamp = @secStamp, 
                 Email=@email, EmailConfirmed=@emailconfirmed, PhoneNumber=@phonenumber, PhoneNumberConfirmed=@phonenumberconfirmed,
                 AccessFailedCount=@accesscount, LockoutEnabled=@lockoutenabled, LockoutEndDateUtc=@lockoutenddate, TwoFactorEnabled=@twofactorenabled,
                 FirstName = @firstname, LastName = @lastname 

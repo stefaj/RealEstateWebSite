@@ -55,8 +55,6 @@ C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\Microsoft.Owin.Security.
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\obj\Debug\TestSite.csprojResolveAssemblyReference.cache
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\MySql.Data.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\MySql.Data.Entity.EF6.dll
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\AspNet.Identity.MySQL.dll
-C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\AspNet.Identity.MySQL.pdb
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\RealEstateCompanyWebSite.dll.config
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\RealEstateCompanyWebSite.dll
 C:\Users\1gn1t0r\Documents\git\422-Web-Dev\TestSite\bin\RealEstateCompanyWebSite.pdb
