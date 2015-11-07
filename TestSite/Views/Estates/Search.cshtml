@@ -87,7 +87,7 @@
         render : function()
         {
             return (
-                <div className='col-lg-3 col-md-3 col-sm-6'>
+                <div className='col-lg-3 col-xs-3'>
                 <div className='propertyItem well'>
                 <div className='property-item'>
                     <h3><span>{this.props.data.street.toUpperCase()}</span></h3>
@@ -113,6 +113,7 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
                 );
         }
@@ -123,19 +124,40 @@
         
         render : function()
         {
+          i=0;
           var properties = this.props.data.map(function (datum)
           {
+            i += 1;
+            if(i==5)
+            {
+                i=0;
+
+                return(
+                    <div>
+                    <div className="clearfix visible-xs-block"></div>
+                    <PropertyItem data={datum} />
+                    </div>
+                    );
+            }
+            else
+            {
             return(
               <PropertyItem data={datum} />
               );
+            }
           });
+
           if(this.props.data.length < 1)
             properties = [];
 
           return(
-            <div className="properties">
+
+
+            <div className="properties row">
+            
               {properties}
             </div>
+
             );
         
         }
@@ -167,9 +189,9 @@
                         <h3>Searched properties</h3>
                         <div className='divider'></div>
                         <div className="well well-lg">
-                            <div className='row'>
+                        <div>
                                 <PropertiesList ref='propertyList' data={this.state.properties} />
-                            </div>
+                        </div>
                         </div>
                     </section>
                     
@@ -186,6 +208,13 @@
         handleAllChange : function(event)
         {
             this.updateSearch();
+        },
+
+        changeSearch: function(event)
+        {
+            event.preventDefault();
+            this.setState({search_str: event.target.value});
+
         },
 
         search : function(searchData)
@@ -261,13 +290,19 @@
 
         getInitialState : function()
         {
+            var search = '@ViewBag.search';
+
+
             var data = {
-                searchStr: '',
+                searchStr: search,
               };
+
+            
             this.search(data);
 
             return {cities: [{"CityId":-1,"CityName":"Any"}],
-                    areas: [{"AreaId":-1,"AreaName":"Any"}]};
+                    areas: [{"AreaId":-1,"AreaName":"Any"}],
+                    search_str: search};
         },
 
         handleProvinceSelection : function(provinceid)
@@ -297,7 +332,8 @@
                 <form className="form-inline" method="post" action="Search" onSubmit={this.handleSubmit}>
                  <div className="col-sm-7 searchbox">
                 <div className="input-group input-block-level">
-                    <input type="text" ref="searchStr" classID="SearchStr" className="form-control" placeholder="Type in some criteria" />
+                    <input type="text" ref="searchStr" classID="SearchStr" onChange={this.changeSearch} value={this.state.search_str}
+                    className="form-control" placeholder="Type in some criteria"  />
                     <span className="input-group-btn">
                         <button className="btn btn-warning big-btn" type="submit" value="Save">Search</button>
                     </span>
