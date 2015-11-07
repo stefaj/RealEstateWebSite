@@ -112,7 +112,17 @@ namespace RealEstateCompanyWebSite.Controllers
            // var estateTypes = DataController.GetEstateTypes();
           //  var contracts = DataController.GetContracts();
 
-            SearchQuery searchQuery = new SearchQuery(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+            var post =  Request.Form;
+            string search = "";
+            if (post["SearchStr"] != null && post["SearchStr"].Length > 0)
+            {
+                search = post["SearchStr"];
+            }
+            ViewBag.search = search;
+
+            
+
 
             ViewBag.Provinces = DataController.GetProvincesArr();
             //ViewBag.Estates = DataController.GetEstateTypesArr();
