@@ -341,6 +341,10 @@ namespace RealEstateCompanyWebSite.Controllers
           //  var contracts = GetContracts();
 
             SearchQuery searchQuery = new SearchQuery(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            Preferences pref = new Preferences();
+
+            var user = GetCurrentUser();
+            pref.ClientID = user.DBID;
 
             // Getting ze post data ja
 
@@ -357,22 +361,37 @@ namespace RealEstateCompanyWebSite.Controllers
                 searchQuery.ProvinceId = (int.Parse(postedValues["province"]));
             }
             if (postedValues["city"] != null && postedValues["city"] != "" && postedValues["city"] != "Any")
+            {
                 searchQuery.City_Id = (int.Parse(postedValues["city"]));
+            }
             if (postedValues["area"] != null && postedValues["area"] != "" && postedValues["area"] != "Any")
+            {
                 searchQuery.Area_Id = (int.Parse(postedValues["area"]));
+            }
             if (postedValues["area"] != null && postedValues["area"] != "" && postedValues["area"] != "Any")
+            {
                 searchQuery.Area_Id = (int.Parse(postedValues["area"]));
+                pref.Area_ID = searchQuery.Area_Id;
+            }
             if(postedValues["noBedrooms"] != null)
             {
                 searchQuery.BedroomsMin = int.Parse(postedValues["noBedrooms"]);
+                pref.Area_ID = searchQuery.BedroomsMin;
             }
             if (postedValues["noBathrooms"] != null)
             {
                 searchQuery.BathroomsMin = int.Parse(postedValues["noBathrooms"]);
+                pref.MinBathrooms = searchQuery.BathroomsMin;
             }
             if (postedValues["noGarages"] != null)
             {
                 searchQuery.GaragesMin = int.Parse(postedValues["noGarages"]);
+                pref.MinGarages = searchQuery.GaragesMin;
+            }
+            if(postedValues["priceRange"] != null && postedValues["priceRange"] != "Any" && postedValues["priceRange"] != "-1")
+            {
+                pref.MaxPrice = int.Parse(postedValues["priceRange"]);
+                searchQuery.PriceMax = pref.MaxPrice;
             }
             
 
@@ -439,6 +458,21 @@ namespace RealEstateCompanyWebSite.Controllers
 
             reader.Close();
             searchQuery.Close();
+
+
+
+
+
+
+
+
+
+            // Log query to preferences
+            if(pref.IsSomethingSet())
+                pref.Insert(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+
+
             return View();
         }
 
@@ -469,6 +503,15 @@ namespace RealEstateCompanyWebSite.Controllers
                 return user;
             }
             return null;
+        }
+
+        public static string GetPrintableName()
+        {
+            var user = GetCurrentUser();
+            if (user.UserName != "")
+                return user.UserName;
+            else
+                return user.FirstName;
         }
 	}
 }
