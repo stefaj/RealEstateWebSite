@@ -28,6 +28,7 @@ namespace RealEstateCompanyWebSite.Controllers
                ApplicationDbContext.Create()
                     )))
         {
+            
             var t = this.UserManager.PasswordHasher; 
         }
 
@@ -72,8 +73,8 @@ namespace RealEstateCompanyWebSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
-                if (user != null)
+                var user = await UserManager.FindByEmailAsync(model.Email);
+                if (user != null && UserManager.PasswordHasher.VerifyHashedPassword(user.PasswordHash, model.Password) == PasswordVerificationResult.Success)
                 {
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
@@ -87,6 +88,8 @@ namespace RealEstateCompanyWebSite.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+
 
         /// <summary>
         /// Register
