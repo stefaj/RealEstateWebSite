@@ -176,6 +176,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Authentication\MySQL\IdentityRole.cs" />
+    <Compile Include="Authentication\MySQL\IdentityUser.cs" />
+    <Compile Include="Authentication\MySQL\MySQLDatabase.cs" />
+    <Compile Include="Authentication\MySQL\RoleStore.cs" />
+    <Compile Include="Authentication\MySQL\RoleTable.cs" />
+    <Compile Include="Authentication\MySQL\UserClaimsTable.cs" />
+    <Compile Include="Authentication\MySQL\UserLoginsTable.cs" />
+    <Compile Include="Authentication\MySQL\UserRoleTable.cs" />
+    <Compile Include="Authentication\MySQL\UserStore.cs" />
+    <Compile Include="Authentication\MySQL\UserTable.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -192,6 +202,7 @@
     <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Preferences.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Queries\IQuery.cs" />
     <Compile Include="Models\Residence.cs" />
@@ -223,6 +234,7 @@
     <Content Include="Assets\Images\icon-drop.png" />
     <Content Include="Assets\Images\logo.png" />
     <Content Include="Assets\Images\icon-price.png" />
+    <Content Include="Authentication\MySQL\MySQLIdentity.sql" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -234,6 +246,7 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="Authentication\MySQL\packages.config" />
     <None Include="Properties\PublishProfiles\TestProfile.pubxml" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -294,12 +307,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AspNet.Identity.MySQL\AspNet.Identity.MySQL.csproj">
-      <Project>{26f6ecf9-4369-417b-8cf2-54fa92df3660}</Project>
-      <Name>AspNet.Identity.MySQL</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
