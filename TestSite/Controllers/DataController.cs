@@ -344,7 +344,8 @@ namespace RealEstateCompanyWebSite.Controllers
             Preferences pref = new Preferences();
 
             var user = GetCurrentUser();
-            pref.ClientID = user.DBID;
+            if(user != null)
+                pref.ClientID = user.DBID;
 
             // Getting ze post data ja
 
@@ -468,7 +469,7 @@ namespace RealEstateCompanyWebSite.Controllers
 
 
             // Log query to preferences
-            if(pref.IsSomethingSet())
+            if(pref.IsSomethingSet()&&user != null)
                 pref.Insert(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
 

@@ -1485,6 +1485,86 @@
             </summary>
             <param name="connectionString"></param>
         </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.PreferenceID">
+            <summary>
+            ID of this preference
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.ClientID">
+            <summary>
+            ID of client
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MinBedrooms">
+            <summary>
+            Minimum Bedrooms
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MaxBedrooms">
+            <summary>
+            Maximum Bedrooms
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MinBathrooms">
+            <summary>
+            Minimum Bathrooms
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MaxBathrooms">
+            <summary>
+            Maximum Bathrooms
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MinGarages">
+            <summary>
+            Minimum Garages
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MaxGarages">
+            <summary>
+            Maximum Garages
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.HasPool">
+            <summary>
+            Is there a pool? null is any
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MinPlotSize">
+            <summary>
+            Minimum Plot Size
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MaxPlotSize">
+            <summary>
+            Maximum Plot Size
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MinHouseSize">
+            <summary>
+            Minimum House Size
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MaxHouseSize">
+            <summary>
+            Maximum House Size
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MinPrice">
+            <summary>
+            Minimum Price
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.MaxPrice">
+            <summary>
+            Maximum Price
+            </summary>
+        </member>
+        <member name="P:RealEstateCompanyWebSite.Models.Preferences.Area_ID">
+            <summary>
+            ID of area
+            </summary>
+        </member>
         <member name="T:RealEstateCompanyWebSite.Models.Province">
             <summary>
             Model of province
