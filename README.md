@@ -16,8 +16,14 @@ Utilizes:
 * Contact agent regarding property
 
 ## Screenshots
+
+### Home page
+![Home](screenshots/home.png "Home")
+
+### Search page
 ![Search](screenshots/search.png "Search")
 
-![Property listing](screenshots/propery.png "Property listing")
+### Property listing
+![Property listing](screenshots/property.png "Property listing")
 
-![Home](screenshots/home.png "Home")
+
