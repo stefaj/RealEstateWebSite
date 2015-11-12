@@ -101,12 +101,12 @@ namespace RealEstateCompanyWebSite.Models
             MinHouseSize = -1;
             MinPlotSize = -1;
             MinPrice = -1;
-            MaxBathrooms = -1;
-            MaxBedrooms = -1;
-            MaxGarages = -1;
-            MaxHouseSize = -1;
-            MaxPlotSize = -1;
-            MaxPrice = -1;
+            MaxBathrooms = 2000;
+            MaxBedrooms = 2000;
+            MaxGarages = 2000;
+            MaxHouseSize = 200000000;
+            MaxPlotSize = 200000000;
+            MaxPrice = 200000000;
             HasPool = null;
         }
 
@@ -118,8 +118,8 @@ namespace RealEstateCompanyWebSite.Models
         {
             if (HasPool != null)
                 return true;
-            if (Area_ID != -1 ||MaxBathrooms != -1 || MaxBedrooms != -1 || MaxGarages != -1 || MaxHouseSize != -1 || MaxPlotSize != -1 || MaxPrice
-                != -1 || MinBathrooms != -1 || MinBedrooms != -1 || MinGarages != -1 || MinHouseSize != -1 || MinPlotSize != -1 || MinPrice != -1)
+            if (ClientID != -1 ||
+                Area_ID != -1 || MinBathrooms > -1 || MinBedrooms > -1 || MinGarages > -1 || MinHouseSize > -1 || MinPlotSize > -1 || MinPrice > -1)
                 return true;
             return false;
         }

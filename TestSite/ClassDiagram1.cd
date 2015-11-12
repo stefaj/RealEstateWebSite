@@ -48,21 +48,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RealEstateCompanyWebSite.Controllers.DataController">
-    <Position X="2.25" Y="6.5" Width="1.5" />
+    <Position X="2.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAQAAAAAAABAACAAAAAAIAAAAgCEAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>EAQAAAAAAABAACAAAAAAIAAAAgCEAAAAAAAQAAAgAAA=</HashCode>
       <FileName>Controllers\DataController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RealEstateCompanyWebSite.Controllers.EstatesController">
-    <Position X="0.5" Y="6.5" Width="1.5" />
+    <Position X="0.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAABAAAAAAAAAAAAAAEAAEACAAEAAAAgAAA=</HashCode>
       <FileName>Controllers\EstatesController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RealEstateCompanyWebSite.Controllers.HomeController">
-    <Position X="4" Y="6.5" Width="1.5" />
+    <Position X="4.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Controllers\HomeController.cs</FileName>
@@ -85,7 +85,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="RealEstateCompanyWebSite.Hashers.PBKDF2Sha1Hasher" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="0.75" Y="5.25" Width="1.75" />
+    <Position X="0.5" Y="5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAgEEhCIAAAQAAAAAIAAAAAAAAAAAAIAAAAg=</HashCode>
       <FileName>Hashers\ShaHasher.cs</FileName>
@@ -93,7 +93,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="RealEstateCompanyWebSite.Models.ManageUserViewModel" Collapsed="true">
-    <Position X="9.25" Y="2.25" Width="2.25" />
+    <Position X="10.5" Y="2.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
@@ -102,7 +102,7 @@
   <Class Name="RealEstateCompanyWebSite.Models.LoginViewModel" Collapsed="true">
     <Position X="2.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -114,7 +114,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RealEstateCompanyWebSite.Models.Agent" Collapsed="true">
-    <Position X="9.5" Y="1.5" Width="1.5" />
+    <Position X="10.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAEAAgABAAAAAAAIAAAAKIAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Models\Agent.cs</FileName>
@@ -149,14 +149,138 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RealEstateCompanyWebSite.Models.ApplicationUser" Collapsed="true">
-    <Position X="0.5" Y="1.25" Width="1.5" />
+    <Position X="6" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Scripts\IdentityModels.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="RealEstateCompanyWebSite.BundleConfig" Collapsed="true">
+    <Position X="4.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.FilterConfig" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.RouteConfig" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Startup" Collapsed="true">
+    <Position X="5.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\Startup.Auth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.IdentityRole" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\MySQL\IdentityRole.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.IdentityUser" Collapsed="true">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAEAAACAAIMAAAAAAQAABAAEAAAAIAQQAABAAAQg=</HashCode>
+      <FileName>Authentication\MySQL\IdentityUser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.MySQLDatabase" Collapsed="true">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACgAAAQAAAAEAAAABAAEAAgAAAAABAAABAg=</HashCode>
+      <FileName>Authentication\MySQL\MySQLDatabase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.RoleStore&lt;TRole&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAAAAAAAAAAIAAAQgAACAgAAAAAAIAAAIA=</HashCode>
+      <FileName>Authentication\MySQL\RoleStore.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.RoleTable" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAEAACAAAAAAAAAAAAAACAAEAAAQAAAAAAAAQAAA=</HashCode>
+      <FileName>Authentication\MySQL\RoleTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.UserClaimsTable" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAEAAAQAEAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\MySQL\UserClaimsTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.UserLoginsTable" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAIAAAAAAAAAAAAAAAAAEAAAQAEAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\MySQL\UserLoginsTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.UserRolesTable" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAEAAAQAEAAAAAAAAAA=</HashCode>
+      <FileName>Authentication\MySQL\UserRoleTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.UserStore&lt;TUser&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCQACiACAOAAAMwFDEZAYAAkSgAACAyiBAgAwMAAAPA=</HashCode>
+      <FileName>Authentication\MySQL\UserStore.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.SQL.Identity.UserTable&lt;TUser&gt;" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAIAAACAAAAgQAAAAAIgAGAAAQAAAAAQAAAAAA=</HashCode>
+      <FileName>Authentication\MySQL\UserTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.ExternalLoginConfirmationViewModel" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.Preferences" Collapsed="true">
+    <Position X="9.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAEAAFAQAAIEgAAAAAAAAAAAgAAAAAAAAAAABkCAAFA=</HashCode>
+      <FileName>Models\Preferences.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealEstateCompanyWebSite.Models.ApplicationDbContext" Collapsed="true">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scripts\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="RealEstateCompanyWebSite.Email.IEmail" Collapsed="true">
-    <Position X="9.75" Y="0.5" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Email\IEmail.cs</FileName>
